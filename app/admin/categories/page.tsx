@@ -166,7 +166,7 @@ export default function AdminCategoriesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50/50 pb-32">
+    <div className="min-h-screen bg-canvas/50 pb-32">
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -178,7 +178,7 @@ export default function AdminCategoriesPage() {
               <h1 className="text-xl font-bold text-gray-900">
                 Product Categories
               </h1>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-primary/60">
                 Click cards below to filter view
               </p>
             </div>
@@ -196,13 +196,13 @@ export default function AdminCategoriesPage() {
             )}
 
             {!isDirty && !isLoading && (
-              <div className="flex items-center gap-2 text-xs text-gray-400 px-3 py-1.5 bg-gray-50 rounded-full">
+              <div className="flex items-center gap-2 text-xs text-primary/50 px-3 py-1.5 bg-canvas rounded-full">
                 <CheckCircle className="w-3.5 h-3.5 text-green-500" />
                 Synced
               </div>
             )}
 
-            <div className="h-8 w-px bg-gray-200"></div>
+            <div className="h-8 w-px bg-accent-subtle"></div>
 
             <Button onClick={openCreate} className="shadow-lg">
               <Plus className="w-5 h-5 mr-2" />

@@ -86,7 +86,7 @@ export default function ShippingSettingsPage() {
         <div className="p-6 lg:p-10 space-y-10">
             <div>
                 <h1 className="text-3xl font-serif text-primary mb-2">Shipping Settings</h1>
-                <p className="text-secondary">Manage your delivery zones and shipping costs.</p>
+                <p className="text-primary/70">Manage your delivery zones and shipping costs.</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -103,18 +103,18 @@ export default function ShippingSettingsPage() {
                                         {editingId === zone.id ? (
                                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                 <div className="space-y-1">
-                                                    <label className="text-[10px] uppercase font-bold text-secondary">Label</label>
+                                                    <label className="text-[10px] uppercase font-bold text-primary/70">Label</label>
                                                     <input
-                                                        className="w-full border-b border-primary/20 py-1 font-medium focus:outline-none focus:border-primary"
+                                                        className="w-full border-b border-accent-subtle py-1 font-medium focus:outline-none focus:border-primary"
                                                         value={editForm.label}
                                                         onChange={(e) => setEditForm({ ...editForm, label: e.target.value })}
                                                     />
                                                 </div>
                                                 <div className="space-y-1">
-                                                    <label className="text-[10px] uppercase font-bold text-secondary">Cost (BDT)</label>
+                                                    <label className="text-[10px] uppercase font-bold text-primary/70">Cost (BDT)</label>
                                                     <input
                                                         type="number"
-                                                        className="w-full border-b border-primary/20 py-1 focus:outline-none focus:border-primary"
+                                                        className="w-full border-b border-accent-subtle py-1 focus:outline-none focus:border-primary"
                                                         value={editForm.cost}
                                                         onChange={(e) => setEditForm({ ...editForm, cost: parseFloat(e.target.value) })}
                                                     />
@@ -123,7 +123,7 @@ export default function ShippingSettingsPage() {
                                         ) : (
                                             <>
                                                 <h3 className="font-serif text-lg">{zone.label} {!zone.isActive && <span className="text-xs text-red-500 font-sans ml-2">(Inactive)</span>}</h3>
-                                                <p className="text-sm text-secondary">Key: {zone.key} • Cost: ৳{zone.cost}</p>
+                                                <p className="text-sm text-primary/70">Key: {zone.key} • Cost: ৳{zone.cost}</p>
                                             </>
                                         )}
                                     </div>
@@ -177,40 +177,40 @@ export default function ShippingSettingsPage() {
                     ))}
 
                     {zones?.length === 0 && (
-                        <div className="text-center py-20 bg-gray-50 rounded-xl border border-dashed border-gray-200">
+                        <div className="text-center py-20 bg-canvas rounded-xl border border-dashed border-gray-200">
                             <Truck className="w-10 h-10 text-gray-300 mx-auto mb-4" />
-                            <p className="text-secondary">No shipping zones configured yet.</p>
+                            <p className="text-primary/70">No shipping zones configured yet.</p>
                         </div>
                     )}
                 </div>
 
                 {/* Add New Zone */}
-                <div className="bg-white p-8 rounded-2xl border border-primary/10 shadow-lg h-fit">
+                <div className="bg-white p-8 rounded-2xl border border-accent-subtle shadow-lg h-fit">
                     <h2 className="font-serif text-xl mb-6">Add New Zone</h2>
                     <div className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-secondary">Key (Unique ID)</label>
+                            <label className="text-xs font-bold uppercase tracking-wider text-primary/70">Key (Unique ID)</label>
                             <input
-                                className="w-full bg-transparent border-b border-primary/10 py-2 focus:outline-none focus:border-primary transition-colors text-sm"
+                                className="w-full bg-transparent border-b border-accent-subtle py-2 focus:outline-none focus:border-primary transition-colors text-sm"
                                 placeholder="e.g. sylhet_zone"
                                 value={newZone.key}
                                 onChange={e => setNewZone({ ...newZone, key: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-secondary">Display Label</label>
+                            <label className="text-xs font-bold uppercase tracking-wider text-primary/70">Display Label</label>
                             <input
-                                className="w-full bg-transparent border-b border-primary/10 py-2 focus:outline-none focus:border-primary transition-colors text-sm"
+                                className="w-full bg-transparent border-b border-accent-subtle py-2 focus:outline-none focus:border-primary transition-colors text-sm"
                                 placeholder="e.g. Sylhet Region"
                                 value={newZone.label}
                                 onChange={e => setNewZone({ ...newZone, label: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
-                            <label className="text-xs font-bold uppercase tracking-wider text-secondary">Cost (BDT)</label>
+                            <label className="text-xs font-bold uppercase tracking-wider text-primary/70">Cost (BDT)</label>
                             <input
                                 type="number"
-                                className="w-full bg-transparent border-b border-primary/10 py-2 focus:outline-none focus:border-primary transition-colors text-sm"
+                                className="w-full bg-transparent border-b border-accent-subtle py-2 focus:outline-none focus:border-primary transition-colors text-sm"
                                 placeholder="0"
                                 value={newZone.cost}
                                 onChange={e => setNewZone({ ...newZone, cost: parseInt(e.target.value) || 0 })}

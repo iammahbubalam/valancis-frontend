@@ -153,7 +153,7 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
           </Button>
           <div>
             <h2 className="text-xl font-bold font-serif">About Page Editor</h2>
-            <p className="text-sm text-gray-500">Manage Our Story & Stats</p>
+            <p className="text-sm text-primary/60">Manage Our Story & Stats</p>
           </div>
         </div>
         <div className="flex gap-3">
@@ -175,8 +175,8 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
       {/* Content */}
       <div className="max-w-4xl mx-auto w-full p-8 pb-32 space-y-8">
         {/* HERO CONFIG */}
-        <section className="bg-gray-50 border border-gray-200 rounded-lg p-6 space-y-4">
-          <h3 className="font-bold uppercase text-sm tracking-wider text-gray-500">
+        <section className="bg-canvas border border-gray-200 rounded-lg p-6 space-y-4">
+          <h3 className="font-bold uppercase text-sm tracking-wider text-primary/60">
             About Hero Section
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -221,9 +221,9 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
           </div>
         </section>
 
-        <div className="h-px bg-gray-200" />
+        <div className="h-px bg-accent-subtle" />
 
-        <h3 className="font-bold uppercase text-sm tracking-wider text-gray-500 mb-4">
+        <h3 className="font-bold uppercase text-sm tracking-wider text-primary/60 mb-4">
           Content Blocks
         </h3>
 
@@ -232,8 +232,8 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
             key={idx}
             className={`border rounded-lg transition-all ${
               expandedIdx === idx
-                ? "border-primary/20 shadow-md bg-white"
-                : "border-gray-200 bg-gray-50"
+                ? "border-accent-subtle shadow-md bg-white"
+                : "border-gray-200 bg-canvas"
             }`}
           >
             {/* Block Header */}
@@ -242,7 +242,7 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
               onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
             >
               <div className="flex items-center gap-3">
-                <div className="p-2 bg-gray-200 rounded text-gray-600">
+                <div className="p-2 bg-accent-subtle rounded text-gray-600">
                   {block.type === "text" ? (
                     <Type className="w-4 h-4" />
                   ) : (
@@ -253,7 +253,7 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
                   <span className="font-medium text-gray-900 block">
                     {block.heading || "Untitled Block"}
                   </span>
-                  <span className="text-xs text-gray-400 uppercase">
+                  <span className="text-xs text-primary/50 uppercase">
                     {block.type}
                   </span>
                 </div>
@@ -271,9 +271,9 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
                   <Trash2 className="w-4 h-4" />
                 </Button>
                 {expandedIdx === idx ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400" />
+                  <ChevronUp className="w-5 h-5 text-primary/50" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400" />
+                  <ChevronDown className="w-5 h-5 text-primary/50" />
                 )}
               </div>
             </div>
@@ -285,7 +285,7 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
                 {block.type === "text" && (
                   <>
                     <div className="space-y-2">
-                      <label className="text-xs uppercase font-bold text-gray-500 tracking-wider">
+                      <label className="text-xs uppercase font-bold text-primary/60 tracking-wider">
                         Heading (Optional)
                       </label>
                       <input
@@ -298,7 +298,7 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
                       />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs uppercase font-bold text-gray-500 tracking-wider">
+                      <label className="text-xs uppercase font-bold text-primary/60 tracking-wider">
                         Body Text
                       </label>
                       <textarea
@@ -316,7 +316,7 @@ export function AboutEditor({ onClose }: AboutEditorProps) {
                 {/* STATS BLOCK EDITOR */}
                 {block.type === "stats" && (
                   <div className="space-y-4">
-                    <label className="text-xs uppercase font-bold text-gray-500 tracking-wider mb-2 block">
+                    <label className="text-xs uppercase font-bold text-primary/60 tracking-wider mb-2 block">
                       Stat Items
                     </label>
                     {block.items?.map((item, sIdx) => (

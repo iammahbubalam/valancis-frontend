@@ -17,7 +17,7 @@ export function KPICards({ kpis, loading }: KPICardsProps) {
             key={i}
             className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 animate-pulse"
           >
-            <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded" />
+            <div className="h-20 bg-accent-subtle dark:bg-gray-700 rounded" />
           </div>
         ))}
       </div>
@@ -71,7 +71,7 @@ export function KPICards({ kpis, loading }: KPICardsProps) {
               <card.icon className={`w-6 h-6 ${card.color}`} />
             </div>
           </div>
-          <h3 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+          <h3 className="text-sm font-medium text-gray-600 dark:text-primary/50 mb-1">
             {card.title}
           </h3>
           <p className="text-2xl font-bold text-gray-900 dark:text-white">

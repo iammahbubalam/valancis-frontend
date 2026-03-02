@@ -9,7 +9,7 @@ export default function SettingsPage() {
         <h1 className="text-3xl font-serif font-bold text-gray-900">
           Global Settings
         </h1>
-        <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
+        <p className="text-primary/60 max-w-2xl text-sm leading-relaxed">
           Manage site-wide configuration, including branding, contact
           information, social media links, and default SEO settings.
         </p>

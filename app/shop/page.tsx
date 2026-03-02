@@ -65,7 +65,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         {/* Product Grid or Lookbook Grid */}
         <Suspense
           fallback={
-            <div className="h-96 animate-pulse bg-gray-50 rounded-lg" />
+            <div className="h-96 animate-pulse bg-canvas rounded-lg" />
           }
         >
           {products.length > 0 ? (
@@ -77,7 +77,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
           ) : (
             <div className="flex flex-col items-center justify-center py-32 text-center">
               <div className="w-16 h-[1px] bg-black/10 mb-8" />
-              <p className="text-secondary text-sm tracking-[0.2em] uppercase mb-4">
+              <p className="text-primary/70 text-sm tracking-[0.2em] uppercase mb-4">
                 No Products Found
               </p>
               <p className="text-secondary/60 text-sm max-w-md font-light leading-relaxed">
@@ -85,7 +85,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
               </p>
               <Link
                 href="/shop"
-                className="mt-8 text-xs uppercase tracking-widest border-b border-primary pb-1 hover:border-accent-gold hover:text-accent-gold transition-all"
+                className="mt-8 text-xs uppercase tracking-widest border-b border-primary pb-1 hover:border-primary hover:text-primary transition-all"
               >
                 Clear Filters
               </Link>

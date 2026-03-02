@@ -8,45 +8,45 @@ export default function SizeGuidePage() {
       </p>
       
       <div className="not-prose mt-12 overflow-x-auto">
-        <table className="w-full text-sm text-left text-secondary border-collapse">
+        <table className="w-full text-sm text-left text-primary/70 border-collapse">
           <thead className="bg-bg-secondary text-primary font-serif uppercase tracking-wider text-xs">
             <tr>
-              <th className="p-4 border border-primary/10">Size</th>
-              <th className="p-4 border border-primary/10">Bust (in)</th>
-              <th className="p-4 border border-primary/10">Waist (in)</th>
-              <th className="p-4 border border-primary/10">Hips (in)</th>
+              <th className="p-4 border border-accent-subtle">Size</th>
+              <th className="p-4 border border-accent-subtle">Bust (in)</th>
+              <th className="p-4 border border-accent-subtle">Waist (in)</th>
+              <th className="p-4 border border-accent-subtle">Hips (in)</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-primary/10">
             <tr>
-              <td className="p-4 border border-primary/10 font-medium text-primary">XS</td>
-              <td className="p-4 border border-primary/10">32</td>
-              <td className="p-4 border border-primary/10">24</td>
-              <td className="p-4 border border-primary/10">34</td>
+              <td className="p-4 border border-accent-subtle font-medium text-primary">XS</td>
+              <td className="p-4 border border-accent-subtle">32</td>
+              <td className="p-4 border border-accent-subtle">24</td>
+              <td className="p-4 border border-accent-subtle">34</td>
             </tr>
             <tr>
-              <td className="p-4 border border-primary/10 font-medium text-primary">S</td>
-              <td className="p-4 border border-primary/10">34</td>
-              <td className="p-4 border border-primary/10">26</td>
-              <td className="p-4 border border-primary/10">36</td>
+              <td className="p-4 border border-accent-subtle font-medium text-primary">S</td>
+              <td className="p-4 border border-accent-subtle">34</td>
+              <td className="p-4 border border-accent-subtle">26</td>
+              <td className="p-4 border border-accent-subtle">36</td>
             </tr>
             <tr>
-              <td className="p-4 border border-primary/10 font-medium text-primary">M</td>
-              <td className="p-4 border border-primary/10">36</td>
-              <td className="p-4 border border-primary/10">28</td>
-              <td className="p-4 border border-primary/10">38</td>
+              <td className="p-4 border border-accent-subtle font-medium text-primary">M</td>
+              <td className="p-4 border border-accent-subtle">36</td>
+              <td className="p-4 border border-accent-subtle">28</td>
+              <td className="p-4 border border-accent-subtle">38</td>
             </tr>
             <tr>
-              <td className="p-4 border border-primary/10 font-medium text-primary">L</td>
-              <td className="p-4 border border-primary/10">38</td>
-              <td className="p-4 border border-primary/10">30</td>
-              <td className="p-4 border border-primary/10">40</td>
+              <td className="p-4 border border-accent-subtle font-medium text-primary">L</td>
+              <td className="p-4 border border-accent-subtle">38</td>
+              <td className="p-4 border border-accent-subtle">30</td>
+              <td className="p-4 border border-accent-subtle">40</td>
             </tr>
             <tr>
-              <td className="p-4 border border-primary/10 font-medium text-primary">XL</td>
-              <td className="p-4 border border-primary/10">40</td>
-              <td className="p-4 border border-primary/10">32</td>
-              <td className="p-4 border border-primary/10">42</td>
+              <td className="p-4 border border-accent-subtle font-medium text-primary">XL</td>
+              <td className="p-4 border border-accent-subtle">40</td>
+              <td className="p-4 border border-accent-subtle">32</td>
+              <td className="p-4 border border-accent-subtle">42</td>
             </tr>
           </tbody>
         </table>

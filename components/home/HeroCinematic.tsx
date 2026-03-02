@@ -53,7 +53,7 @@ export function HeroCinematic({ slides }: HeroCinematicProps) {
 
   // Helper to get text color classes
   const getTextClasses = (color: string = "white") => {
-    return color === "black" ? "text-black" : "text-white";
+    return color === "black" ? "text-primary" : "text-canvas";
   };
 
   if (!slides || slides.length === 0) return null;
@@ -93,14 +93,14 @@ export function HeroCinematic({ slides }: HeroCinematicProps) {
               />
               {/* Dynamic Overlay */}
               <div
-                className="absolute inset-0 bg-black transition-opacity duration-1000"
+                className="absolute inset-0 bg-primary transition-opacity duration-1000"
                 style={{
                   opacity: (currentSlide.overlayOpacity || 30) / 100,
                 }}
               />
             </motion.div>
           ) : (
-            <div className="w-full h-full bg-[#1a1a1a]" />
+            <div className="w-full h-full bg-primary" />
           )}
         </motion.div>
       </AnimatePresence>
@@ -126,7 +126,7 @@ export function HeroCinematic({ slides }: HeroCinematicProps) {
             {/* Subtitle */}
             {currentSlide.subtitle && (
               <motion.span
-                className={`inline-block text-[10px] md:text-xs font-semibold uppercase tracking-[0.4em] mb-4 md:mb-6 whitespace-pre-line ${isDarkText ? "text-neutral-800" : "text-accent-gold"
+                className={`inline-block text-[10px] md:text-xs font-semibold uppercase tracking-[0.4em] mb-4 md:mb-6 whitespace-pre-line ${isDarkText ? "text-primary/80" : "text-canvas"
                   }`}
                 initial={{ opacity: 0, letterSpacing: "0.2em" }}
                 animate={{ opacity: 1, letterSpacing: "0.4em" }}
@@ -147,7 +147,7 @@ export function HeroCinematic({ slides }: HeroCinematicProps) {
             {/* Description */}
             {currentSlide.description && (
               <p
-                className={`text-[10px] md:text-lg font-light w-full max-w-2xl leading-relaxed mb-8 md:mb-12 antialiased whitespace-pre-line ${isDarkText ? "text-neutral-700" : "text-white/80"
+                className={`text-[10px] md:text-lg font-light w-full max-w-2xl leading-relaxed mb-8 md:mb-12 antialiased whitespace-pre-line ${isDarkText ? "text-primary/70" : "text-canvas/80"
                   }`}
               >
                 {currentSlide.description}
@@ -158,15 +158,15 @@ export function HeroCinematic({ slides }: HeroCinematicProps) {
             <Link
               href={currentSlide.buttonLink || "/shop"}
               className={`group relative inline-flex items-center gap-3 px-6 py-3 md:px-8 md:py-4 text-[10px] md:text-xs uppercase tracking-[0.25em] transition-all duration-500 overflow-hidden border ${isDarkText
-                ? "border-black/20 hover:border-black/60 text-black bg-black/5"
-                : "border-white/20 hover:border-white/60 text-white bg-white/10 backdrop-blur-md"
+                ? "border-accent-subtle hover:border-primary/60 text-primary bg-primary/5"
+                : "border-canvas/20 hover:border-canvas/60 text-canvas bg-canvas/10 backdrop-blur-md"
                 }`}
             >
               <span className="relative z-10">
                 {currentSlide.buttonText || "Discover"}
               </span>
               <div
-                className={`absolute inset-0 -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out ${isDarkText ? "bg-black/10" : "bg-white/10"
+                className={`absolute inset-0 -translate-x-[101%] group-hover:translate-x-0 transition-transform duration-500 ease-out ${isDarkText ? "bg-primary/10" : "bg-canvas/10"
                   }`}
               />
             </Link>

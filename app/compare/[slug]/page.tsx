@@ -124,7 +124,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
         {/* Breadcrumb */}
         <Link
           href="/shop"
-          className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-primary/50 hover:text-blue-600 dark:hover:text-blue-400 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Shop
@@ -135,7 +135,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             {productA.name} vs {productB.name}
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-primary/50 text-lg">
             Detailed side-by-side comparison to help you choose
           </p>
         </div>
@@ -166,7 +166,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
                   ৳{(product.salePrice || product.basePrice).toLocaleString()}
                 </span>
                 {product.salePrice && (
-                  <span className="text-lg text-gray-500 dark:text-gray-400 line-through">
+                  <span className="text-lg text-primary/60 dark:text-primary/50 line-through">
                     ৳{product.basePrice.toLocaleString()}
                   </span>
                 )}
@@ -199,7 +199,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+              <p className="text-sm text-gray-600 dark:text-primary/50 mb-1">
                 {productA.name}
               </p>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -207,7 +207,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
               </p>
             </div>
             <div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+              <p className="text-sm text-gray-600 dark:text-primary/50 mb-1">
                 {productB.name}
               </p>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -226,22 +226,22 @@ export default async function ComparePage({ params }: ComparePageProps) {
         {/* Specifications Comparison */}
         {(productA.specs || productB.specs) && (
           <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
-            <div className="bg-gray-50 dark:bg-gray-900 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-canvas dark:bg-gray-900 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
                 Specifications Comparison
               </h3>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 dark:bg-gray-900">
+                <thead className="bg-canvas dark:bg-gray-900">
                   <tr>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-primary/60 dark:text-primary/50">
                       Specification
                     </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-primary/60 dark:text-primary/50">
                       {productA.name}
                     </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 dark:text-gray-400">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-primary/60 dark:text-primary/50">
                       {productB.name}
                     </th>
                   </tr>
@@ -259,7 +259,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
                       className={
                         index % 2 === 0
                           ? "bg-white dark:bg-gray-800"
-                          : "bg-gray-50 dark:bg-gray-900"
+                          : "bg-canvas dark:bg-gray-900"
                       }
                     >
                       <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-200">
@@ -311,7 +311,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
                           {product.verdict.pros.slice(0, 3).map((pro, i) => (
                             <li
                               key={i}
-                              className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
+                              className="text-sm text-gray-600 dark:text-primary/50 flex items-start gap-2"
                             >
                               <Check className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
                               {pro}
@@ -328,7 +328,7 @@ export default async function ComparePage({ params }: ComparePageProps) {
                             {product.verdict.cons.slice(0, 3).map((con, i) => (
                               <li
                                 key={i}
-                                className="text-sm text-gray-600 dark:text-gray-400 flex items-start gap-2"
+                                className="text-sm text-gray-600 dark:text-primary/50 flex items-start gap-2"
                               >
                                 <X className="w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" />
                                 {con}

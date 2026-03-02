@@ -70,7 +70,7 @@ export function ProductQuestions({ faqs, productName }: ProductQuestionsProps) {
               {/* Question Button */}
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full px-5 py-4 text-left flex items-center justify-between bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="w-full px-5 py-4 text-left flex items-center justify-between bg-canvas dark:bg-gray-900 hover:bg-canvas dark:hover:bg-gray-800 transition-colors"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}
               >
@@ -81,9 +81,9 @@ export function ProductQuestions({ faqs, productName }: ProductQuestionsProps) {
                   {faq.question}
                 </span>
                 {openIndex === index ? (
-                  <ChevronUp className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                  <ChevronUp className="w-5 h-5 text-primary/60 dark:text-primary/50 flex-shrink-0" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
+                  <ChevronDown className="w-5 h-5 text-primary/60 dark:text-primary/50 flex-shrink-0" />
                 )}
               </button>
 
@@ -109,7 +109,7 @@ export function ProductQuestions({ faqs, productName }: ProductQuestionsProps) {
         </div>
 
         <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-primary/60 dark:text-primary/50">
             Have more questions?{" "}
             <a
               href="/contact"

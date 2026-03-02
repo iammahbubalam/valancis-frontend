@@ -93,7 +93,7 @@ export default async function PricePage({ params }: PricePageProps) {
         {/* Breadcrumb */}
         <Link
           href={`/product/${product.slug}`}
-          className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6"
+          className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-primary/50 hover:text-blue-600 dark:hover:text-blue-400 mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Product Page
@@ -104,7 +104,7 @@ export default async function PricePage({ params }: PricePageProps) {
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
             {product.name} Price in Bangladesh
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-lg">
+          <p className="text-gray-600 dark:text-primary/50 text-lg">
             Latest pricing information and availability for {product.name}
           </p>
         </div>
@@ -129,7 +129,7 @@ export default async function PricePage({ params }: PricePageProps) {
           {/* Price Information */}
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-xl p-8 border border-blue-200 dark:border-blue-800">
             <div className="mb-6">
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+              <p className="text-sm font-medium text-gray-600 dark:text-primary/50 mb-2">
                 Current Price in Bangladesh
               </p>
               <div className="flex items-baseline gap-3">
@@ -137,7 +137,7 @@ export default async function PricePage({ params }: PricePageProps) {
                   ৳{currentPrice.toLocaleString()}
                 </span>
                 {hasDiscount && (
-                  <span className="text-xl text-gray-500 dark:text-gray-400 line-through">
+                  <span className="text-xl text-primary/60 dark:text-primary/50 line-through">
                     ৳{product.basePrice.toLocaleString()}
                   </span>
                 )}
@@ -187,7 +187,7 @@ export default async function PricePage({ params }: PricePageProps) {
 
         {/* Price Information Table */}
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-8">
-          <div className="bg-gray-50 dark:bg-gray-900 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="bg-canvas dark:bg-gray-900 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
               Price Details
             </h2>
@@ -196,7 +196,7 @@ export default async function PricePage({ params }: PricePageProps) {
             <table className="w-full">
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 <tr>
-                  <td className="py-3 text-gray-600 dark:text-gray-400">
+                  <td className="py-3 text-gray-600 dark:text-primary/50">
                     Product Name
                   </td>
                   <td className="py-3 text-right font-medium text-gray-900 dark:text-white">
@@ -204,7 +204,7 @@ export default async function PricePage({ params }: PricePageProps) {
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 text-gray-600 dark:text-gray-400">
+                  <td className="py-3 text-gray-600 dark:text-primary/50">
                     Current Price
                   </td>
                   <td className="py-3 text-right font-medium text-gray-900 dark:text-white">
@@ -214,15 +214,15 @@ export default async function PricePage({ params }: PricePageProps) {
                 {hasDiscount && (
                   <>
                     <tr>
-                      <td className="py-3 text-gray-600 dark:text-gray-400">
+                      <td className="py-3 text-gray-600 dark:text-primary/50">
                         Original Price
                       </td>
-                      <td className="py-3 text-right text-gray-500 dark:text-gray-400 line-through">
+                      <td className="py-3 text-right text-primary/60 dark:text-primary/50 line-through">
                         BDT {product.basePrice.toLocaleString()}
                       </td>
                     </tr>
                     <tr>
-                      <td className="py-3 text-gray-600 dark:text-gray-400">
+                      <td className="py-3 text-gray-600 dark:text-primary/50">
                         Discount
                       </td>
                       <td className="py-3 text-right font-medium text-green-600 dark:text-green-400">
@@ -232,7 +232,7 @@ export default async function PricePage({ params }: PricePageProps) {
                   </>
                 )}
                 <tr>
-                  <td className="py-3 text-gray-600 dark:text-gray-400">
+                  <td className="py-3 text-gray-600 dark:text-primary/50">
                     Availability
                   </td>
                   <td className="py-3 text-right">
@@ -244,7 +244,7 @@ export default async function PricePage({ params }: PricePageProps) {
                   </td>
                 </tr>
                 <tr>
-                  <td className="py-3 text-gray-600 dark:text-gray-400">SKU</td>
+                  <td className="py-3 text-gray-600 dark:text-primary/50">SKU</td>
                   <td className="py-3 text-right font-mono text-sm text-gray-900 dark:text-white">
                     {product.sku}
                   </td>
@@ -264,7 +264,7 @@ export default async function PricePage({ params }: PricePageProps) {
               <h3 className="font-medium text-gray-900 dark:text-white mb-1">
                 What is the current price of {product.name} in Bangladesh?
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-primary/50">
                 The current price of {product.name} in Bangladesh is BDT{" "}
                 {currentPrice.toLocaleString()}.
               </p>
@@ -273,7 +273,7 @@ export default async function PricePage({ params }: PricePageProps) {
               <h3 className="font-medium text-gray-900 dark:text-white mb-1">
                 Is {product.name} available in stock?
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-primary/50">
                 {product.stock > 0
                   ? `Yes, ${product.name} is currently in stock and ready to ship.`
                   : `Unfortunately, ${product.name} is currently out of stock. Check back soon for availability.`}
@@ -284,7 +284,7 @@ export default async function PricePage({ params }: PricePageProps) {
                 <h3 className="font-medium text-gray-900 dark:text-white mb-1">
                   Is there any discount on {product.name}?
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-primary/50">
                   Yes! Get {discountPercent}% OFF and save BDT{" "}
                   {(product.basePrice - product.salePrice!).toLocaleString()} on
                   your purchase.

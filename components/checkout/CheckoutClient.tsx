@@ -293,8 +293,8 @@ export function CheckoutClient() {
     return (
       <div className="min-h-screen pt-40 pb-20 bg-bg-primary flex items-center justify-center">
         <div className="animate-pulse flex flex-col items-center">
-          <div className="h-8 w-64 bg-gray-200 rounded mb-4"></div>
-          <div className="h-4 w-48 bg-gray-200 rounded"></div>
+          <div className="h-8 w-64 bg-accent-subtle rounded mb-4"></div>
+          <div className="h-4 w-48 bg-accent-subtle rounded"></div>
         </div>
       </div>
     );
@@ -325,7 +325,7 @@ export function CheckoutClient() {
           <h1 className="font-serif text-3xl md:text-4xl mb-6 text-primary">
             Your bag is empty
           </h1>
-          <p className="text-secondary mb-8 max-w-md mx-auto">
+          <p className="text-primary/70 mb-8 max-w-md mx-auto">
             Looks like you haven't added any items to your bag yet.
           </p>
           <Link href="/shop">
@@ -340,7 +340,7 @@ export function CheckoutClient() {
   if (isSuccess) {
     return (
       <div className="min-h-screen pt-32 pb-20 bg-bg-primary flex flex-col items-center justify-center text-center px-4">
-        <Container className="max-w-md bg-white p-12 shadow-2xl border border-primary/5 relative overflow-hidden">
+        <Container className="max-w-md bg-white p-12 shadow-2xl border border-accent-subtle relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent-gold/40 via-accent-gold to-accent-gold/40" />
 
           <div className="flex justify-center mb-8">
@@ -352,7 +352,7 @@ export function CheckoutClient() {
           <h1 className="font-serif text-3xl mb-4 text-primary">
             Order Confirmed
           </h1>
-          <p className="text-secondary text-sm leading-relaxed mb-8">
+          <p className="text-primary/70 text-sm leading-relaxed mb-8">
             Thank you for your purchase. We have received your order and will
             begin preparing it with care. You will receive updates at{" "}
             <span className="font-medium text-primary">
@@ -397,7 +397,7 @@ export function CheckoutClient() {
           <div className="w-full lg:w-3/5 space-y-12">
             {/* Contact Info */}
             <section>
-              <h2 className="text-xs uppercase tracking-[0.2em] font-bold border-b border-primary/10 pb-4 mb-8 text-secondary">
+              <h2 className="text-xs uppercase tracking-[0.2em] font-bold border-b border-accent-subtle pb-4 mb-8 text-primary/70">
                 Contact Information
               </h2>
               <div className="space-y-6">
@@ -408,9 +408,9 @@ export function CheckoutClient() {
                     placeholder=" "
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="peer w-full bg-transparent border-b border-primary/20 py-4 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                    className="peer w-full bg-transparent border-b border-accent-subtle py-4 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
                   />
-                  <label className="absolute left-0 top-4 text-secondary/60 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-accent-gold peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-accent-gold cursor-text">
+                  <label className="absolute left-0 top-4 text-secondary/60 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:text-primary cursor-text">
                     Email Address (Optional)
                   </label>
                 </div>
@@ -419,7 +419,7 @@ export function CheckoutClient() {
 
             {/* Shipping Address - DELEGATED TO COMPONENT */}
             <section>
-              <h2 className="text-xs uppercase tracking-[0.2em] font-bold border-b border-primary/10 pb-4 mb-8 text-secondary">
+              <h2 className="text-xs uppercase tracking-[0.2em] font-bold border-b border-accent-subtle pb-4 mb-8 text-primary/70">
                 Shipping Address
               </h2>
 
@@ -436,7 +436,7 @@ export function CheckoutClient() {
                   name="deliveryLocation"
                   value={deliveryLocation}
                   onChange={(e) => setDeliveryLocation(e.target.value)}
-                  className="peer w-full bg-transparent border-b border-primary/20 py-4 text-base focus:outline-none focus:border-primary transition-colors text-primary appearance-none cursor-pointer"
+                  className="peer w-full bg-transparent border-b border-accent-subtle py-4 text-base focus:outline-none focus:border-primary transition-colors text-primary appearance-none cursor-pointer"
                 >
                   {shippingZones.map(zone => (
                     <option key={zone.id} value={zone.key}>
@@ -444,7 +444,7 @@ export function CheckoutClient() {
                     </option>
                   ))}
                 </select>
-                <label className="absolute left-0 -top-2 text-xs text-accent-gold">
+                <label className="absolute left-0 -top-2 text-xs text-primary">
                   Delivery Zone <span className="text-red-400">*</span>
                 </label>
                 <div className="absolute right-0 top-4 pointer-events-none">
@@ -462,7 +462,7 @@ export function CheckoutClient() {
                   </div>
                   <div>
                     <h2 className="text-lg font-serif text-primary mb-2">Pre-Order Deposit Required</h2>
-                    <p className="text-sm text-secondary leading-relaxed">
+                    <p className="text-sm text-primary/70 leading-relaxed">
                       One or more items in your cart are <strong>Pre-order</strong>.
                       You must pay a partial deposit of <span className="font-bold text-primary">৳{depositRequired.toLocaleString()}</span> to confirm this order.
                       The rest will be Cash on Delivery.
@@ -479,7 +479,7 @@ export function CheckoutClient() {
                         onClick={() => setPaymentProvider(p)}
                         className={`py-3 px-4 rounded border capitalize text-sm font-medium transition-all ${paymentProvider === p
                           ? 'bg-primary text-white border-primary shadow-md'
-                          : 'bg-white text-secondary border-primary/10 hover:border-primary/30'
+                          : 'bg-white text-primary/70 border-accent-subtle hover:border-primary/30'
                           }`}
                       >
                         {p}
@@ -488,7 +488,7 @@ export function CheckoutClient() {
                   </div>
 
                   {/* Payment Description (Instruction) */}
-                  <div className="text-xs text-secondary/80 bg-white p-4 rounded border border-primary/5">
+                  <div className="text-xs text-secondary/80 bg-white p-4 rounded border border-accent-subtle">
                     <p className="mb-1 uppercase tracking-wider font-bold text-primary">How to Pay:</p>
                     <ol className="list-decimal list-inside space-y-1">
                       <li>Go to your {paymentProvider} app.</li>
@@ -506,10 +506,10 @@ export function CheckoutClient() {
                         type="text"
                         value={paymentTrxID}
                         onChange={(e) => setPaymentTrxID(e.target.value)}
-                        className="peer w-full bg-white border border-primary/20 rounded p-3 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                        className="peer w-full bg-white border border-accent-subtle rounded p-3 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
                         placeholder="X"
                       />
-                      <label className="absolute left-3 -top-2.5 bg-white px-1 text-xs text-secondary transition-all">
+                      <label className="absolute left-3 -top-2.5 bg-white px-1 text-xs text-primary/70 transition-all">
                         Transaction ID <span className="text-red-400">*</span>
                       </label>
                     </div>
@@ -518,10 +518,10 @@ export function CheckoutClient() {
                         type="text"
                         value={paymentPhone}
                         onChange={(e) => setPaymentPhone(e.target.value)}
-                        className="peer w-full bg-white border border-primary/20 rounded p-3 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                        className="peer w-full bg-white border border-accent-subtle rounded p-3 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
                         placeholder="X"
                       />
-                      <label className="absolute left-3 -top-2.5 bg-white px-1 text-xs text-secondary transition-all">
+                      <label className="absolute left-3 -top-2.5 bg-white px-1 text-xs text-primary/70 transition-all">
                         Sender Number <span className="text-red-400">*</span>
                       </label>
                     </div>

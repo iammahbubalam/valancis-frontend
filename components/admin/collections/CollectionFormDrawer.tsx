@@ -152,7 +152,7 @@ export function CollectionFormDrawer({
                   <h2 className="text-xl font-bold text-gray-900">
                     {isCreating ? "New Collection" : "Edit Collection"}
                   </h2>
-                  <p className="text-sm text-gray-500 font-medium mt-0.5">
+                  <p className="text-sm text-primary/60 font-medium mt-0.5">
                     {isCreating
                       ? "Create a curated edit"
                       : `ID: ${collection.id}`}
@@ -160,9 +160,9 @@ export function CollectionFormDrawer({
                 </div>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="p-2 hover:bg-canvas rounded-full transition-colors"
                 >
-                  <X className="w-6 h-6 text-gray-500" />
+                  <X className="w-6 h-6 text-primary/60" />
                 </button>
               </div>
 
@@ -187,7 +187,7 @@ export function CollectionFormDrawer({
                       </label>
                       <input
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium"
                         value={formData.title || ""}
                         onChange={(e) => handleTitleChange(e.target.value)}
                         placeholder="e.g. Eid 2026 Edit"
@@ -198,7 +198,7 @@ export function CollectionFormDrawer({
                         Slug
                       </label>
                       <input
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none font-mono text-sm"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none font-mono text-sm"
                         value={formData.slug || ""}
                         onChange={(e) =>
                           setFormData({ ...formData, slug: e.target.value })
@@ -212,7 +212,7 @@ export function CollectionFormDrawer({
                 {/* Narrative */}
                 <section className="space-y-6">
                   <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider flex items-center gap-2">
-                    <span className="w-1.5 h-4 bg-accent-gold rounded-full"></span>
+                    <span className="w-1.5 h-4 bg-primary rounded-full"></span>
                     Narrative
                   </h3>
                   <div className="space-y-4">
@@ -221,7 +221,7 @@ export function CollectionFormDrawer({
                         Short Description
                       </label>
                       <textarea
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none resize-none"
                         rows={2}
                         value={formData.description || ""}
                         onChange={(e) =>
@@ -238,7 +238,7 @@ export function CollectionFormDrawer({
                         Full Story (Rich Text)
                       </label>
                       <textarea
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none font-serif text-lg leading-relaxed"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none font-serif text-lg leading-relaxed"
                         rows={6}
                         value={formData.story || ""}
                         onChange={(e) =>
@@ -256,7 +256,7 @@ export function CollectionFormDrawer({
                     <span className="w-1.5 h-4 bg-purple-400 rounded-full"></span>
                     Visuals
                   </h3>
-                  <div className="bg-gray-50 border border-dashed border-gray-300 rounded-xl p-8 text-center hover:bg-white hover:border-primary transition-all relative group">
+                  <div className="bg-canvas border border-dashed border-gray-300 rounded-xl p-8 text-center hover:bg-white hover:border-primary transition-all relative group">
                     <input
                       type="file"
                       className="absolute inset-0 opacity-0 cursor-pointer z-10"
@@ -279,13 +279,13 @@ export function CollectionFormDrawer({
                       </div>
                     ) : (
                       <div className="flex flex-col items-center">
-                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm text-gray-400 group-hover:text-primary group-hover:scale-110 transition-all">
+                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm text-primary/50 group-hover:text-primary group-hover:scale-110 transition-all">
                           <Upload className="w-6 h-6" />
                         </div>
                         <p className="text-sm font-bold text-gray-900">
                           Upload Hero Image
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-primary/60 mt-1">
                           Recommended: 1920x1080px or higher
                         </p>
                       </div>
@@ -310,7 +310,7 @@ export function CollectionFormDrawer({
                         Meta Title
                       </label>
                       <input
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none"
                         value={formData.metaTitle || ""}
                         onChange={(e) =>
                           setFormData({
@@ -320,7 +320,7 @@ export function CollectionFormDrawer({
                         }
                         placeholder="e.g. Best Eid Collection 2026"
                       />
-                      <div className="text-right text-xs text-gray-400 mt-1">
+                      <div className="text-right text-xs text-primary/50 mt-1">
                         {(formData.metaTitle || "").length}/60
                       </div>
                     </div>
@@ -329,7 +329,7 @@ export function CollectionFormDrawer({
                         Meta Description
                       </label>
                       <textarea
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none"
                         rows={3}
                         value={formData.metaDescription || ""}
                         onChange={(e) =>
@@ -340,7 +340,7 @@ export function CollectionFormDrawer({
                         }
                         placeholder="SEO description..."
                       />
-                      <div className="text-right text-xs text-gray-400 mt-1">
+                      <div className="text-right text-xs text-primary/50 mt-1">
                         {(formData.metaDescription || "").length}/160
                       </div>
                     </div>
@@ -349,7 +349,7 @@ export function CollectionFormDrawer({
                         Keywords
                       </label>
                       <input
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all outline-none"
                         value={formData.keywords || ""}
                         onChange={(e) =>
                           setFormData({ ...formData, keywords: e.target.value })
@@ -366,12 +366,12 @@ export function CollectionFormDrawer({
                     <span className="w-1.5 h-4 bg-gray-400 rounded-full"></span>
                     Status
                   </h3>
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
+                  <div className="flex items-center justify-between p-4 bg-canvas rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
                     <div className="flex flex-col gap-0.5">
                       <span className="font-semibold text-gray-900 text-sm">
                         Active
                       </span>
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-primary/60">
                         Visible to customers
                       </span>
                     </div>
@@ -387,7 +387,7 @@ export function CollectionFormDrawer({
                         }
                         className="sr-only peer"
                       />
-                      <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                      <div className="w-11 h-6 bg-accent-subtle peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                     </label>
                   </div>
                 </section>

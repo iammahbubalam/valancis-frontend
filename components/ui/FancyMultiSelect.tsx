@@ -91,7 +91,7 @@ export function FancyMultiSelect({
             return (
               <span
                 key={itemValue}
-                className="bg-secondary/10 text-secondary border border-secondary/20 rounded-md px-1.5 py-0.5 text-xs font-medium flex items-center gap-1"
+                className="bg-secondary/10 text-primary/70 border border-secondary/20 rounded-md px-1.5 py-0.5 text-xs font-medium flex items-center gap-1"
               >
                 {option?.label || itemValue}
                 <button
@@ -102,7 +102,7 @@ export function FancyMultiSelect({
                     handleUnselect(itemValue);
                   }}
                 >
-                  <X className="h-3 w-3 text-secondary hover:text-red-500" />
+                  <X className="h-3 w-3 text-primary/70 hover:text-red-500" />
                 </button>
               </span>
             );
@@ -127,7 +127,7 @@ export function FancyMultiSelect({
               <li
                 key={option.value}
                 onClick={() => handleSelect(option.value)}
-                className="cursor-pointer select-none relative flex w-full items-center rounded-sm py-1.5 px-2 text-sm outline-none hover:bg-gray-100 transition-colors"
+                className="cursor-pointer select-none relative flex w-full items-center rounded-sm py-1.5 px-2 text-sm outline-none hover:bg-canvas transition-colors"
               >
                 {option.label}
               </li>
@@ -138,7 +138,7 @@ export function FancyMultiSelect({
 
       {/* Empty State */}
       {open && selectables.length === 0 && inputValue && (
-        <div className="absolute w-full z-[100] mt-1 rounded-md border border-gray-200 bg-white text-popover-foreground shadow-xl p-3 text-sm text-gray-500 text-center">
+        <div className="absolute w-full z-[100] mt-1 rounded-md border border-gray-200 bg-white text-popover-foreground shadow-xl p-3 text-sm text-primary/60 text-center">
           No options found for "{inputValue}"
         </div>
       )}

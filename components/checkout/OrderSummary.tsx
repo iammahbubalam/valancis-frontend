@@ -31,8 +31,8 @@ export function OrderSummary({
   const finalTotal = subtotal + shippingCost;
 
   return (
-    <div className="bg-white p-8 lg:p-10 shadow-xl border border-primary/5 transition-all hover:shadow-2xl">
-      <h2 className="font-serif text-2xl mb-8 border-b border-primary/10 pb-4">
+    <div className="bg-white p-8 lg:p-10 shadow-xl border border-accent-subtle transition-all hover:shadow-2xl">
+      <h2 className="font-serif text-2xl mb-8 border-b border-accent-subtle pb-4">
         Order Summary
       </h2>
 
@@ -40,7 +40,7 @@ export function OrderSummary({
       <div className="space-y-6 mb-8 max-h-[40vh] overflow-y-auto scrollbar-hide pr-2">
         {items.map((item, index) => (
           <div key={item.cartItemId || `${item.id}-${item.variantId || index}`} className="flex gap-4 group">
-            <div className="relative w-20 h-24 bg-bg-secondary flex-shrink-0 overflow-hidden rounded-md border border-primary/5">
+            <div className="relative w-20 h-24 bg-bg-secondary flex-shrink-0 overflow-hidden rounded-md border border-accent-subtle">
               {item.images?.[0] && (
                 <Image
                   src={item.images[0]}
@@ -56,18 +56,18 @@ export function OrderSummary({
                   {item.name}
                 </h4>
                 {item.variantName && (
-                  <p className="text-xs text-secondary mt-1">
+                  <p className="text-xs text-primary/70 mt-1">
                     {item.variantName}
                   </p>
                 )}
               </div>
 
               <div className="flex justify-between items-end mt-2">
-                <div className="flex items-center border border-primary/20 rounded-md">
+                <div className="flex items-center border border-accent-subtle rounded-md">
                   <button
                     onClick={() => onUpdateQuantity(item.id, item.variantId, item.quantity - 1)}
                     disabled={item.quantity <= 1}
-                    className="p-1.5 text-secondary hover:text-primary disabled:opacity-30 disabled:hover:text-secondary transition-colors"
+                    className="p-1.5 text-primary/70 hover:text-primary disabled:opacity-30 disabled:hover:text-primary/70 transition-colors"
                   >
                     <Minus className="w-3 h-3" />
                   </button>
@@ -77,7 +77,7 @@ export function OrderSummary({
                   <button
                     onClick={() => onUpdateQuantity(item.id, item.variantId, item.quantity + 1)}
                     disabled={item.stock <= item.quantity}
-                    className="p-1.5 text-secondary hover:text-primary disabled:opacity-30 disabled:hover:text-secondary transition-colors"
+                    className="p-1.5 text-primary/70 hover:text-primary disabled:opacity-30 disabled:hover:text-primary/70 transition-colors"
                   >
                     <Plus className="w-3 h-3" />
                   </button>
@@ -97,14 +97,14 @@ export function OrderSummary({
 
 
       {/* PRICE BREAKDOWN */}
-      <div className="space-y-4 py-6 border-t border-primary/10 text-sm">
-        <div className="flex justify-between text-secondary">
+      <div className="space-y-4 py-6 border-t border-accent-subtle text-sm">
+        <div className="flex justify-between text-primary/70">
           <span>Subtotal</span>
           <span>৳{subtotal.toLocaleString()}</span>
         </div>
 
 
-        <div className="flex justify-between text-secondary items-center">
+        <div className="flex justify-between text-primary/70 items-center">
           <span>Shipping</span>
           <span className="text-xs text-secondary/60">
             ({deliveryLabel})
@@ -114,7 +114,7 @@ export function OrderSummary({
       </div>
 
       {/* TOTAL */}
-      <div className="flex justify-between text-xl font-serif py-6 border-t border-primary/10 mb-8 items-center bg-primary/5 -mx-8 px-8 border-b">
+      <div className="flex justify-between text-xl font-serif py-6 border-t border-accent-subtle mb-8 items-center bg-primary/5 -mx-8 px-8 border-b">
         <span className="font-bold text-primary">Total</span>
         <div className="text-right">
           <span className="block font-bold text-lg md:text-xl">
@@ -143,7 +143,7 @@ export function OrderSummary({
       }
 
       {/* TRUST BADGES */}
-      <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-primary/10">
+      <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t border-accent-subtle">
         <div className="flex items-center gap-2 text-secondary/70 justify-center">
           <ShieldCheck className="w-4 h-4 text-green-600" />
           <span className="text-[10px] uppercase tracking-wider font-medium">

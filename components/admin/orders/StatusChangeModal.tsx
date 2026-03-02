@@ -64,12 +64,12 @@ export function StatusChangeModal({
                                         </div>
                                         <div>
                                             <h3 className="font-serif text-lg font-medium">Update Order Status</h3>
-                                            <p className="text-sm text-secondary">
+                                            <p className="text-sm text-primary/70">
                                                 Changing from <span className="font-medium capitalize">{currentStatus}</span> to <span className="font-medium capitalize text-blue-600">{newStatus}</span>
                                             </p>
                                         </div>
                                     </div>
-                                    <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
+                                    <button onClick={onClose} className="text-primary/50 hover:text-gray-600">
                                         <X className="w-5 h-5" />
                                     </button>
                                 </div>
@@ -90,7 +90,7 @@ export function StatusChangeModal({
                                     <div className="flex gap-3 pt-2">
                                         <button
                                             onClick={onClose}
-                                            className="flex-1 py-2.5 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-200 transition-colors"
+                                            className="flex-1 py-2.5 bg-canvas text-gray-700 rounded-lg text-sm font-medium hover:bg-accent-subtle transition-colors"
                                         >
                                             Cancel
                                         </button>

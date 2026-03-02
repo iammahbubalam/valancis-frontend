@@ -15,7 +15,7 @@ export default async function EditorialPage() {
     <div className="min-h-screen bg-white text-neutral-900">
       {/* Magazine Header */}
       <div className="pt-32 pb-16 md:pt-48 md:pb-24 text-center px-6">
-        <span className="inline-block text-accent-gold text-xs font-semibold uppercase tracking-[0.4em] mb-6">
+        <span className="inline-block text-primary text-xs font-semibold uppercase tracking-[0.4em] mb-6">
           {content.tagline || "The Atelier"}
         </span>
         <h1 className="font-serif text-5xl md:text-8xl tracking-tight mb-8 max-w-5xl mx-auto leading-[0.9]">
@@ -77,7 +77,7 @@ export default async function EditorialPage() {
               <p className="text-neutral-600 font-light mb-8 leading-relaxed">
                 A Valancis piece is designed to be an heirloom, passed down through generations, carrying with it the memories of the celebrations it witnessed.
               </p>
-              <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-neutral-900 group cursor-pointer hover:text-accent-gold transition-colors">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-neutral-900 group cursor-pointer hover:text-primary transition-colors">
                 Discover Collections <MoveRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </div>

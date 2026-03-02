@@ -54,7 +54,7 @@ export default function AnalyticsPage() {
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           Analytics Dashboard
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600 dark:text-primary/50">
           Track your business performance and key metrics
         </p>
       </div>
@@ -69,7 +69,7 @@ export default function AnalyticsPage() {
               dateRange.start ===
               format(subDays(new Date(), parseInt(preset)), "yyyy-MM-dd")
                 ? "bg-blue-600 text-white"
-                : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+                : "bg-canvas dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-accent-subtle dark:hover:bg-gray-700"
             }`}
           >
             Last {preset}

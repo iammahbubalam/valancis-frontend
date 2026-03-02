@@ -95,7 +95,7 @@ export function ProductTable({
       {/* Filters Bar */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-center bg-white p-4 rounded-lg border border-gray-200">
         <div className="relative w-full sm:w-96">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary/50" />
           <input
             type="text"
             placeholder="Search by name, SKU..."
@@ -140,7 +140,7 @@ export function ProductTable({
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="bg-gray-50/80 border-b border-gray-100 backdrop-blur-sm">
+            <thead className="bg-canvas/80 border-b border-gray-100 backdrop-blur-sm">
               <tr>
                 <th className="px-6 py-4 w-12">
                   <input
@@ -153,11 +153,11 @@ export function ProductTable({
                     onChange={(e) => onSelectAll(e.target.checked)}
                   />
                 </th>
-                <th className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs w-20">
+                <th className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs w-20">
                   Image
                 </th>
                 <th
-                  className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs cursor-pointer hover:text-primary group"
+                  className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs cursor-pointer hover:text-primary group"
                   onClick={() => onSort("name")}
                 >
                   <div className="flex items-center gap-1">
@@ -165,11 +165,11 @@ export function ProductTable({
                     <ArrowUpDown className="w-3 h-3 opacity-50 group-hover:opacity-100" />
                   </div>
                 </th>
-                <th className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs">
+                <th className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs">
                   Category
                 </th>
                 <th
-                  className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs cursor-pointer hover:text-primary group"
+                  className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs cursor-pointer hover:text-primary group"
                   onClick={() => onSort("price")}
                 >
                   <div className="flex items-center gap-1">
@@ -178,7 +178,7 @@ export function ProductTable({
                   </div>
                 </th>
                 <th
-                  className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs cursor-pointer hover:text-primary group"
+                  className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs cursor-pointer hover:text-primary group"
                   onClick={() => onSort("stock")}
                 >
                   <div className="flex items-center gap-1">
@@ -186,10 +186,10 @@ export function ProductTable({
                     <ArrowUpDown className="w-3 h-3 opacity-50 group-hover:opacity-100" />
                   </div>
                 </th>
-                <th className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs">
+                <th className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs">
                   Status
                 </th>
-                <th className="px-6 py-4 font-medium text-secondary uppercase tracking-wider text-xs text-right">
+                <th className="px-6 py-4 font-medium text-primary/70 uppercase tracking-wider text-xs text-right">
                   Actions
                 </th>
               </tr>
@@ -199,7 +199,7 @@ export function ProductTable({
                 <tr>
                   <td
                     colSpan={8}
-                    className="px-6 py-12 text-center text-gray-400"
+                    className="px-6 py-12 text-center text-primary/50"
                   >
                     Loading products...
                   </td>
@@ -208,7 +208,7 @@ export function ProductTable({
                 <tr>
                   <td
                     colSpan={8}
-                    className="px-6 py-12 text-center text-gray-400"
+                    className="px-6 py-12 text-center text-primary/50"
                   >
                     No products found fitting criteria.
                   </td>
@@ -217,7 +217,7 @@ export function ProductTable({
                 products.map((product) => (
                   <tr
                     key={product.id}
-                    className={`hover:bg-gray-50/50 transition-colors group ${selectedIds.includes(product.id) ? "bg-blue-50/30" : ""
+                    className={`hover:bg-canvas/50 transition-colors group ${selectedIds.includes(product.id) ? "bg-blue-50/30" : ""
                       }`}
                   >
                     <td className="px-6 py-4">
@@ -229,7 +229,7 @@ export function ProductTable({
                       />
                     </td>
                     <td className="px-6 py-4">
-                      <div className="w-10 h-10 relative bg-gray-100 rounded-md overflow-hidden border border-gray-200">
+                      <div className="w-10 h-10 relative bg-canvas rounded-md overflow-hidden border border-gray-200">
                         {product.images?.[0] ? (
                           <Image
                             src={product.images[0]}
@@ -253,18 +253,18 @@ export function ProductTable({
                           {product.name}
                         </Link>
                       </div>
-                      <div className="text-xs text-gray-500 font-mono mt-0.5">
+                      <div className="text-xs text-primary/60 font-mono mt-0.5">
                         {product.sku}
                       </div>
                     </td>
                     <td className="px-6 py-4 text-gray-600">
                       {product.categories?.[0]?.name || (
-                        <span className="text-gray-400 italic">
+                        <span className="text-primary/50 italic">
                           Uncategorized
                         </span>
                       )}
                       {product.categories?.length > 1 && (
-                        <span className="text-xs ml-1 text-gray-400">
+                        <span className="text-xs ml-1 text-primary/50">
                           +{product.categories.length - 1}
                         </span>
                       )}
@@ -287,7 +287,7 @@ export function ProductTable({
                         >
                           {product.stock}
                         </span>
-                        <span className="text-[10px] text-gray-400 uppercase tracking-wider">
+                        <span className="text-[10px] text-primary/50 uppercase tracking-wider">
                           {product.stockStatus.replace("_", " ")}
                         </span>
                       </div>
@@ -299,7 +299,7 @@ export function ProductTable({
                         }
                         className={`px-3 py-1 rounded-full text-xs font-medium border transition-all ${product.isActive
                           ? "bg-green-50 text-green-700 border-green-200 hover:bg-green-100"
-                          : "bg-gray-50 text-gray-600 border-gray-200 hover:bg-gray-100"
+                          : "bg-canvas text-gray-600 border-gray-200 hover:bg-canvas"
                           }`}
                       >
                         {product.isActive ? "Active" : "Draft"}
@@ -309,13 +309,13 @@ export function ProductTable({
                       <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Link
                           href={`/admin/products/${product.id}`}
-                          className="p-1.5 text-gray-500 hover:text-primary hover:bg-primary/5 rounded-md transition-colors"
+                          className="p-1.5 text-primary/60 hover:text-primary hover:bg-primary/5 rounded-md transition-colors"
                         >
                           <Edit className="w-4 h-4" />
                         </Link>
                         <button
                           onClick={() => onDelete(product.id)}
-                          className="p-1.5 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
+                          className="p-1.5 text-primary/60 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -329,8 +329,8 @@ export function ProductTable({
         </div>
 
         {/* Pagination (Simple for now) */}
-        <div className="px-6 py-4 border-t border-gray-100 flex justify-between items-center bg-gray-50/50">
-          <span className="text-xs text-gray-500">
+        <div className="px-6 py-4 border-t border-gray-100 flex justify-between items-center bg-canvas/50">
+          <span className="text-xs text-primary/60">
             Showing {products.length > 0 ? startItem : 0} to{" "}
             {products.length > 0 ? endItem : 0} of {total} products
           </span>

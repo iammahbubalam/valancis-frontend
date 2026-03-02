@@ -100,7 +100,7 @@ export function ShopToolbar({
       {/* Sticky Toolbar */}
       <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-black/5 py-4 transition-all duration-300">
         <Container className="flex items-center justify-between">
-          <div className="flex items-center gap-4 text-xs uppercase tracking-widest text-secondary">
+          <div className="flex items-center gap-4 text-xs uppercase tracking-widest text-primary/70">
             <Link href="/" className="hover:text-primary transition-colors">
               Home
             </Link>
@@ -109,7 +109,7 @@ export function ShopToolbar({
           </div>
 
           <div className="flex items-center gap-8 text-xs uppercase tracking-widest text-primary">
-            <span className="hidden md:inline-block text-secondary">
+            <span className="hidden md:inline-block text-primary/70">
               {totalProducts} Products
             </span>
 
@@ -117,12 +117,12 @@ export function ShopToolbar({
               {/* Sort Dropdown Trigger */}
               <button
                 onClick={() => setIsSortOpen(!isSortOpen)}
-                className="flex items-center gap-2 hover:text-accent-gold transition-colors group"
+                className="flex items-center gap-2 hover:text-primary transition-colors group"
               >
                 Sort
                 <ChevronDown
                   className={clsx(
-                    "w-3 h-3 group-hover:text-accent-gold transition-transform",
+                    "w-3 h-3 group-hover:text-primary transition-transform",
                     isSortOpen && "rotate-180",
                   )}
                 />
@@ -155,10 +155,10 @@ export function ShopToolbar({
                             setIsSortOpen(false);
                           }}
                           className={clsx(
-                            "w-full text-left px-4 py-2.5 text-xs uppercase tracking-wider hover:bg-gray-50 hover:text-accent-gold transition-colors flex items-center justify-between",
+                            "w-full text-left px-4 py-2.5 text-xs uppercase tracking-wider hover:bg-canvas hover:text-primary transition-colors flex items-center justify-between",
                             currentSort === option.value
-                              ? "text-accent-gold"
-                              : "text-secondary",
+                              ? "text-primary"
+                              : "text-primary/70",
                           )}
                         >
                           {option.label}
@@ -173,12 +173,12 @@ export function ShopToolbar({
               {/* Filter Trigger */}
               <button
                 onClick={() => setIsFilterOpen(true)}
-                className="flex items-center gap-2 hover:text-accent-gold transition-colors group"
+                className="flex items-center gap-2 hover:text-primary transition-colors group"
               >
                 Filter
-                <Filter className="w-3 h-3 group-hover:text-accent-gold" />
+                <Filter className="w-3 h-3 group-hover:text-primary" />
                 {activeCategories.length > 0 && (
-                  <span className="w-1.5 h-1.5 bg-accent-gold rounded-full" />
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                 )}
               </button>
             </div>
@@ -209,9 +209,9 @@ export function ShopToolbar({
                 <span className="font-serif text-xl text-primary">Filters</span>
                 <button
                   onClick={() => setIsFilterOpen(false)}
-                  className="p-2 hover:bg-gray-50 rounded-full transition-colors"
+                  className="p-2 hover:bg-canvas rounded-full transition-colors"
                 >
-                  <X className="w-5 h-5 text-secondary" />
+                  <X className="w-5 h-5 text-primary/70" />
                 </button>
               </div>
 
@@ -219,7 +219,7 @@ export function ShopToolbar({
               <div className="flex-1 overflow-y-auto p-6 space-y-8">
                 {/* Categories */}
                 <div className="space-y-4">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-primary/70">
                     Categories
                   </h3>
                   <div className="space-y-2">
@@ -251,7 +251,7 @@ export function ShopToolbar({
                             "text-sm transition-colors",
                             activeCategories.includes(cat.slug)
                               ? "text-primary font-medium"
-                              : "text-secondary group-hover:text-primary",
+                              : "text-primary/70 group-hover:text-primary",
                           )}
                         >
                           {cat.name}
@@ -263,7 +263,7 @@ export function ShopToolbar({
 
                 {/* Price Range */}
                 <div className="space-y-4">
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-secondary">
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-primary/70">
                     Price Range
                   </h3>
                   <div className="flex items-center gap-3">
@@ -272,15 +272,15 @@ export function ShopToolbar({
                       placeholder="Min"
                       value={minPrice}
                       onChange={(e) => setMinPrice(e.target.value)}
-                      className="w-full bg-gray-50 border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+                      className="w-full bg-canvas border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
                     />
-                    <span className="text-gray-400">-</span>
+                    <span className="text-primary/50">-</span>
                     <input
                       type="number"
                       placeholder="Max"
                       value={maxPrice}
                       onChange={(e) => setMaxPrice(e.target.value)}
-                      className="w-full bg-gray-50 border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+                      className="w-full bg-canvas border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
                     />
                   </div>
                   <button
@@ -293,10 +293,10 @@ export function ShopToolbar({
               </div>
 
               {/* Drawer Footer */}
-              <div className="p-6 border-t border-gray-100 bg-gray-50">
+              <div className="p-6 border-t border-gray-100 bg-canvas">
                 <button
                   onClick={clearAll}
-                  className="w-full border border-gray-300 text-secondary text-xs uppercase tracking-widest py-3 hover:bg-white hover:text-red-500 hover:border-red-200 transition-all font-medium"
+                  className="w-full border border-gray-300 text-primary/70 text-xs uppercase tracking-widest py-3 hover:bg-white hover:text-red-500 hover:border-red-200 transition-all font-medium"
                 >
                   Clear All Filters
                 </button>

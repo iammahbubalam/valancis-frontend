@@ -126,7 +126,7 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
           </Button>
           <div>
             <h2 className="text-xl font-bold font-serif">{title}</h2>
-            <p className="text-sm text-gray-500">Edit Policy Content</p>
+            <p className="text-sm text-primary/60">Edit Policy Content</p>
           </div>
         </div>
         <div className="flex gap-3">
@@ -144,8 +144,8 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
       {/* Content */}
       <div className="max-w-4xl mx-auto w-full p-8 pb-32 space-y-6">
         {data.sections.length === 0 && (
-          <div className="text-center py-20 bg-gray-50 rounded-lg border border-dashed border-gray-300">
-            <p className="text-gray-500">No content sections yet.</p>
+          <div className="text-center py-20 bg-canvas rounded-lg border border-dashed border-gray-300">
+            <p className="text-primary/60">No content sections yet.</p>
             <Button variant="link" onClick={addSection}>
               Create first section
             </Button>
@@ -157,8 +157,8 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
             key={idx}
             className={`border rounded-lg transition-all ${
               expandedIdx === idx
-                ? "border-primary/20 shadow-md bg-white"
-                : "border-gray-200 bg-gray-50"
+                ? "border-accent-subtle shadow-md bg-white"
+                : "border-gray-200 bg-canvas"
             }`}
           >
             {/* Section Header */}
@@ -167,7 +167,7 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
               onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
             >
               <div className="flex items-center gap-3">
-                <span className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-xs font-bold text-gray-600">
+                <span className="w-6 h-6 flex items-center justify-center rounded-full bg-accent-subtle text-xs font-bold text-gray-600">
                   {idx + 1}
                 </span>
                 <span className="font-medium text-gray-900">
@@ -187,9 +187,9 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
                   <Trash2 className="w-4 h-4" />
                 </Button>
                 {expandedIdx === idx ? (
-                  <ChevronUp className="w-5 h-5 text-gray-400" />
+                  <ChevronUp className="w-5 h-5 text-primary/50" />
                 ) : (
-                  <ChevronDown className="w-5 h-5 text-gray-400" />
+                  <ChevronDown className="w-5 h-5 text-primary/50" />
                 )}
               </div>
             </div>
@@ -198,7 +198,7 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
             {expandedIdx === idx && (
               <div className="p-6 border-t border-gray-100 space-y-6 animate-in fade-in duration-200">
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold text-gray-500 tracking-wider">
+                  <label className="text-xs uppercase font-bold text-primary/60 tracking-wider">
                     Heading
                   </label>
                   <input
@@ -213,7 +213,7 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold text-gray-500 tracking-wider">
+                  <label className="text-xs uppercase font-bold text-primary/60 tracking-wider">
                     Content Text (Paragraph)
                   </label>
                   <textarea
@@ -228,10 +228,10 @@ export function PolicyEditor({ policyKey, title, onClose }: PolicyEditorProps) {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs uppercase font-bold text-gray-500 tracking-wider">
+                  <label className="text-xs uppercase font-bold text-primary/60 tracking-wider">
                     List Items (Optional)
                   </label>
-                  <p className="text-xs text-gray-400 mb-1">
+                  <p className="text-xs text-primary/50 mb-1">
                     Enter each bullet point on a new line.
                   </p>
                   <textarea

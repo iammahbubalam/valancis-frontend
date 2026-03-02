@@ -78,9 +78,9 @@ export default async function CustomersPage({
           <h1 className="text-3xl font-serif font-bold text-primary">
             Customers
           </h1>
-          <p className="text-secondary mt-1">Manage your customer accounts</p>
+          <p className="text-primary/70 mt-1">Manage your customer accounts</p>
         </div>
-        <div className="text-sm text-secondary">
+        <div className="text-sm text-primary/70">
           Total:{" "}
           <span className="font-semibold text-primary">{meta.total || customers.length}</span>
         </div>
@@ -94,7 +94,7 @@ export default async function CustomersPage({
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
+              <thead className="bg-canvas border-b border-gray-200">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-primary uppercase tracking-wider">
                     Customer
@@ -115,7 +115,7 @@ export default async function CustomersPage({
                   <tr>
                     <td
                       colSpan={4}
-                      className="px-6 py-12 text-center text-secondary"
+                      className="px-6 py-12 text-center text-primary/70"
                     >
                       No customers found
                     </td>
@@ -129,7 +129,7 @@ export default async function CustomersPage({
                     return (
                       <tr
                         key={customer.id}
-                        className="hover:bg-gray-50 transition-colors"
+                        className="hover:bg-canvas transition-colors"
                       >
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center gap-3">
@@ -151,21 +151,21 @@ export default async function CustomersPage({
                               <p className="font-medium text-primary">
                                 {fullName}
                               </p>
-                              <p className="text-xs text-secondary">
+                              <p className="text-xs text-primary/70">
                                 ID: {customer.id.slice(0, 8)}...
                               </p>
                             </div>
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center gap-2 text-secondary">
+                          <div className="flex items-center gap-2 text-primary/70">
                             <Mail className="w-4 h-4" />
                             {customer.email}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-secondary" />
+                            <Shield className="w-4 h-4 text-primary/70" />
                             <span
                               className={`px-2 py-1 text-xs font-medium rounded-full ${customer.role === "admin"
                                 ? "bg-purple-100 text-purple-800"
@@ -177,7 +177,7 @@ export default async function CustomersPage({
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center gap-2 text-secondary text-sm">
+                          <div className="flex items-center gap-2 text-primary/70 text-sm">
                             <Calendar className="w-4 h-4" />
                             {new Date(customer.createdAt).toLocaleDateString()}
                           </div>
@@ -193,7 +193,7 @@ export default async function CustomersPage({
           {/* Pagination Controls */}
           {meta.totalPages > 1 && (
             <div className="px-6 py-4 border-t border-gray-200 flex items-center justify-between">
-              <div className="text-sm text-secondary">
+              <div className="text-sm text-primary/70">
                 Showing <span className="font-medium">{Math.min((page - 1) * limit + 1, meta.total)}</span> to{" "}
                 <span className="font-medium">{Math.min(page * limit, meta.total)}</span> of{" "}
                 <span className="font-medium">{meta.total}</span> results
@@ -201,20 +201,20 @@ export default async function CustomersPage({
               <div className="flex gap-2">
                 <Link
                   href={`?page=${page - 1}&limit=${limit}`}
-                  className={`p-2 rounded hover:bg-gray-100 ${page <= 1 ? "pointer-events-none opacity-50" : ""}`}
+                  className={`p-2 rounded hover:bg-canvas ${page <= 1 ? "pointer-events-none opacity-50" : ""}`}
                   aria-disabled={page <= 1}
                 >
-                  <ChevronLeft className="w-5 h-5 text-secondary" />
+                  <ChevronLeft className="w-5 h-5 text-primary/70" />
                 </Link>
-                <div className="flex items-center px-2 text-sm text-secondary">
+                <div className="flex items-center px-2 text-sm text-primary/70">
                   Page {page} of {meta.totalPages}
                 </div>
                 <Link
                   href={`?page=${page + 1}&limit=${limit}`}
-                  className={`p-2 rounded hover:bg-gray-100 ${page >= meta.totalPages ? "pointer-events-none opacity-50" : ""}`}
+                  className={`p-2 rounded hover:bg-canvas ${page >= meta.totalPages ? "pointer-events-none opacity-50" : ""}`}
                   aria-disabled={page >= meta.totalPages}
                 >
-                  <ChevronRight className="w-5 h-5 text-secondary" />
+                  <ChevronRight className="w-5 h-5 text-primary/70" />
                 </Link>
               </div>
             </div>

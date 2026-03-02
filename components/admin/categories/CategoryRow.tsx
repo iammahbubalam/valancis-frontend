@@ -74,7 +74,7 @@ export function CategoryRow({
             {category.image ? (
               <Image src={category.image} alt="" width={40} height={40} className="w-full h-full object-cover" />
             ) : (
-              <span className="text-xs font-bold text-gray-400">{category.name.substring(0, 2).toUpperCase()}</span>
+              <span className="text-xs font-bold text-primary/50">{category.name.substring(0, 2).toUpperCase()}</span>
             )}
           </div>
 
@@ -83,7 +83,7 @@ export function CategoryRow({
               <h4 className="text-sm font-bold text-gray-900 truncate">{category.name}</h4>
               {category.metaTitle && <Tag className="w-3 h-3 text-purple-500 flex-shrink-0" />}
             </div>
-            <p className="text-xs text-gray-500 font-mono truncate">{category.slug}</p>
+            <p className="text-xs text-primary/60 font-mono truncate">{category.slug}</p>
           </div>
         </div>
 
@@ -95,14 +95,14 @@ export function CategoryRow({
               <span className="truncate">{parentCategory.name}</span>
             </div>
           ) : (
-            <span className="text-gray-400 italic">Root</span>
+            <span className="text-primary/50 italic">Root</span>
           )}
         </div>
 
         {/* Column 3: Products (1 col) */}
         <div className="col-span-1 text-center">
-          <div className="inline-flex items-center gap-1.5 px-2 py-1 bg-gray-50 rounded-full">
-            <Package className="w-3 h-3 text-gray-400" />
+          <div className="inline-flex items-center gap-1.5 px-2 py-1 bg-canvas rounded-full">
+            <Package className="w-3 h-3 text-primary/50" />
             <span className="text-xs font-semibold text-gray-700">{category.productCount || 0}</span>
           </div>
         </div>
@@ -114,7 +114,7 @@ export function CategoryRow({
             className={`inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer hover:shadow-md ${
               category.isActive 
                 ? 'bg-green-100 text-green-700 hover:bg-green-200' 
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-canvas text-gray-600 hover:bg-accent-subtle'
             }`}
           >
             {category.isActive ? '● Active' : '○ Inactive'}
@@ -138,18 +138,18 @@ export function CategoryRow({
 
         {/* Column 5: Actions (2 cols) */}
         <div className="col-span-2 flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <div className="flex items-center gap-0.5 bg-gray-100 p-0.5 rounded-lg">
-            <button onClick={() => onMoveUp(category.id)} disabled={isFirst} className="w-6 h-6 flex items-center justify-center rounded text-gray-500 hover:text-gray-900 hover:bg-white transition-all disabled:opacity-20" title="Move Up">
+          <div className="flex items-center gap-0.5 bg-canvas p-0.5 rounded-lg">
+            <button onClick={() => onMoveUp(category.id)} disabled={isFirst} className="w-6 h-6 flex items-center justify-center rounded text-primary/60 hover:text-gray-900 hover:bg-white transition-all disabled:opacity-20" title="Move Up">
               <ArrowUp className="w-3 h-3" />
             </button>
-            <button onClick={() => onMoveDown(category.id)} disabled={isLast} className="w-6 h-6 flex items-center justify-center rounded text-gray-500 hover:text-gray-900 hover:bg-white transition-all disabled:opacity-20" title="Move Down">
+            <button onClick={() => onMoveDown(category.id)} disabled={isLast} className="w-6 h-6 flex items-center justify-center rounded text-primary/60 hover:text-gray-900 hover:bg-white transition-all disabled:opacity-20" title="Move Down">
               <ArrowDown className="w-3 h-3" />
             </button>
             <div className="w-px h-4 bg-gray-300 mx-0.5" />
-            <button onClick={() => onOutdent(category.id)} disabled={category.depth === 0} className="w-6 h-6 flex items-center justify-center rounded text-gray-500 hover:text-gray-900 hover:bg-white transition-all disabled:opacity-20" title="Outdent">
+            <button onClick={() => onOutdent(category.id)} disabled={category.depth === 0} className="w-6 h-6 flex items-center justify-center rounded text-primary/60 hover:text-gray-900 hover:bg-white transition-all disabled:opacity-20" title="Outdent">
               <ArrowLeft className="w-3 h-3" />
             </button>
-            <button onClick={() => onIndent(category.id)} className="w-6 h-6 flex items-center justify-center rounded text-gray-500 hover:text-gray-900 hover:bg-white transition-all" title="Indent">
+            <button onClick={() => onIndent(category.id)} className="w-6 h-6 flex items-center justify-center rounded text-primary/60 hover:text-gray-900 hover:bg-white transition-all" title="Indent">
               <ArrowRight className="w-3 h-3" />
             </button>
           </div>

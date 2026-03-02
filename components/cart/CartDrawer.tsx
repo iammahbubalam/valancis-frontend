@@ -79,9 +79,9 @@ export function CartDrawer() {
               </h2>
               <button
                 onClick={toggleCart}
-                className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                className="p-2 hover:bg-canvas rounded-full transition-colors"
               >
-                <X className="w-5 h-5 text-secondary" />
+                <X className="w-5 h-5 text-primary/70" />
               </button>
             </div>
 
@@ -91,13 +91,13 @@ export function CartDrawer() {
             <div className="flex-1 overflow-y-auto p-6 space-y-6">
               {items.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-center space-y-4">
-                  <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-2">
+                  <div className="w-16 h-16 bg-canvas rounded-full flex items-center justify-center mb-2">
                     <ShoppingBag className="w-8 h-8 text-gray-300" />
                   </div>
                   <h3 className="font-serif text-xl text-primary">
                     Your bag is empty
                   </h3>
-                  <p className="text-sm text-secondary max-w-[200px]">
+                  <p className="text-sm text-primary/70 max-w-[200px]">
                     Explore our collection and find something timeless.
                   </p>
                   <Button
@@ -127,7 +127,7 @@ export function CartDrawer() {
                         isOutOfStock && "opacity-75 grayscale-[0.5]",
                       )}
                     >
-                      <div className="relative w-24 h-32 bg-gray-100 flex-shrink-0 overflow-hidden rounded-sm">
+                      <div className="relative w-24 h-32 bg-canvas flex-shrink-0 overflow-hidden rounded-sm">
                         <Image
                           src={item.variantImage || variantImage || item.images?.[0] || "/placeholder.png"}
                           alt={item.name}
@@ -151,11 +151,11 @@ export function CartDrawer() {
                               href={`/product/${item.slug}`}
                               onClick={toggleCart}
                             >
-                              <h4 className="font-serif text-base text-primary leading-tight hover:text-accent-gold transition-colors">
+                              <h4 className="font-serif text-base text-primary leading-tight hover:text-primary transition-colors">
                                 {item.name}
                               </h4>
                               {item.variantName && (
-                                <p className="text-xs text-gray-500 mt-1">
+                                <p className="text-xs text-primary/60 mt-1">
                                   {item.variantName}
                                 </p>
                               )}
@@ -169,18 +169,18 @@ export function CartDrawer() {
                               ).toLocaleString()}
                             </span>
                           </div>
-                          <p className="text-xs text-secondary uppercase tracking-wide mt-1">
+                          <p className="text-xs text-primary/70 uppercase tracking-wide mt-1">
                             {item.categories?.[0]?.name}
                           </p>
 
                           {/* L9: Exact Variant Info */}
                           {selectedVariant && (
                             <div className="mt-1 flex flex-col gap-0.5">
-                              <p className="text-[10px] text-gray-500 font-medium bg-gray-50 inline-block px-1.5 py-0.5 rounded w-fit">
+                              <p className="text-[10px] text-primary/60 font-medium bg-canvas inline-block px-1.5 py-0.5 rounded w-fit">
                                 SKU: {selectedVariant.sku || item.id.slice(0, 8).toUpperCase()}
                               </p>
                               {selectedVariant.attributes && Object.entries(selectedVariant.attributes).map(([key, val]) => (
-                                <p key={key} className="text-[10px] text-gray-500">
+                                <p key={key} className="text-[10px] text-primary/60">
                                   {key}: <span className="text-gray-900 font-medium">{val}</span>
                                 </p>
                               ))}
@@ -202,7 +202,7 @@ export function CartDrawer() {
                               onClick={() =>
                                 updateQuantity(item.id, item.variantId, item.quantity - 1)
                               }
-                              className="p-2 hover:bg-gray-100 active:bg-gray-200 active:scale-90 text-secondary hover:text-primary transition-all duration-150 disabled:opacity-30"
+                              className="p-2 hover:bg-canvas active:bg-accent-subtle active:scale-90 text-primary/70 hover:text-primary transition-all duration-150 disabled:opacity-30"
                               disabled={item.quantity <= 1}
                             >
                               <Minus className="w-3 h-3" />
@@ -214,7 +214,7 @@ export function CartDrawer() {
                               onClick={() =>
                                 updateQuantity(item.id, item.variantId, item.quantity + 1)
                               }
-                              className="p-2 hover:bg-gray-100 active:bg-gray-200 active:scale-90 text-secondary hover:text-primary transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
+                              className="p-2 hover:bg-canvas active:bg-accent-subtle active:scale-90 text-primary/70 hover:text-primary transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed"
                               disabled={isMaxStock || isOutOfStock}
                             >
                               <Plus className="w-3 h-3" />
@@ -224,7 +224,7 @@ export function CartDrawer() {
                           {/* Remove */}
                           <button
                             onClick={() => removeFromCart(item.id, item.variantId || "")}
-                            className="px-2 py-1 text-xs text-secondary hover:text-red-600 hover:bg-red-50 active:bg-red-100 active:scale-95 rounded transition-all duration-150"
+                            className="px-2 py-1 text-xs text-primary/70 hover:text-red-600 hover:bg-red-50 active:bg-red-100 active:scale-95 rounded transition-all duration-150"
                           >
                             Remove
                           </button>
@@ -238,14 +238,14 @@ export function CartDrawer() {
 
             {/* Footer */}
             {items.length > 0 && (
-              <div className="p-6 border-t border-gray-100 bg-gray-50/50 space-y-4">
+              <div className="p-6 border-t border-gray-100 bg-canvas/50 space-y-4">
 
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm text-secondary">
+                  <div className="flex items-center justify-between text-sm text-primary/70">
                     <span>Subtotal</span>
                     <span>৳{subtotal.toLocaleString()}</span>
                   </div>
-                  <div className="flex items-center justify-between text-sm text-secondary">
+                  <div className="flex items-center justify-between text-sm text-primary/70">
                     <span>Shipping</span>
                     <span className="text-primary italic">Calculated at checkout</span>
                   </div>
@@ -283,7 +283,7 @@ export function CartDrawer() {
                   </Link>
                 )}
 
-                <p className="text-[10px] text-center text-gray-400">
+                <p className="text-[10px] text-center text-primary/50">
                   Tax included. Returns accepted within 30 days.
                 </p>
               </div>

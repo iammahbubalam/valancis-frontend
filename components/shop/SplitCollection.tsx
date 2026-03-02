@@ -56,7 +56,7 @@ export function SplitCollection({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }} // smooth luxurious ease
           >
-            <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/80 mb-6 block border-l-2 border-accent-gold pl-4">
+            <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/80 mb-6 block border-l-2 border-primary pl-4">
               The Collection
             </span>
             <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tight mb-8">
@@ -75,7 +75,7 @@ export function SplitCollection({
           {/* Context/Story Block at the top of the feed */}
           {story && (
             <div className="max-w-md">
-              <span className="text-secondary uppercase tracking-[0.2em] text-xs mb-4 block">
+              <span className="text-primary/70 uppercase tracking-[0.2em] text-xs mb-4 block">
                 Editorial
               </span>
               <p className="font-serif text-3xl leading-snug text-primary">
@@ -107,13 +107,13 @@ export function SplitCollection({
 
           {products.length === 0 && (
             <div className="py-24 text-center">
-              <p className="text-secondary">Collection inventory updating...</p>
+              <p className="text-primary/70">Collection inventory updating...</p>
             </div>
           )}
 
-          <div className="pt-20 border-t border-primary/10 flex justify-between items-end">
+          <div className="pt-20 border-t border-accent-subtle flex justify-between items-end">
             <div className="flex flex-col gap-2">
-              <span className="text-xs uppercase tracking-widest text-secondary">
+              <span className="text-xs uppercase tracking-widest text-primary/70">
                 Next Collection
               </span>
               <span className="font-serif text-2xl">Heritage 2024</span>

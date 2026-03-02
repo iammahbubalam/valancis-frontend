@@ -73,7 +73,7 @@ export function LookbookGrid({ products }: LookbookGridProps) {
                   </span>
                   {product.salePrice &&
                     product.salePrice < product.basePrice && (
-                      <span className="text-sm text-gray-400 line-through">
+                      <span className="text-sm text-primary/50 line-through">
                         ৳{product.basePrice.toLocaleString()}
                       </span>
                     )}
@@ -82,17 +82,17 @@ export function LookbookGrid({ products }: LookbookGridProps) {
                 <button
                   onClick={() => addToCart(product)}
                   disabled={product.stock <= 0}
-                  className="group w-full bg-black text-white hover:bg-[#D4AF37] disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed px-8 py-4 flex items-center justify-center gap-3 transition-colors duration-300"
+                  className="group w-full bg-black text-white hover:bg-[#D4AF37] disabled:bg-accent-subtle disabled:text-primary/50 disabled:cursor-not-allowed px-8 py-4 flex items-center justify-center gap-3 transition-colors duration-300"
                 >
                   <ShoppingBag size={18} />
                   <span className="text-xs font-bold uppercase tracking-[0.2em]">
                     {product.stock > 0 ? "Add to Bag" : "Sold Out"}
                   </span>
                 </button>
-                <div className="h-px w-full bg-gray-100 mt-2" />
+                <div className="h-px w-full bg-canvas mt-2" />
                 <Link
                   href={`/product/${product.slug}`}
-                  className="text-xs uppercase tracking-widest text-gray-500 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1"
+                  className="text-xs uppercase tracking-widest text-primary/60 hover:text-black transition-colors border-b border-transparent hover:border-black pb-1"
                 >
                   View Details
                 </Link>

@@ -18,7 +18,7 @@ export default function WishlistPage() {
   if (isAuthLoading || (isLoading && items.length === 0)) {
     return (
       <Container className="py-20 flex items-center justify-center min-h-[60vh]">
-        <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
+        <Loader2 className="h-8 w-8 animate-spin text-primary/50" />
       </Container>
     );
   }
@@ -28,7 +28,7 @@ export default function WishlistPage() {
       <Container className="py-20 flex flex-col items-center justify-center min-h-[60vh] text-center">
         <Heart className="h-16 w-16 text-gray-200 mb-6" />
         <h1 className="text-3xl font-serif mb-4">My Wishlist</h1>
-        <p className="text-gray-500 mb-8 max-w-md font-light">
+        <p className="text-primary/60 mb-8 max-w-md font-light">
           Sign in to save items to your wishlist and access them from any
           device.
         </p>
@@ -64,7 +64,7 @@ export default function WishlistPage() {
       </div>
 
       {items.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-32 text-center bg-gray-50/50 rounded-2xl border border-primary/5">
+        <div className="flex flex-col items-center justify-center py-32 text-center bg-canvas/50 rounded-2xl border border-accent-subtle">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-6">
             <Heart className="h-6 w-6 text-gray-300" strokeWidth={1.5} />
           </div>

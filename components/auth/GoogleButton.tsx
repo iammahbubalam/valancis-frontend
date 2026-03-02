@@ -47,7 +47,7 @@ export function GoogleButton() {
     <motion.button
       whileHover={{ scale: 1.01 }}
       whileTap={{ scale: 0.99 }}
-      className="w-full py-4 text-xs font-bold tracking-[0.15em] uppercase flex items-center justify-center gap-3 shadow-sm border border-gray-200 bg-white hover:bg-gray-50 hover:border-gray-300 text-primary transition-all duration-200 group relative overflow-hidden"
+      className="w-full py-4 text-xs font-bold tracking-[0.15em] uppercase flex items-center justify-center gap-3 shadow-sm border border-gray-200 bg-white hover:bg-canvas hover:border-gray-300 text-primary transition-all duration-200 group relative overflow-hidden"
       onClick={() => login()}
     >
       <div className="w-5 h-5 relative flex items-center justify-center bg-transparent p-0.5">

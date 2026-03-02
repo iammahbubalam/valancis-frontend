@@ -75,7 +75,7 @@ export function ImageUploader({
   return (
     <div className={`space-y-2 ${className}`}>
       {label && (
-        <label className="block text-xs font-bold uppercase text-gray-500">
+        <label className="block text-xs font-bold uppercase text-primary/60">
           {label}
         </label>
       )}
@@ -83,7 +83,7 @@ export function ImageUploader({
       {!value ? (
         // Empty State - Upload Button
         <div
-          className={`border-2 border-dashed border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center gap-2 text-gray-400 hover:bg-gray-50 hover:border-gray-300 transition-colors cursor-pointer ${
+          className={`border-2 border-dashed border-gray-200 rounded-lg p-6 flex flex-col items-center justify-center gap-2 text-primary/50 hover:bg-canvas hover:border-gray-300 transition-colors cursor-pointer ${
             disabled ? "opacity-50 pointer-events-none" : ""
           }`}
           onClick={() => fileInputRef.current?.click()}
@@ -107,7 +107,7 @@ export function ImageUploader({
         </div>
       ) : (
         // Preview State
-        <div className="relative group rounded-lg overflow-hidden border border-gray-200 bg-gray-50 aspect-video w-full max-w-[300px]">
+        <div className="relative group rounded-lg overflow-hidden border border-gray-200 bg-canvas aspect-video w-full max-w-[300px]">
           <Image src={value} alt="Preview" fill className="object-cover" />
 
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">

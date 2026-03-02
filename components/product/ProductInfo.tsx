@@ -56,10 +56,10 @@ export function ProductInfo({ product }: { product: Product }) {
                      <span>SKU</span>
                      <span className="text-primary font-bold">{activeSku}</span>
                   </span>
-                  <div className="w-[1px] h-3 bg-gray-100" />
+                  <div className="w-[1px] h-3 bg-canvas" />
                   <Link
                      href={`/category/${product.categories?.[0]?.slug}`}
-                     className="hover:text-accent-gold transition-colors text-secondary/60"
+                     className="hover:text-primary transition-colors text-secondary/60"
                   >
                      {product.categories?.[0]?.name}
                   </Link>
@@ -100,7 +100,7 @@ export function ProductInfo({ product }: { product: Product }) {
 
                   {/* Stock Quantity Display */}
                   {totalStock > 0 && product.stockStatus !== 'out_of_stock' && (
-                     <span className="text-[10px] text-secondary/40 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100 uppercase tracking-widest font-bold">
+                     <span className="text-[10px] text-secondary/40 bg-canvas px-2.5 py-1 rounded-full border border-gray-100 uppercase tracking-widest font-bold">
                         {totalStock} Available
                      </span>
                   )}
@@ -149,7 +149,7 @@ export function ProductInfo({ product }: { product: Product }) {
             <div className="flex flex-col gap-3 pt-4 pb-0 text-xs text-gray-600 px-6 lg:px-0">
 
                <div className="flex items-center gap-3">
-                  <ShieldCheck className="w-4 h-4 text-gray-400" strokeWidth={1.5} />
+                  <ShieldCheck className="w-4 h-4 text-primary/50" strokeWidth={1.5} />
                   <span>Authentic products guaranteed</span>
                </div>
             </div>

@@ -63,7 +63,7 @@ export default async function AdminDashboard() {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <span className="text-6xl font-serif">O</span>
           </div>
-          <h3 className="text-sm uppercase tracking-wide text-secondary mb-2">
+          <h3 className="text-sm uppercase tracking-wide text-primary/70 mb-2">
             Total Orders (30d)
           </h3>
           <p className="text-3xl font-bold">{stats.orders}</p>
@@ -72,7 +72,7 @@ export default async function AdminDashboard() {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <span className="text-6xl font-serif">R</span>
           </div>
-          <h3 className="text-sm uppercase tracking-wide text-secondary mb-2">
+          <h3 className="text-sm uppercase tracking-wide text-primary/70 mb-2">
             Total Revenue (30d)
           </h3>
           <p className="text-3xl font-bold">
@@ -83,16 +83,16 @@ export default async function AdminDashboard() {
           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
             <span className="text-6xl font-serif">P</span>
           </div>
-          <h3 className="text-sm uppercase tracking-wide text-secondary mb-2">
+          <h3 className="text-sm uppercase tracking-wide text-primary/70 mb-2">
             Active Products
           </h3>
           <p className="text-3xl font-bold">{stats.products}</p>
-          <span className="text-xs text-secondary">In stock inventory</span>
+          <span className="text-xs text-primary/70">In stock inventory</span>
         </div>
       </div>
 
       <div className="bg-white p-8 rounded-lg border border-gray-100 shadow-sm flex flex-col items-center justify-center text-center min-h-[300px]">
-        <p className="text-secondary mb-4">
+        <p className="text-primary/70 mb-4">
           You are ready to start managing your store.
         </p>
         <div className="flex gap-4">

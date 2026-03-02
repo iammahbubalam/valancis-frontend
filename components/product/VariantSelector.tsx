@@ -91,7 +91,7 @@ export function VariantSelector({ variants, selectedVariantId, onSelect }: Varia
 
         return (
           <div key={key} className="space-y-3">
-            <div className="flex justify-between items-center text-xs uppercase tracking-widest text-gray-500 font-medium">
+            <div className="flex justify-between items-center text-xs uppercase tracking-widest text-primary/60 font-medium">
               <span>{key}: <span className="text-black font-bold ml-1">{selections[key]}</span></span>
             </div>
 
@@ -150,7 +150,7 @@ export function VariantSelector({ variants, selectedVariantId, onSelect }: Varia
                       isSelected
                         ? "border-black bg-black text-white"
                         : "text-gray-900 hover:border-black bg-white",
-                      !isAvailable && "opacity-50 text-gray-300 border-gray-100 bg-gray-50 cursor-not-allowed decorated-through"
+                      !isAvailable && "opacity-50 text-gray-300 border-gray-100 bg-canvas cursor-not-allowed decorated-through"
                     )}
                   >
                     {value}

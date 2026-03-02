@@ -129,14 +129,14 @@ export function AnnouncementEditor({ onClose }: AnnouncementEditorProps) {
             </div>
             <div>
               <h2 className="text-xl font-serif font-bold">Announcement Bar</h2>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-primary/60">
                 Configure the site-wide announcement banner
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 hover:bg-canvas rounded-lg transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -146,7 +146,7 @@ export function AnnouncementEditor({ onClose }: AnnouncementEditorProps) {
         <div className="p-6 space-y-6">
           {/* Live Preview */}
           <div className="rounded-lg overflow-hidden border border-gray-200">
-            <div className="text-xs font-medium text-gray-500 px-3 py-2 bg-gray-50 border-b border-gray-200">
+            <div className="text-xs font-medium text-primary/60 px-3 py-2 bg-canvas border-b border-gray-200">
               Live Preview
             </div>
             <div
@@ -166,10 +166,10 @@ export function AnnouncementEditor({ onClose }: AnnouncementEditorProps) {
           </div>
 
           {/* Active Toggle */}
-          <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-canvas rounded-lg">
             <div>
               <h4 className="font-medium text-gray-900">Show Announcement</h4>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-primary/60">
                 Toggle the announcement bar visibility
               </p>
             </div>
@@ -182,7 +182,7 @@ export function AnnouncementEditor({ onClose }: AnnouncementEditorProps) {
                 }
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+              <div className="w-11 h-6 bg-accent-subtle peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
             </label>
           </div>
 
@@ -232,7 +232,7 @@ export function AnnouncementEditor({ onClose }: AnnouncementEditorProps) {
                   placeholder="/shop"
                   className="w-full px-4 py-2.5 pr-10 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                 />
-                <ExternalLink className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <ExternalLink className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary/50" />
               </div>
             </div>
           </div>

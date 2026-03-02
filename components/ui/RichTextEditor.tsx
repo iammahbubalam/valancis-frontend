@@ -15,8 +15,8 @@ const RichTextEditorInner = dynamic<RichTextEditorInnerProps>(
     ssr: false,
     loading: () => (
       <div className="border border-gray-200 rounded-lg overflow-hidden bg-white animate-pulse">
-        <div className="h-10 bg-gray-50 border-b border-gray-100" />
-        <div className="h-40 bg-gray-50" />
+        <div className="h-10 bg-canvas border-b border-gray-100" />
+        <div className="h-40 bg-canvas" />
       </div>
     ),
   }

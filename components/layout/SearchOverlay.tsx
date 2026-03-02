@@ -99,7 +99,7 @@ export function SearchOverlay({
                     className="flex-1 bg-transparent text-xl md:text-2xl font-light placeholder:text-primary/30 focus:outline-none text-primary"
                   />
                   {isLoading ? (
-                    <Loader2 className="w-5 h-5 animate-spin text-accent-gold flex-shrink-0" />
+                    <Loader2 className="w-5 h-5 animate-spin text-primary flex-shrink-0" />
                   ) : (
                     <button
                       onClick={onClose}
@@ -132,7 +132,7 @@ export function SearchOverlay({
                               className="flex items-center gap-4 p-3 rounded-xl hover:bg-black/5 transition-all group cursor-pointer"
                             >
                               {/* Thumbnail */}
-                              <div className="relative w-16 h-20 rounded-lg overflow-hidden bg-main-secondary flex-shrink-0">
+                              <div className="relative w-16 h-20 rounded-lg overflow-hidden bg-accent-subtle flex-shrink-0">
                                 <Image
                                   src={
                                     product.images?.[0] || "/placeholder.jpg"
@@ -145,7 +145,7 @@ export function SearchOverlay({
 
                               {/* Info */}
                               <div className="flex-1 min-w-0">
-                                <h4 className="font-serif text-lg text-primary group-hover:text-accent-gold transition-colors truncate">
+                                <h4 className="font-serif text-lg text-primary group-hover:text-primary transition-colors truncate">
                                   {product.name}
                                 </h4>
                                 <p className="text-sm text-primary/50 truncate">
@@ -187,7 +187,7 @@ export function SearchOverlay({
                           <button
                             key={tag}
                             onClick={() => setQuery(tag)}
-                            className="px-4 py-2 text-xs uppercase tracking-wide border border-primary/10 rounded-full hover:bg-primary hover:text-white transition-all cursor-pointer"
+                            className="px-4 py-2 text-xs uppercase tracking-wide border border-accent-subtle rounded-full hover:bg-primary hover:text-white transition-all cursor-pointer"
                           >
                             {tag}
                           </button>

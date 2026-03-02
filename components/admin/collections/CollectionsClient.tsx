@@ -119,7 +119,7 @@ export default function CollectionsClient({
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 pb-6">
         <div>
           <h1 className="text-3xl font-serif text-primary">Collections</h1>
-          <p className="text-gray-500 mt-1">
+          <p className="text-primary/60 mt-1">
             Curate and manage your product compilations.
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function CollectionsClient({
             className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full"
           >
             {/* Image Area */}
-            <div className="relative aspect-[16/9] bg-gray-50 overflow-hidden">
+            <div className="relative aspect-[16/9] bg-canvas overflow-hidden">
               {collection.image ? (
                 <Image
                   src={collection.image}
@@ -186,7 +186,7 @@ export default function CollectionsClient({
                   disabled={toggleMutation.isPending}
                   className={`px-3 py-1 text-[10px] uppercase font-bold tracking-wider rounded-full shadow-sm backdrop-blur transition-all duration-200 hover:scale-105 ${collection.isActive
                     ? "bg-green-500/90 text-white hover:bg-green-600"
-                    : "bg-gray-500/90 text-white hover:bg-gray-600"
+                    : "bg-canvas0/90 text-white hover:bg-gray-600"
                     } ${toggleMutation.isPending ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   {collection.isActive ? "Active" : "Draft"}
@@ -200,7 +200,7 @@ export default function CollectionsClient({
                 <h3 className="text-xl font-serif text-primary mb-2 line-clamp-1">
                   {collection.title}
                 </h3>
-                <p className="text-sm text-gray-500 line-clamp-2 leading-relaxed h-10">
+                <p className="text-sm text-primary/60 line-clamp-2 leading-relaxed h-10">
                   {collection.description || (
                     <span className="italic text-gray-300">
                       No description provided
@@ -210,7 +210,7 @@ export default function CollectionsClient({
               </div>
 
               <div className="mt-6 pt-4 border-t border-gray-50 flex items-center justify-between text-sm">
-                <div className="flex items-center gap-1.5 text-secondary">
+                <div className="flex items-center gap-1.5 text-primary/70">
                   <ShoppingBag className="w-4 h-4" />
                   <span className="font-medium">
                     {collection.products?.length || 0}
@@ -233,9 +233,9 @@ export default function CollectionsClient({
         {initialCollections.length === 0 && (
           <button
             onClick={handleCreate}
-            className="group border-2 border-dashed border-gray-200 rounded-xl p-8 flex flex-col items-center justify-center gap-4 text-gray-400 hover:border-primary hover:text-primary hover:bg-gray-50 transition-all min-h-[300px]"
+            className="group border-2 border-dashed border-gray-200 rounded-xl p-8 flex flex-col items-center justify-center gap-4 text-primary/50 hover:border-primary hover:text-primary hover:bg-canvas transition-all min-h-[300px]"
           >
-            <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div className="w-16 h-16 rounded-full bg-canvas flex items-center justify-center group-hover:scale-110 transition-transform">
               <Plus className="w-8 h-8" />
             </div>
             <span className="font-serif text-lg">Create First Collection</span>

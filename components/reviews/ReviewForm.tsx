@@ -22,8 +22,8 @@ export default function ReviewForm({ productId, onSuccess }: ReviewFormProps) {
 
   if (!isAuthenticated) {
     return (
-      <div className="bg-gray-50 p-6 rounded-lg text-center">
-        <p className="text-secondary mb-2">Please log in to write a review.</p>
+      <div className="bg-canvas p-6 rounded-lg text-center">
+        <p className="text-primary/70 mb-2">Please log in to write a review.</p>
         <a
           href="/login?redirect=back"
           className="text-primary font-bold underline"
@@ -74,7 +74,7 @@ export default function ReviewForm({ productId, onSuccess }: ReviewFormProps) {
       <h3 className="font-bold mb-4">Write a Review</h3>
 
       <div className="mb-4">
-        <label className="block text-xs font-bold uppercase tracking-wider text-secondary mb-2">
+        <label className="block text-xs font-bold uppercase tracking-wider text-primary/70 mb-2">
           Rating
         </label>
         <div className="flex gap-1">
@@ -100,7 +100,7 @@ export default function ReviewForm({ productId, onSuccess }: ReviewFormProps) {
       </div>
 
       <div className="mb-4">
-        <label className="block text-xs font-bold uppercase tracking-wider text-secondary mb-2">
+        <label className="block text-xs font-bold uppercase tracking-wider text-primary/70 mb-2">
           Comment
         </label>
         <textarea

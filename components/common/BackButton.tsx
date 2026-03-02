@@ -9,7 +9,7 @@ export function BackButton() {
     return (
         <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 text-gray-500 hover:text-black transition-colors text-[10px] uppercase tracking-widest font-medium group"
+            className="inline-flex items-center gap-2 text-primary/60 hover:text-black transition-colors text-[10px] uppercase tracking-widest font-medium group"
         >
             <ArrowLeft className="w-3 h-3 group-hover:-translate-x-1 transition-transform" />
             Back to Collection

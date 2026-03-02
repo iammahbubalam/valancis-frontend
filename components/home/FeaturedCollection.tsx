@@ -10,13 +10,13 @@ export function FeaturedCollection({ products }: { products: Product[] }) {
   if (!products || products.length === 0) return null;
 
   return (
-    <section className="py-24 md:py-32 bg-main">
+    <section className="py-24 md:py-32 bg-canvas">
       {/* Container */}
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
           <div>
-            <span className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-4 block">
+            <span className="text-xs uppercase tracking-[0.3em] text-primary mb-4 block">
               Featured
             </span>
             <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-primary leading-tight">
@@ -48,7 +48,7 @@ export function FeaturedCollection({ products }: { products: Product[] }) {
                 className="group block cursor-pointer"
               >
                 {/* Image Container */}
-                <div className="relative aspect-[3/4] mb-4 overflow-hidden bg-main-secondary">
+                <div className="relative aspect-[3/4] mb-4 overflow-hidden bg-accent-subtle">
                   <Image
                     src={product.images?.[0] || "/placeholder.jpg"}
                     alt={product.name}
@@ -69,7 +69,7 @@ export function FeaturedCollection({ products }: { products: Product[] }) {
 
                 {/* Product Info */}
                 <div className="space-y-1">
-                  <h3 className="font-serif text-base md:text-lg text-primary group-hover:text-accent-gold transition-colors line-clamp-1">
+                  <h3 className="font-serif text-base md:text-lg text-primary group-hover:text-primary transition-colors line-clamp-1">
                     {product.name}
                   </h3>
                   <p className="text-xs text-primary/50 uppercase tracking-wider">
@@ -88,7 +88,7 @@ export function FeaturedCollection({ products }: { products: Product[] }) {
         <div className="mt-12 text-center md:hidden">
           <Link
             href="/shop"
-            className="inline-block px-8 py-3 border border-primary/20 text-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all cursor-pointer"
+            className="inline-block px-8 py-3 border border-accent-subtle text-sm uppercase tracking-widest hover:bg-primary hover:text-white transition-all cursor-pointer"
           >
             Shop All Products
           </Link>

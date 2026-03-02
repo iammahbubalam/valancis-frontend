@@ -21,7 +21,7 @@ export function RevenueChartInner({ data }: RevenueChartInnerProps) {
     if (!data || data.length === 0) {
         return (
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 mb-8">
-                <p className="text-center text-gray-500 dark:text-gray-400 py-20">
+                <p className="text-center text-primary/60 dark:text-primary/50 py-20">
                     No revenue data available for selected period
                 </p>
             </div>
@@ -49,11 +49,11 @@ export function RevenueChartInner({ data }: RevenueChartInnerProps) {
                     />
                     <XAxis
                         dataKey="date"
-                        className="text-xs text-gray-600 dark:text-gray-400"
+                        className="text-xs text-gray-600 dark:text-primary/50"
                         tick={{ fill: "currentColor" }}
                     />
                     <YAxis
-                        className="text-xs text-gray-600 dark:text-gray-400"
+                        className="text-xs text-gray-600 dark:text-primary/50"
                         tick={{ fill: "currentColor" }}
                         tickFormatter={(value) => `৳${(value / 1000).toFixed(0)}k`}
                     />

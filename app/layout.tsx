@@ -1,36 +1,23 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope, Pinyon_Script } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+});
 import { Suspense } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { IntroProvider } from "@/context/IntroContext";
 import { IntroOverlay } from "@/components/layout/IntroOverlay";
-
-// Force dynamic rendering to prevent static build errors with no-store fetches
-// Force dynamic rendering removed to enable Static Site Generation (SSG)
-// export const dynamic = "force-dynamic";
-
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["200", "300", "400", "500", "600", "700"],
-});
-
-const pinyon = Pinyon_Script({
-  variable: "--font-pinyon",
-  subsets: ["latin"],
-  weight: "400",
-  display: "swap",
-});
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getSiteConfig();
@@ -96,7 +83,7 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${cormorant.variable} ${manrope.variable} ${pinyon.variable} antialiased bg-main text-primary flex flex-col min-h-screen`}
+        className={`${inter.variable} ${playfair.variable} antialiased bg-canvas text-primary flex flex-col min-h-screen`}
         suppressHydrationWarning
       >
         <Suspense fallback={null}>

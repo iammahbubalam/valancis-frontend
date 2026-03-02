@@ -11,7 +11,7 @@ export function CategoryBreadcrumbs({ breadcrumbs }: CategoryBreadcrumbsProps) {
     <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm">
       <Link 
         href="/" 
-        className="text-gray-500 hover:text-primary transition-colors flex items-center gap-1"
+        className="text-primary/60 hover:text-primary transition-colors flex items-center gap-1"
       >
         <Home className="w-4 h-4" />
         <span className="sr-only">Home</span>
@@ -25,7 +25,7 @@ export function CategoryBreadcrumbs({ breadcrumbs }: CategoryBreadcrumbsProps) {
           ) : (
             <Link 
               href={crumb.href}
-              className="text-gray-500 hover:text-primary transition-colors"
+              className="text-primary/60 hover:text-primary transition-colors"
             >
               {crumb.name}
             </Link>

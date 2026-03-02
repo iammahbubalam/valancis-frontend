@@ -57,7 +57,7 @@ export function CategorySidebar({
           {hasActiveFilters && (
             <button
               onClick={handleClearFilters}
-              className="text-xs text-gray-500 hover:text-primary transition-colors flex items-center gap-1"
+              className="text-xs text-primary/60 hover:text-primary transition-colors flex items-center gap-1"
             >
               <X className="w-3 h-3" />
               Clear
@@ -81,7 +81,7 @@ export function CategorySidebar({
                 className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                 placeholder="Min"
               />
-              <span className="text-gray-400">-</span>
+              <span className="text-primary/50">-</span>
               <input
                 type="number"
                 value={priceRange.max}

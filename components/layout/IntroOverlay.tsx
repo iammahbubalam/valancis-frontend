@@ -47,7 +47,7 @@ export function IntroOverlay() {
            
            {/* Subtle Subtext */}
            <motion.div 
-             className="absolute bottom-12 text-accent-gold text-xs uppercase tracking-[0.3em]"
+             className="absolute bottom-12 text-primary text-xs uppercase tracking-[0.3em]"
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              exit={{ opacity: 0 }}

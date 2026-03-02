@@ -68,7 +68,7 @@ export default function OrderDataTable() {
                     <input
                         type="text"
                         placeholder="Search orders..."
-                        className="pl-9 pr-4 py-2 border border-primary/10 rounded-lg focus:outline-none focus:border-primary/30 w-64"
+                        className="pl-9 pr-4 py-2 border border-accent-subtle rounded-lg focus:outline-none focus:border-primary/30 w-64"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
@@ -76,14 +76,14 @@ export default function OrderDataTable() {
             </div>
 
             {/* Tabs list */}
-            <div className="border-b border-primary/10 flex gap-6 overflow-x-auto pb-px">
+            <div className="border-b border-accent-subtle flex gap-6 overflow-x-auto pb-px">
                 {TABS.map(tab => (
                     <button
                         key={tab.id}
                         onClick={() => { setActiveTab(tab.id); setPage(1); }}
                         className={`pb-3 text-sm font-medium transition-colors whitespace-nowrap relative ${activeTab === tab.id
                             ? "text-primary border-b-2 border-primary"
-                            : "text-secondary hover:text-primary/70 border-b-2 border-transparent"
+                            : "text-primary/70 hover:text-primary/70 border-b-2 border-transparent"
                             }`}
                     >
                         {tab.label}
@@ -92,15 +92,15 @@ export default function OrderDataTable() {
             </div>
 
             {/* Table */}
-            <div className="bg-white border border-primary/5 rounded-lg shadow-sm overflow-hidden">
+            <div className="bg-white border border-accent-subtle rounded-lg shadow-sm overflow-hidden">
                 {isLoading ? (
-                    <div className="p-12 text-center text-secondary">Loading orders...</div>
+                    <div className="p-12 text-center text-primary/70">Loading orders...</div>
                 ) : error ? (
                     <div className="p-12 text-center text-red-500">Failed to load orders</div>
                 ) : (
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm text-left">
-                            <thead className="bg-gray-50 text-secondary border-b border-primary/5">
+                            <thead className="bg-canvas text-primary/70 border-b border-accent-subtle">
                                 <tr>
                                     <th className="px-6 py-4 font-medium">Order ID</th>
                                     <th className="px-6 py-4 font-medium">Customer</th>
@@ -113,7 +113,7 @@ export default function OrderDataTable() {
                             </thead>
                             <tbody className="divide-y divide-primary/5">
                                 {data?.orders.map((order: Order) => (
-                                    <tr key={order.id} className="hover:bg-gray-50/50 transition-colors">
+                                    <tr key={order.id} className="hover:bg-canvas/50 transition-colors">
                                         <td className="px-6 py-4 font-medium text-primary">
                                             #{order.id.slice(0, 8)}
                                             {order.isPreOrder && (
@@ -127,10 +127,10 @@ export default function OrderDataTable() {
                                                 <span className="text-primary font-medium">
                                                     {order.user?.firstName || "Guest"} {order.user?.lastName}
                                                 </span>
-                                                <span className="text-xs text-secondary">{order.user?.email}</span>
+                                                <span className="text-xs text-primary/70">{order.user?.email}</span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 text-secondary">
+                                        <td className="px-6 py-4 text-primary/70">
                                             {format(new Date(order.createdAt), "MMM d, yyyy")}
                                         </td>
                                         <td className="px-6 py-4 font-medium">
@@ -160,7 +160,7 @@ export default function OrderDataTable() {
                                                 )}
 
                                                 <Link href={`/admin/orders/${order.id}`}>
-                                                    <button className="p-1.5 text-secondary hover:bg-gray-100 rounded">
+                                                    <button className="p-1.5 text-primary/70 hover:bg-canvas rounded">
                                                         <Eye className="w-4 h-4" />
                                                     </button>
                                                 </Link>
@@ -170,7 +170,7 @@ export default function OrderDataTable() {
                                 ))}
                                 {data?.orders.length === 0 && (
                                     <tr>
-                                        <td colSpan={7} className="px-6 py-12 text-center text-secondary">
+                                        <td colSpan={7} className="px-6 py-12 text-center text-primary/70">
                                             No orders found.
                                         </td>
                                     </tr>
@@ -182,8 +182,8 @@ export default function OrderDataTable() {
 
                 {/* Pagination */}
                 {data && (
-                    <div className="px-6 py-4 border-t border-primary/5 flex justify-between items-center">
-                        <span className="text-xs text-secondary">
+                    <div className="px-6 py-4 border-t border-accent-subtle flex justify-between items-center">
+                        <span className="text-xs text-primary/70">
                             Showing {(data.page - 1) * data.limit + 1} to {Math.min(data.page * data.limit, data.total)} of {data.total}
                         </span>
                         <div className="flex gap-2">
@@ -218,14 +218,14 @@ function StatusBadge({ status }: { status: string }) {
         delivered: "bg-green-50 text-green-700 border-green-100",
         paid: "bg-emerald-50 text-emerald-700 border-emerald-100", // Added Paid
         returned: "bg-indigo-50 text-indigo-700 border-indigo-100", // Added Returned
-        fake: "bg-gray-100 text-gray-700 border-gray-200", // Added Fake
+        fake: "bg-canvas text-gray-700 border-gray-200", // Added Fake
         cancelled: "bg-red-50 text-red-700 border-red-100",
-        refunded: "bg-gray-100 text-gray-700 border-gray-200",
+        refunded: "bg-canvas text-gray-700 border-gray-200",
     };
 
     const label = status.replace("_", " ");
     return (
-        <span className={`px-2 py-1 rounded-full text-xs font-medium border capitalize ${styles[status] || "bg-gray-50 text-gray-600"}`}>
+        <span className={`px-2 py-1 rounded-full text-xs font-medium border capitalize ${styles[status] || "bg-canvas text-gray-600"}`}>
             {label}
         </span>
     );
@@ -236,7 +236,7 @@ function PaymentStatusBadge({ status, method, isPreOrder }: { status: string, me
         return (
             <div className="flex flex-col items-start gap-0.5">
                 <span className="text-xs font-bold text-primary">Partial Paid</span>
-                <span className="text-[10px] text-secondary uppercase tracking-wider">{method}</span>
+                <span className="text-[10px] text-primary/70 uppercase tracking-wider">{method}</span>
             </div>
         )
     }
@@ -245,7 +245,7 @@ function PaymentStatusBadge({ status, method, isPreOrder }: { status: string, me
             <span className={`text-xs font-medium capitalize ${status === 'paid' ? 'text-green-600' : 'text-orange-600'}`}>
                 {status.replace("_", " ")}
             </span>
-            <span className="text-[10px] text-secondary uppercase tracking-wider">{method}</span>
+            <span className="text-[10px] text-primary/70 uppercase tracking-wider">{method}</span>
         </div>
     )
 }

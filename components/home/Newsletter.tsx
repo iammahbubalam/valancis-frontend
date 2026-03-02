@@ -32,7 +32,7 @@ export function Newsletter() {
   };
 
   return (
-    <Section className="bg-[#f2f0eb] border-t border-primary/5 py-0 md:py-0"> 
+    <Section className="bg-[#f2f0eb] border-t border-accent-subtle py-0 md:py-0"> 
     {/* Setting py-0 to allow full height image split */}
       <div className="flex flex-col md:flex-row h-auto md:h-[600px] w-full">
          
@@ -57,10 +57,10 @@ export function Newsletter() {
              />
 
              <div className="w-full max-w-md relative z-10">
-                <span className="text-xs uppercase tracking-[0.3em] text-accent-gold mb-6 block">The Inner Circle</span>
+                <span className="text-xs uppercase tracking-[0.3em] text-primary mb-6 block">The Inner Circle</span>
                 <h2 className="font-serif text-4xl md:text-5xl text-primary mb-6 leading-tight">
                   Join the list for <br/> 
-                  <span className="italic text-secondary">exclusive access.</span>
+                  <span className="italic text-primary/70">exclusive access.</span>
                 </h2>
                 <p className="text-secondary/80 font-light mb-10 leading-relaxed">
                    Be the first to know about new arrivals, private sales, and stories from the atelier.
@@ -79,12 +79,12 @@ export function Newsletter() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           disabled={status === "loading"}
-                          className="w-full bg-transparent border-b border-primary/20 py-4 text-left text-lg outline-none placeholder:text-primary/30 focus:border-primary transition-colors text-primary pl-2 disabled:opacity-50"
+                          className="w-full bg-transparent border-b border-accent-subtle py-4 text-left text-lg outline-none placeholder:text-primary/30 focus:border-primary transition-colors text-primary pl-2 disabled:opacity-50"
                         />
                         <button 
                           type="submit"
                           disabled={status === "loading"}
-                          className="absolute right-0 top-1/2 -translate-y-1/2 text-xs uppercase tracking-widest text-primary opacity-50 hover:opacity-100 hover:text-accent-gold transition-all disabled:opacity-30"
+                          className="absolute right-0 top-1/2 -translate-y-1/2 text-xs uppercase tracking-widest text-primary opacity-50 hover:opacity-100 hover:text-primary transition-all disabled:opacity-30"
                         >
                           {status === "loading" ? "Subscribing..." : "Subscribe"}
                         </button>

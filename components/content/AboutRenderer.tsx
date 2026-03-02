@@ -40,7 +40,7 @@ export function AboutRenderer({ data }: { data: AboutPage | null }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-block text-accent-gold text-xs md:text-sm font-semibold uppercase tracking-[0.3em] mb-4"
+            className="inline-block text-primary text-xs md:text-sm font-semibold uppercase tracking-[0.3em] mb-4"
           >
             {data.hero.subtitle}
           </motion.span>
@@ -126,7 +126,7 @@ function StatsItem({
       <div className="text-4xl md:text-6xl font-serif text-neutral-900 mb-3 group-hover:text-primary transition-colors duration-300">
         {item.value}
       </div>
-      <div className="h-px w-8 bg-accent-gold mx-auto mb-4 opacity-50 group-hover:w-16 transition-all duration-300" />
+      <div className="h-px w-8 bg-primary mx-auto mb-4 opacity-50 group-hover:w-16 transition-all duration-300" />
       <div className="text-xs md:text-sm uppercase tracking-[0.2em] text-neutral-500 font-medium">
         {item.label}
       </div>

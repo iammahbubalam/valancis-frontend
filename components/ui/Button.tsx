@@ -45,7 +45,7 @@ export function Button({
 
         // Primary: Solid Dark -> Solid Gold
         variant === "primary" &&
-          "bg-primary text-white hover:bg-accent-gold hover:text-white",
+          "bg-primary text-white hover:bg-primary hover:text-white",
 
         // Secondary: Outline Dark -> Solid Dark
         variant === "secondary" &&
@@ -65,11 +65,11 @@ export function Button({
 
         // Ghost: Transparent -> Light Gray
         variant === "ghost" &&
-          "bg-transparent border-transparent text-gray-500 hover:bg-gray-100 hover:text-primary shadow-none px-2",
+          "bg-transparent border-transparent text-primary/60 hover:bg-canvas hover:text-primary shadow-none px-2",
 
         // Link: Text Only
         variant === "link" &&
-          "bg-transparent border-transparent text-primary underline underline-offset-4 hover:text-accent-gold shadow-none px-0",
+          "bg-transparent border-transparent text-primary underline underline-offset-4 hover:text-primary shadow-none px-0",
 
         // Destructive
         variant === "destructive" &&

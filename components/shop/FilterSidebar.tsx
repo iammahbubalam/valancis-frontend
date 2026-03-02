@@ -85,14 +85,14 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
         <div className="flex flex-wrap items-end gap-6">
           {/* Sort By */}
           <div className="flex flex-col gap-2">
-            <label className="text-[11px] font-bold uppercase tracking-widest text-gray-500">
+            <label className="text-[11px] font-bold uppercase tracking-widest text-primary/60">
               Sort By
             </label>
             <div className="relative">
               <select
                 value={currentSort}
                 onChange={(e) => pushFilter({ sort: e.target.value })}
-                className="appearance-none bg-gray-50 border border-gray-200 hover:border-gray-400 px-4 py-2.5 pr-10 text-sm cursor-pointer focus:outline-none focus:border-black transition-colors min-w-[160px]"
+                className="appearance-none bg-canvas border border-gray-200 hover:border-gray-400 px-4 py-2.5 pr-10 text-sm cursor-pointer focus:outline-none focus:border-black transition-colors min-w-[160px]"
               >
                 <option value="newest">Newest First</option>
                 <option value="price_asc">Price: Low → High</option>
@@ -101,14 +101,14 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
               </select>
               <ChevronDown
                 size={14}
-                className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"
+                className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary/50"
               />
             </div>
           </div>
 
           {/* Category */}
           <div className="flex flex-col gap-2">
-            <label className="text-[11px] font-bold uppercase tracking-widest text-gray-500">
+            <label className="text-[11px] font-bold uppercase tracking-widest text-primary/60">
               Category
             </label>
             <div className="relative">
@@ -117,7 +117,7 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
                 onChange={(e) => {
                   if (e.target.value) pushFilter({ category: e.target.value });
                 }}
-                className="appearance-none bg-gray-50 border border-gray-200 hover:border-gray-400 px-4 py-2.5 pr-10 text-sm cursor-pointer focus:outline-none focus:border-black transition-colors min-w-[160px]"
+                className="appearance-none bg-canvas border border-gray-200 hover:border-gray-400 px-4 py-2.5 pr-10 text-sm cursor-pointer focus:outline-none focus:border-black transition-colors min-w-[160px]"
               >
                 <option value="">Select Category</option>
                 {categories.map((cat) => (
@@ -132,14 +132,14 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
               </select>
               <ChevronDown
                 size={14}
-                className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400"
+                className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary/50"
               />
             </div>
           </div>
 
           {/* Price Range */}
           <div className="flex flex-col gap-2">
-            <label className="text-[11px] font-bold uppercase tracking-widest text-gray-500">
+            <label className="text-[11px] font-bold uppercase tracking-widest text-primary/60">
               Price Range (৳)
             </label>
             <div className="flex items-center gap-2">
@@ -148,15 +148,15 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
                 placeholder="Min"
                 value={minPrice}
                 onChange={(e) => setMinPrice(e.target.value)}
-                className="w-20 bg-gray-50 border border-gray-200 hover:border-gray-400 px-3 py-2.5 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-gray-400"
+                className="w-20 bg-canvas border border-gray-200 hover:border-gray-400 px-3 py-2.5 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-primary/50"
               />
-              <span className="text-gray-400">—</span>
+              <span className="text-primary/50">—</span>
               <input
                 type="number"
                 placeholder="Max"
                 value={maxPrice}
                 onChange={(e) => setMaxPrice(e.target.value)}
-                className="w-20 bg-gray-50 border border-gray-200 hover:border-gray-400 px-3 py-2.5 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-gray-400"
+                className="w-20 bg-canvas border border-gray-200 hover:border-gray-400 px-3 py-2.5 text-sm focus:outline-none focus:border-black transition-colors placeholder:text-primary/50"
               />
               <button
                 onClick={applyPrice}
@@ -169,10 +169,10 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
 
           {/* View Toggle */}
           <div className="flex flex-col gap-2 ml-auto pl-6 border-l border-gray-100">
-            <label className="text-[11px] font-bold uppercase tracking-widest text-gray-500">
+            <label className="text-[11px] font-bold uppercase tracking-widest text-primary/60">
               View
             </label>
-            <div className="flex items-center gap-1 bg-gray-50 p-1 rounded-sm border border-gray-200">
+            <div className="flex items-center gap-1 bg-canvas p-1 rounded-sm border border-gray-200">
               <button
                 onClick={() => pushFilter({ view: "grid" })}
                 className={clsx(
@@ -180,7 +180,7 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
                   !searchParams.get("view") ||
                     searchParams.get("view") === "grid"
                     ? "bg-white shadow-sm text-black"
-                    : "text-gray-400 hover:text-black",
+                    : "text-primary/50 hover:text-black",
                 )}
                 title="Grid View"
               >
@@ -204,7 +204,7 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
                   "p-1.5 rounded-sm transition-all",
                   searchParams.get("view") === "lookbook"
                     ? "bg-white shadow-sm text-black"
-                    : "text-gray-400 hover:text-black",
+                    : "text-primary/50 hover:text-black",
                 )}
                 title="Lookbook View"
               >
@@ -240,7 +240,7 @@ export function FilterSidebar({ categories, className }: FilterSidebarProps) {
       {/* Active Filters Display */}
       {hasActiveFilters && (
         <div className="flex flex-wrap items-center gap-2 mt-4">
-          <span className="text-xs text-gray-500 font-medium">
+          <span className="text-xs text-primary/60 font-medium">
             Active Filters:
           </span>
 

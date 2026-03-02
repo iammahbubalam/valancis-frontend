@@ -37,11 +37,11 @@ const STATUS_COLORS: Record<string, string> = {
 
 export function OrderCard({ order }: OrderCardProps) {
   return (
-    <div className="bg-white border border-primary/10 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white border border-accent-subtle shadow-sm hover:shadow-md transition-shadow">
       {/* Header */}
-      <div className="flex justify-between items-start p-6 border-b border-primary/5">
+      <div className="flex justify-between items-start p-6 border-b border-accent-subtle">
         <div>
-          <p className="text-xs text-secondary uppercase tracking-widest">
+          <p className="text-xs text-primary/70 uppercase tracking-widest">
             Order #{order.id.slice(0, 8)}
           </p>
           <p className="text-sm mt-1">
@@ -54,7 +54,7 @@ export function OrderCard({ order }: OrderCardProps) {
         </div>
         <span
           className={`px-3 py-1 text-[10px] uppercase tracking-wider rounded-full ${
-            STATUS_COLORS[order.status] || "bg-gray-100 text-gray-800"
+            STATUS_COLORS[order.status] || "bg-canvas text-gray-800"
           }`}
         >
           {order.status}
@@ -67,7 +67,7 @@ export function OrderCard({ order }: OrderCardProps) {
           {order.items.slice(0, 4).map((item, idx) => (
             <div
               key={idx}
-              className="relative w-16 h-20 flex-shrink-0 bg-gray-50 rounded overflow-hidden"
+              className="relative w-16 h-20 flex-shrink-0 bg-canvas rounded overflow-hidden"
             >
               {item.product?.images?.[0] ? (
                 <Image
@@ -89,7 +89,7 @@ export function OrderCard({ order }: OrderCardProps) {
             </div>
           ))}
           {order.items.length > 4 && (
-            <div className="w-16 h-20 flex-shrink-0 bg-gray-100 rounded flex items-center justify-center text-xs text-secondary">
+            <div className="w-16 h-20 flex-shrink-0 bg-canvas rounded flex items-center justify-center text-xs text-primary/70">
               +{order.items.length - 4}
             </div>
           )}
@@ -97,8 +97,8 @@ export function OrderCard({ order }: OrderCardProps) {
       </div>
 
       {/* Footer */}
-      <div className="flex justify-between items-center p-4 bg-gray-50/50 border-t border-primary/5">
-        <span className="text-sm text-secondary">
+      <div className="flex justify-between items-center p-4 bg-canvas/50 border-t border-accent-subtle">
+        <span className="text-sm text-primary/70">
           {order.items.length} item{order.items.length !== 1 ? "s" : ""}
         </span>
         <span className="font-serif text-lg">

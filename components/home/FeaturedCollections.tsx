@@ -37,7 +37,7 @@ function FeaturedCollectionsContent({ collections }: FeaturedCollectionsProps) {
   return (
     <section
       ref={containerRef}
-      className="py-32 bg-main overflow-hidden relative border-t border-primary/5"
+      className="py-32 bg-canvas overflow-hidden relative border-t border-accent-subtle"
     >
       {/* Decorative Background Text (Parallax) */}
       <motion.div
@@ -53,7 +53,7 @@ function FeaturedCollectionsContent({ collections }: FeaturedCollectionsProps) {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 px-4 md:px-8">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.4em] text-accent-gold mb-6 block">
+            <span className="text-xs font-semibold uppercase tracking-[0.4em] text-primary mb-6 block">
               Curated Edits
             </span>
             <h2 className="font-serif text-5xl md:text-7xl text-primary leading-none">
@@ -64,7 +64,7 @@ function FeaturedCollectionsContent({ collections }: FeaturedCollectionsProps) {
           <div className="hidden md:block mb-2">
             <Link
               href="/collections"
-              className="group flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-primary hover:text-accent-gold transition-colors"
+              className="group flex items-center gap-3 text-sm uppercase tracking-[0.2em] text-primary hover:text-primary transition-colors"
             >
               View All
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -137,7 +137,7 @@ function CollectionCard({
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
-            className="font-serif text-3xl md:text-5xl text-primary leading-none mb-3 group-hover:text-accent-gold transition-colors"
+            className="font-serif text-3xl md:text-5xl text-primary leading-none mb-3 group-hover:text-primary transition-colors"
           >
             {collection.title}
           </motion.h3>

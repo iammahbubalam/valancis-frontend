@@ -18,7 +18,7 @@ export default async function CollectionsPage() {
       <Container>
         {/* Editorial Header */}
         <div className="text-center max-w-3xl mx-auto mb-32 space-y-6">
-          <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent-gold">
+          <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary">
             Editorial
           </span>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif text-primary leading-[0.9]">
@@ -44,7 +44,7 @@ export default async function CollectionsPage() {
               <Link
                 href={`/collection/${collection.slug}`}
                 className={clsx(
-                  "relative block aspect-[3/4] lg:aspect-[4/5] overflow-hidden bg-gray-100 lg:col-span-7",
+                  "relative block aspect-[3/4] lg:aspect-[4/5] overflow-hidden bg-canvas lg:col-span-7",
                   index % 2 === 1 ? "lg:order-last" : "lg:order-first",
                 )}
               >
@@ -57,7 +57,7 @@ export default async function CollectionsPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 50vw"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-full text-gray-200 font-serif text-6xl bg-gray-50">
+                  <div className="flex items-center justify-center h-full text-gray-200 font-serif text-6xl bg-canvas">
                     {collection.title[0]}
                   </div>
                 )}
@@ -77,21 +77,21 @@ export default async function CollectionsPage() {
                   <span className="text-xs font-bold uppercase tracking-[0.2em] text-secondary/40 block">
                     Collection {2024 + index}
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-serif text-primary leading-tight group-hover:text-accent-gold transition-colors duration-300">
+                  <h2 className="text-4xl md:text-5xl font-serif text-primary leading-tight group-hover:text-primary transition-colors duration-300">
                     <Link href={`/collection/${collection.slug}`}>
                       {collection.title}
                     </Link>
                   </h2>
-                  <p className="text-secondary font-light leading-relaxed text-lg max-w-sm mx-auto lg:mx-0">
+                  <p className="text-primary/70 font-light leading-relaxed text-lg max-w-sm mx-auto lg:mx-0">
                     {collection.description}
                   </p>
                 </div>
 
                 <Link
                   href={`/collection/${collection.slug}`}
-                  className="inline-flex items-center gap-4 text-xs uppercase tracking-widest text-primary hover:text-accent-gold transition-all group/btn"
+                  className="inline-flex items-center gap-4 text-xs uppercase tracking-widest text-primary hover:text-primary transition-all group/btn"
                 >
-                  <span className="border-b border-primary/30 pb-1 group-hover/btn:border-accent-gold transition-colors">
+                  <span className="border-b border-primary/30 pb-1 group-hover/btn:border-primary transition-colors">
                     Explore Configuration
                   </span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
@@ -102,7 +102,7 @@ export default async function CollectionsPage() {
 
           {collections.length === 0 && (
             <div className="py-20 text-center border-t border-gray-100">
-              <p className="text-secondary text-lg">No collections found.</p>
+              <p className="text-primary/70 text-lg">No collections found.</p>
             </div>
           )}
         </div>

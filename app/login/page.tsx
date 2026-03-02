@@ -39,7 +39,7 @@ export default function LoginPage() {
             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
             className="text-center max-w-2xl text-white"
           >
-            <div className="h-[1px] w-24 bg-accent-gold mx-auto mb-10" />
+            <div className="h-[1px] w-24 bg-primary mx-auto mb-10" />
             <h2 className="font-serif text-[72px] leading-[1] mb-8 tracking-tight">
               Honoring the <br /> Art of Living
             </h2>
@@ -56,7 +56,7 @@ export default function LoginPage() {
         {/* Back Button */}
         <Link
           href="/"
-          className="absolute top-8 left-8 lg:top-12 lg:left-12 flex items-center gap-2 text-xs uppercase tracking-widest text-secondary hover:text-primary transition-colors group"
+          className="absolute top-8 left-8 lg:top-12 lg:left-12 flex items-center gap-2 text-xs uppercase tracking-widest text-primary/70 hover:text-primary transition-colors group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           Back to Home
@@ -74,7 +74,7 @@ export default function LoginPage() {
             <h1 className="font-serif text-4xl text-primary mb-3">
               Welcome Back
             </h1>
-            <p className="text-secondary text-sm">
+            <p className="text-primary/70 text-sm">
               Sign in to continue your journey with Valancis.
             </p>
           </motion.div>
@@ -87,7 +87,7 @@ export default function LoginPage() {
           >
             <Suspense
               fallback={
-                <div className="w-full py-4 text-center text-xs text-gray-400">
+                <div className="w-full py-4 text-center text-xs text-primary/50">
                   Loading...
                 </div>
               }
@@ -95,19 +95,19 @@ export default function LoginPage() {
               <GoogleButton />
             </Suspense>
 
-            <p className="text-[10px] text-gray-400 leading-relaxed max-w-[280px] mx-auto">
+            <p className="text-[10px] text-primary/50 leading-relaxed max-w-[280px] mx-auto">
               By clicking continue, you acknowledge that you have read and agree
               to our
               <a
                 href="#"
-                className="underline decoration-gray-300 hover:decoration-primary text-gray-500 mx-1"
+                className="underline decoration-gray-300 hover:decoration-primary text-primary/60 mx-1"
               >
                 Terms of Service
               </a>
               and
               <a
                 href="#"
-                className="underline decoration-gray-300 hover:decoration-primary text-gray-500 mx-1"
+                className="underline decoration-gray-300 hover:decoration-primary text-primary/60 mx-1"
               >
                 Privacy Policy
               </a>

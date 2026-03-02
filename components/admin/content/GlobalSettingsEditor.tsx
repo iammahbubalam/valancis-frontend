@@ -152,7 +152,7 @@ export function GlobalSettingsEditor({
       className={`flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
         activeTab === id
           ? "bg-primary text-white"
-          : "text-gray-600 hover:bg-gray-100"
+          : "text-gray-600 hover:bg-canvas"
       }`}
     >
       <Icon className="w-4 h-4" />
@@ -173,7 +173,7 @@ export function GlobalSettingsEditor({
       {/* Conditionally render header or embedded controls */}
       {isEmbedded ? (
         <div className="bg-white border border-gray-200 rounded-lg p-4 mb-6 flex justify-between items-center shadow-sm">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center gap-2 text-sm text-primary/60">
             <Globe className="w-4 h-4" />
             <span>Editing Live Configuration</span>
           </div>
@@ -190,7 +190,7 @@ export function GlobalSettingsEditor({
             </Button>
             <div>
               <h2 className="text-xl font-bold font-serif">Global Settings</h2>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-primary/60">
                 Site Identity & Configuration
               </p>
             </div>
@@ -216,7 +216,7 @@ export function GlobalSettingsEditor({
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 bg-gray-50 rounded-xl border border-gray-200 p-6 md:p-8">
+        <div className="flex-1 bg-canvas rounded-xl border border-gray-200 p-6 md:p-8">
           {activeTab === "branding" && (
             <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-300">
               <h3 className="text-lg font-bold text-gray-900 border-b pb-4 mb-6">
@@ -224,7 +224,7 @@ export function GlobalSettingsEditor({
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Site Name
                   </label>
                   <input
@@ -234,7 +234,7 @@ export function GlobalSettingsEditor({
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Tagline
                   </label>
                   <input
@@ -249,7 +249,7 @@ export function GlobalSettingsEditor({
                     value={data.branding.logoUrl}
                     onChange={(url) => updateBranding("logoUrl", url)}
                   />
-                  <p className="text-[10px] text-gray-400">
+                  <p className="text-[10px] text-primary/50">
                     Recommended: PNG or SVG, min height 40px.
                   </p>
                 </div>
@@ -260,12 +260,12 @@ export function GlobalSettingsEditor({
                     value={data.branding.faviconUrl}
                     onChange={(url) => updateBranding("faviconUrl", url)}
                   />
-                  <p className="text-[10px] text-gray-400">
+                  <p className="text-[10px] text-primary/50">
                     Recommended: 32x32px or 64x64px PNG.
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Primary Color
                   </label>
                   <div className="flex gap-2">
@@ -297,7 +297,7 @@ export function GlobalSettingsEditor({
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Support Email
                   </label>
                   <input
@@ -309,7 +309,7 @@ export function GlobalSettingsEditor({
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Phone
                   </label>
                   <input
@@ -321,7 +321,7 @@ export function GlobalSettingsEditor({
                   />
                 </div>
                 <div className="space-y-2 col-span-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Address Line 1
                   </label>
                   <input
@@ -331,7 +331,7 @@ export function GlobalSettingsEditor({
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     City
                   </label>
                   <input
@@ -341,7 +341,7 @@ export function GlobalSettingsEditor({
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Country
                   </label>
                   <input
@@ -363,7 +363,7 @@ export function GlobalSettingsEditor({
                 {["facebook", "instagram", "tiktok", "youtube"].map(
                   (platform) => (
                     <div key={platform} className="space-y-2">
-                      <label className="text-xs font-bold uppercase text-gray-500">
+                      <label className="text-xs font-bold uppercase text-primary/60">
                         {platform}
                       </label>
                       <input
@@ -388,7 +388,7 @@ export function GlobalSettingsEditor({
               </h3>
               <div className="space-y-4">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Default Meta Title
                   </label>
                   <input
@@ -400,7 +400,7 @@ export function GlobalSettingsEditor({
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase text-gray-500">
+                  <label className="text-xs font-bold uppercase text-primary/60">
                     Default Description
                   </label>
                   <textarea
@@ -419,7 +419,7 @@ export function GlobalSettingsEditor({
                     value={data.seo.defaultOgImage}
                     onChange={(url) => updateSeo("defaultOgImage", url)}
                   />
-                  <p className="text-[10px] text-gray-400">
+                  <p className="text-[10px] text-primary/50">
                     Recommended: 1200x630px JPG/PNG.
                   </p>
                 </div>

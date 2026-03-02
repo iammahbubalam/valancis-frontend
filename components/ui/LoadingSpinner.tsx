@@ -26,7 +26,7 @@ export function LoadingSpinner({
             {...props}
         >
             <Loader2
-                className={cn("animate-spin text-accent-gold", sizeClasses[size])}
+                className={cn("animate-spin text-primary", sizeClasses[size])}
             />
             <span className="sr-only">Loading...</span>
         </div>

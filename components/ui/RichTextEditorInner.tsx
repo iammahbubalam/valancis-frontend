@@ -86,8 +86,8 @@ export function RichTextEditorInner({
             onClick={onClick}
             title={title}
             className={cn(
-                "p-1.5 rounded-md hover:bg-gray-100 transition-colors text-gray-700",
-                isActive && "bg-gray-200 text-gray-900 font-medium",
+                "p-1.5 rounded-md hover:bg-canvas transition-colors text-gray-700",
+                isActive && "bg-accent-subtle text-gray-900 font-medium",
             )}
         >
             {children}
@@ -102,7 +102,7 @@ export function RichTextEditorInner({
             )}
         >
             {/* Toolbar */}
-            <div className="flex flex-wrap items-center gap-1 border-b border-gray-100 p-1.5 bg-gray-50/50">
+            <div className="flex flex-wrap items-center gap-1 border-b border-gray-100 p-1.5 bg-canvas/50">
                 <div className="flex items-center gap-0.5 mr-2 pr-2 border-r border-gray-200">
                     <ToolbarButton
                         onClick={() => editor.chain().focus().toggleBold().run()}

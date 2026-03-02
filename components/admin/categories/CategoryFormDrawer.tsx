@@ -177,7 +177,7 @@ export function CategoryFormDrawer({
                   <h2 className="text-xl font-bold text-gray-900">
                     {isCreating ? "New Category" : "Edit Category"}
                   </h2>
-                  <p className="text-sm text-gray-500 font-medium mt-0.5">
+                  <p className="text-sm text-primary/60 font-medium mt-0.5">
                     {isCreating
                       ? "Add a new item to catalog"
                       : `ID: ${selectedCategory?.id}`}
@@ -185,9 +185,9 @@ export function CategoryFormDrawer({
                 </div>
                 <button
                   onClick={onClose}
-                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                  className="p-2 hover:bg-canvas rounded-full transition-colors"
                 >
-                  <X className="w-6 h-6 text-gray-500" />
+                  <X className="w-6 h-6 text-primary/60" />
                 </button>
               </div>
 
@@ -225,7 +225,7 @@ export function CategoryFormDrawer({
                       </label>
                       <input
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium"
                         value={formData.name}
                         onChange={(e) => handleNameChange(e.target.value)}
                         placeholder="e.g. Winter Collection"
@@ -238,7 +238,7 @@ export function CategoryFormDrawer({
                       </label>
                       <input
                         required
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium font-mono text-sm"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none font-medium font-mono text-sm"
                         value={formData.slug}
                         onChange={(e) =>
                           setFormData({
@@ -250,7 +250,7 @@ export function CategoryFormDrawer({
                         }
                         placeholder="e.g. winter-collection"
                       />
-                      <p className="text-xs text-gray-400 mt-1">
+                      <p className="text-xs text-primary/50 mt-1">
                         Auto-generated from name. Edit if needed.
                       </p>
                     </div>
@@ -261,7 +261,7 @@ export function CategoryFormDrawer({
                       </label>
                       <div className="relative">
                         <select
-                          className="w-full pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 appearance-none outline-none font-medium text-gray-700"
+                          className="w-full pl-4 pr-10 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 appearance-none outline-none font-medium text-gray-700"
                           value={formData.parentId || ""}
                           onChange={(e) =>
                             setFormData({
@@ -279,7 +279,7 @@ export function CategoryFormDrawer({
                               </option>
                             ))}
                         </select>
-                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary/50">
                           <ChevronDown className="w-4 h-4" />
                         </div>
                       </div>
@@ -295,12 +295,12 @@ export function CategoryFormDrawer({
                   </h3>
                   <div className="space-y-4">
                     {/* Active Switch */}
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
+                    <div className="flex items-center justify-between p-4 bg-canvas rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
                       <div className="flex flex-col gap-0.5">
                         <span className="font-semibold text-gray-900 text-sm">
                           Active Status
                         </span>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-primary/60">
                           Visible to customers in the store
                         </span>
                       </div>
@@ -316,17 +316,17 @@ export function CategoryFormDrawer({
                           }
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                        <div className="w-11 h-6 bg-accent-subtle peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                       </label>
                     </div>
 
                     {/* Nav Switch */}
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
+                    <div className="flex items-center justify-between p-4 bg-canvas rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
                       <div className="flex flex-col gap-0.5">
                         <span className="font-semibold text-gray-900 text-sm">
                           Include in Menu
                         </span>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-primary/60">
                           Display in main navigation headers
                         </span>
                       </div>
@@ -342,17 +342,17 @@ export function CategoryFormDrawer({
                           }
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                        <div className="w-11 h-6 bg-accent-subtle peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                       </label>
                     </div>
 
                     {/* Featured Switch */}
-                    <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
+                    <div className="flex items-center justify-between p-4 bg-canvas rounded-xl border border-gray-100 transition-colors hover:border-gray-200">
                       <div className="flex flex-col gap-0.5">
                         <span className="font-semibold text-gray-900 text-sm">
                           Featured Category
                         </span>
-                        <span className="text-xs text-gray-500">
+                        <span className="text-xs text-primary/60">
                           Highlight this category on the homepage
                         </span>
                       </div>
@@ -368,7 +368,7 @@ export function CategoryFormDrawer({
                           }
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+                        <div className="w-11 h-6 bg-accent-subtle peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
                       </label>
                     </div>
                   </div>
@@ -382,7 +382,7 @@ export function CategoryFormDrawer({
                     <span className="w-1.5 h-4 bg-amber-400 rounded-full"></span>
                     Visuals
                   </h3>
-                  <div className="bg-gray-50 border border-dashed border-gray-300 rounded-xl p-8 text-center hover:bg-white hover:border-primary transition-all relative group">
+                  <div className="bg-canvas border border-dashed border-gray-300 rounded-xl p-8 text-center hover:bg-white hover:border-primary transition-all relative group">
                     <input
                       type="file"
                       className="absolute inset-0 opacity-0 cursor-pointer z-10"
@@ -406,13 +406,13 @@ export function CategoryFormDrawer({
                       </div>
                     ) : (
                       <div className="flex flex-col items-center">
-                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm text-gray-400 group-hover:text-primary group-hover:scale-110 transition-all">
+                        <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm text-primary/50 group-hover:text-primary group-hover:scale-110 transition-all">
                           <Upload className="w-6 h-6" />
                         </div>
                         <p className="text-sm font-bold text-gray-900">
                           Click to upload image
                         </p>
-                        <p className="text-xs text-gray-500 mt-1 max-w-[200px] mx-auto">
+                        <p className="text-xs text-primary/60 mt-1 max-w-[200px] mx-auto">
                           SVG, PNG, JPG supported. Recommended size 400x400px.
                         </p>
                       </div>
@@ -428,11 +428,11 @@ export function CategoryFormDrawer({
                   </h3>
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
+                      <label className="block text-xs font-semibold text-primary/60 mb-1.5 uppercase tracking-wide">
                         Meta Title
                       </label>
                       <input
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
                         placeholder="SEO Title"
                         value={formData.metaTitle}
                         onChange={(e) =>
@@ -444,11 +444,11 @@ export function CategoryFormDrawer({
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
+                      <label className="block text-xs font-semibold text-primary/60 mb-1.5 uppercase tracking-wide">
                         Meta Description
                       </label>
                       <textarea
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all resize-none"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all resize-none"
                         rows={3}
                         placeholder="Brief description for search engines..."
                         value={formData.metaDescription}
@@ -461,11 +461,11 @@ export function CategoryFormDrawer({
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-semibold text-gray-500 mb-1.5 uppercase tracking-wide">
+                      <label className="block text-xs font-semibold text-primary/60 mb-1.5 uppercase tracking-wide">
                         Keywords
                       </label>
                       <input
-                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
+                        className="w-full px-4 py-3 bg-canvas border border-gray-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-primary/20 text-sm outline-none transition-all"
                         placeholder="comma, separated, keywords"
                         value={formData.keywords}
                         onChange={(e) =>
@@ -485,7 +485,7 @@ export function CategoryFormDrawer({
                 <Button
                   type="button"
                   variant="secondary"
-                  className="flex-1 py-3 text-gray-600 bg-gray-100 hover:bg-gray-200 border-none relative top-0 hover:-top-0.5 transition-all"
+                  className="flex-1 py-3 text-gray-600 bg-canvas hover:bg-accent-subtle border-none relative top-0 hover:-top-0.5 transition-all"
                   onClick={onClose}
                 >
                   Cancel

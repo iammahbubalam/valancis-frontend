@@ -74,7 +74,7 @@ export function AdjustStockModal({
       <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-6 animate-in zoom-in-95">
         <h2 className="text-lg font-bold mb-4">
           Adjust Stock: {productName}
-          <span className="block text-xs font-normal text-gray-500 mt-1">
+          <span className="block text-xs font-normal text-primary/60 mt-1">
             Variant: {variant.name} ({variant.sku})
           </span>
         </h2>
@@ -83,21 +83,21 @@ export function AdjustStockModal({
             <button
               type="button"
               onClick={() => setType("add")}
-              className={`p-3 rounded-lg border text-sm font-bold flex items-center justify-center gap-2 ${type === "add" ? "bg-green-50 border-green-200 text-green-700" : "border-gray-200 hover:bg-gray-50"}`}
+              className={`p-3 rounded-lg border text-sm font-bold flex items-center justify-center gap-2 ${type === "add" ? "bg-green-50 border-green-200 text-green-700" : "border-gray-200 hover:bg-canvas"}`}
             >
               <ArrowUpRight className="w-4 h-4" /> Add Stock
             </button>
             <button
               type="button"
               onClick={() => setType("deduct")}
-              className={`p-3 rounded-lg border text-sm font-bold flex items-center justify-center gap-2 ${type === "deduct" ? "bg-red-50 border-red-200 text-red-700" : "border-gray-200 hover:bg-gray-50"}`}
+              className={`p-3 rounded-lg border text-sm font-bold flex items-center justify-center gap-2 ${type === "deduct" ? "bg-red-50 border-red-200 text-red-700" : "border-gray-200 hover:bg-canvas"}`}
             >
               <ArrowDownLeft className="w-4 h-4" /> Deduct Stock
             </button>
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+            <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
               Quantity
             </label>
             <input
@@ -112,7 +112,7 @@ export function AdjustStockModal({
           </div>
 
           <div>
-            <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+            <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
               Reason
             </label>
             <input
@@ -180,7 +180,7 @@ export function HistoryModal({
         <div className="flex justify-between items-center mb-6">
           <div>
             <h2 className="text-lg font-bold">Stock History: {productName}</h2>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-primary/60">
               Variant: {variant.name} ({variant.sku})
             </p>
           </div>
@@ -192,10 +192,10 @@ export function HistoryModal({
         <div className="flex-1 overflow-y-auto pr-2">
           {isLoading ? (
             <div className="flex justify-center py-10">
-              <Loader2 className="w-6 h-6 animate-spin text-gray-400" />
+              <Loader2 className="w-6 h-6 animate-spin text-primary/50" />
             </div>
           ) : logs.length === 0 ? (
-            <div className="text-center py-10 text-gray-400">
+            <div className="text-center py-10 text-primary/50">
               No history found.
             </div>
           ) : (
@@ -203,7 +203,7 @@ export function HistoryModal({
               {logs.map((log) => (
                 <div
                   key={log.id}
-                  className="flex items-start gap-4 p-4 border border-gray-100 rounded-lg bg-gray-50/50"
+                  className="flex items-start gap-4 p-4 border border-gray-100 rounded-lg bg-canvas/50"
                 >
                   <div
                     className={`mt-1 p-2 rounded-full ${log.changeAmount > 0 ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}
@@ -222,12 +222,12 @@ export function HistoryModal({
                           : log.changeAmount}{" "}
                         Stock
                       </span>
-                      <span className="text-xs text-gray-400">
+                      <span className="text-xs text-primary/50">
                         {new Date(log.createdAt).toLocaleString()}
                       </span>
                     </div>
                     <p className="text-sm text-gray-600">{log.reason}</p>
-                    <p className="text-xs text-gray-400 mt-1 uppercase tracking-wide">
+                    <p className="text-xs text-primary/50 mt-1 uppercase tracking-wide">
                       Ref: {log.referenceId}
                     </p>
                   </div>
@@ -295,14 +295,14 @@ export function EditThresholdModal({
       <div className="bg-white rounded-lg shadow-xl w-full max-w-sm p-6 animate-in zoom-in-95">
         <h2 className="text-lg font-bold mb-4">
           Set Low Stock Alert
-          <span className="block text-xs font-normal text-gray-500 mt-1">
+          <span className="block text-xs font-normal text-primary/60 mt-1">
             {productName} - {variant.name}
           </span>
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-xs font-bold uppercase text-gray-500 mb-2">
+            <label className="block text-xs font-bold uppercase text-primary/60 mb-2">
               Minimum Quantity
             </label>
             <div className="flex items-center gap-3">
@@ -313,9 +313,9 @@ export function EditThresholdModal({
                 onChange={(e) => setThreshold(e.target.value)}
                 className="flex-1 px-4 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-primary text-lg font-bold text-center"
               />
-              <span className="text-sm text-gray-400">units</span>
+              <span className="text-sm text-primary/50">units</span>
             </div>
-            <p className="text-xs text-gray-400 mt-2">
+            <p className="text-xs text-primary/50 mt-2">
               Alert when stock falls below this number.
             </p>
           </div>

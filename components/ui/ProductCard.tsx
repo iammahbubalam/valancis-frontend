@@ -52,7 +52,7 @@ export function ProductCard({ product, index, priority = false, listName, listId
       className="group relative block w-full"
     >
       {/* Image Container - Taller Aspect Ratio [3/4] for Fashion */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-main">
+      <div className="relative aspect-[3/4] w-full overflow-hidden bg-canvas">
         <Link href={`/product/${product.slug}`} className="block h-full w-full" onClick={handleSelect}>
           <Image
             src={product.images?.[0] || "/placeholder.jpg"}
@@ -117,7 +117,7 @@ export function ProductCard({ product, index, priority = false, listName, listId
       {/* Product Info - Clean & Centered */}
       <div className="pt-4 text-center">
         {/* Category */}
-        <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 mb-1">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-primary/50 mb-1">
           {product.categories?.[0]?.name || "Collection"}
         </p>
 
@@ -132,7 +132,7 @@ export function ProductCard({ product, index, priority = false, listName, listId
         <div className="flex items-center justify-center gap-3 text-sm">
           {hasDiscount ? (
             <>
-              <span className="text-gray-400 line-through text-xs font-light">
+              <span className="text-primary/50 line-through text-xs font-light">
                 ৳{product.basePrice.toLocaleString()}
               </span>
               <span className="text-black font-semibold">

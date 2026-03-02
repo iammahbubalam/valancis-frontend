@@ -69,7 +69,7 @@ export function WishlistButton({
       disabled={loading}
       className={cn(
         "rounded-full p-2 transition-colors hover:bg-black/5",
-        isSaved ? "text-red-500" : "text-gray-400 hover:text-black",
+        isSaved ? "text-red-500" : "text-primary/50 hover:text-black",
         className,
       )}
       aria-label={isSaved ? "Remove from wishlist" : "Add to wishlist"}

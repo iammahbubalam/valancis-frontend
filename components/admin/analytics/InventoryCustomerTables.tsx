@@ -30,7 +30,7 @@ const InventoryCustomerTablesInner = dynamic<InventoryCustomerTablesInnerProps>(
             key={i}
             className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 animate-pulse"
           >
-            <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded" />
+            <div className="h-48 bg-accent-subtle dark:bg-gray-700 rounded" />
           </div>
         ))}
       </div>
@@ -61,7 +61,7 @@ export function InventoryCustomerTables({
             key={i}
             className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 animate-pulse"
           >
-            <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded" />
+            <div className="h-48 bg-accent-subtle dark:bg-gray-700 rounded" />
           </div>
         ))}
       </div>

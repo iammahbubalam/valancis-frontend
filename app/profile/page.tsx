@@ -100,7 +100,7 @@ export default function ProfilePage() {
             <Card className="p-6 md:sticky md:top-24">
               <div className="mb-8 text-center">
                 {user.avatar ? (
-                  <div className="relative w-20 h-20 rounded-full overflow-hidden border border-primary/20 mx-auto mb-3">
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden border border-accent-subtle mx-auto mb-3">
                     <Image
                       src={user.avatar}
                       alt="Profile"
@@ -116,7 +116,7 @@ export default function ProfilePage() {
                 <h2 className="font-serif text-lg">
                   {user.firstName} {user.lastName}
                 </h2>
-                <p className="text-secondary text-xs">{user.email}</p>
+                <p className="text-primary/70 text-xs">{user.email}</p>
               </div>
 
               <nav className="space-y-1">
@@ -147,7 +147,7 @@ export default function ProfilePage() {
                     logout();
                     router.push("/");
                   }}
-                  className="w-full text-left px-4 py-3 text-sm flex items-center gap-3 transition-colors text-red-500 hover:bg-red-50 mt-4 border-t border-primary/5"
+                  className="w-full text-left px-4 py-3 text-sm flex items-center gap-3 transition-colors text-red-500 hover:bg-red-50 mt-4 border-t border-accent-subtle"
                 >
                   <LogOut className="w-4 h-4" /> Logout
                 </button>
@@ -157,7 +157,7 @@ export default function ProfilePage() {
 
           {/* Main Content */}
           <main className="flex-grow">
-            <h2 className="font-serif text-2xl mb-6 capitalize border-b border-primary/10 pb-4 md:hidden">
+            <h2 className="font-serif text-2xl mb-6 capitalize border-b border-accent-subtle pb-4 md:hidden">
               {activeTab}
             </h2>
 
@@ -172,7 +172,7 @@ export default function ProfilePage() {
                     </span>
                     !
                   </p>
-                  <p className="text-secondary max-w-xl">
+                  <p className="text-primary/70 max-w-xl">
                     From your dashboard you can view your{" "}
                     <button
                       onClick={() => setActiveTab("orders")}
@@ -233,7 +233,7 @@ export default function ProfilePage() {
                           ? `${stat.value} ${stat.label}`
                           : stat.label}
                       </h3>
-                      <p className="text-xs text-secondary uppercase tracking-wider">
+                      <p className="text-xs text-primary/70 uppercase tracking-wider">
                         {stat.sub}
                       </p>
                     </Card>
@@ -251,7 +251,7 @@ export default function ProfilePage() {
                   </div>
                 ) : orders.length === 0 ? (
                   <Card className="text-center py-12">
-                    <p className="text-secondary mb-4">
+                    <p className="text-primary/70 mb-4">
                       You haven&apos;t placed any orders yet.
                     </p>
                     <Link href="/shop">
@@ -277,8 +277,8 @@ export default function ProfilePage() {
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
                   </div>
                 ) : addresses.length === 0 ? (
-                  <div className="text-center py-8 border border-dashed border-primary/20 rounded">
-                    <p className="text-secondary mb-2">
+                  <div className="text-center py-8 border border-dashed border-accent-subtle rounded">
+                    <p className="text-primary/70 mb-2">
                       No addresses saved yet.
                     </p>
                     <p className="text-xs text-secondary/60">
@@ -290,7 +290,7 @@ export default function ProfilePage() {
                     {addresses.map((addr) => (
                       <div
                         key={addr.id}
-                        className="border border-primary/10 p-4 rounded-lg relative group hover:shadow-md transition-shadow"
+                        className="border border-accent-subtle p-4 rounded-lg relative group hover:shadow-md transition-shadow"
                       >
                         {addr.isDefault && (
                           <span className="absolute top-2 right-2 text-[10px] uppercase tracking-wider bg-primary text-white px-2 py-1 rounded-full">
@@ -303,10 +303,10 @@ export default function ProfilePage() {
                         <p className="text-sm">
                           {addr.firstName} {addr.lastName}
                         </p>
-                        <p className="text-xs text-secondary mt-1">
+                        <p className="text-xs text-primary/70 mt-1">
                           {addr.phone}
                         </p>
-                        <p className="text-xs text-secondary mt-2 leading-relaxed">
+                        <p className="text-xs text-primary/70 mt-2 leading-relaxed">
                           {addr.addressLine}
                           <br />
                           {[addr.thana, addr.district, addr.division]
@@ -314,7 +314,7 @@ export default function ProfilePage() {
                             .join(", ")}
                           {addr.postalCode && ` - ${addr.postalCode}`}
                         </p>
-                        <div className="mt-3 pt-3 border-t border-primary/5">
+                        <div className="mt-3 pt-3 border-t border-accent-subtle">
                           <button
                             onClick={async () => {
                               const confirmed = await dialog.confirm({
@@ -361,11 +361,11 @@ export default function ProfilePage() {
                 <h3 className="font-serif text-xl mb-6">Edit Profile</h3>
                 <ProfileForm user={user} onUpdate={refreshUser} />
 
-                <div className="mt-8 pt-6 border-t border-primary/10">
-                  <label className="text-xs text-secondary uppercase tracking-wider block mb-2">
+                <div className="mt-8 pt-6 border-t border-accent-subtle">
+                  <label className="text-xs text-primary/70 uppercase tracking-wider block mb-2">
                     Email
                   </label>
-                  <div className="p-3 bg-gray-50 border border-gray-100 text-secondary">
+                  <div className="p-3 bg-canvas border border-gray-100 text-primary/70">
                     {user.email}
                   </div>
                   <p className="text-xs text-secondary/60 mt-2">

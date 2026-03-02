@@ -59,7 +59,7 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
   if (pathname?.startsWith("/admin")) return null;
 
   return (
-    <footer className="bg-[#f9f8f6] pt-12 md:pt-20 pb-0 text-primary border-t border-primary/5 overflow-hidden relative">
+    <footer className="bg-canvas pt-12 md:pt-20 pb-0 text-primary border-t border-accent-subtle overflow-hidden relative">
       <Container>
         <div className="flex flex-col items-start gap-10 md:grid md:grid-cols-4 md:gap-8 mb-20 text-left">
           {/* Brand Column - Ultra-Refined Left Alignment on Mobile */}
@@ -79,7 +79,7 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
                   {siteConfig.name}
                 </span>
               </div>
-              <p className="text-sm md:text-base leading-tight text-secondary/60 font-medium italic antialiased ml-0.5">
+              <p className="text-sm md:text-base leading-tight text-primary/60 font-medium italic antialiased ml-0.5">
                 {siteConfig.description}
               </p>
             </div>
@@ -93,7 +93,7 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-full bg-white border border-primary/5 text-primary/30 hover:text-primary hover:border-primary/20 transition-all duration-300 hover:scale-110 shadow-sm"
+                    className="p-2 rounded-full bg-canvas border border-accent-subtle text-primary/30 hover:text-primary hover:border-accent-subtle transition-all duration-300 hover:scale-110 shadow-sm"
                     aria-label={social.platform}
                   >
                     <SocialIcon
@@ -107,13 +107,13 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
           </div>
 
           {/* Dynamic Links Columns - 3-column horizontal grid below brand on mobile */}
-          <div className="w-full md:col-span-3 grid grid-cols-3 gap-x-4 gap-y-10 md:gap-8 mt-2 md:mt-0 pt-10 md:pt-0 border-t md:border-t-0 border-primary/5">
+          <div className="w-full md:col-span-3 grid grid-cols-3 gap-x-4 gap-y-10 md:gap-8 mt-2 md:mt-0 pt-10 md:pt-0 border-t md:border-t-0 border-accent-subtle">
             {footerSections.map((section) => (
               <div key={section.title} className="flex flex-col items-start">
                 <h4 className="font-serif text-[9px] md:text-sm uppercase tracking-wider mb-5 text-primary font-semibold">
                   {section.title}
                 </h4>
-                <ul className="space-y-3.5 text-[10px] md:text-sm text-secondary/70 font-light flex flex-col items-start">
+                <ul className="space-y-3.5 text-[10px] md:text-sm text-primary/70 font-light flex flex-col items-start">
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <Link
@@ -121,7 +121,7 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
                         className="hover:text-primary transition-colors text-left relative group inline-block"
                       >
                         {link.label}
-                        <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent-gold transition-all duration-300 group-hover:w-full" />
+                        <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                       </Link>
                     </li>
                   ))}
@@ -132,7 +132,7 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
         </div>
 
         {/* Giant Footer Branding */}
-        <div className="w-full flex justify-center border-t border-primary/5 pt-12 pb-6 overflow-hidden relative">
+        <div className="w-full flex justify-center border-t border-accent-subtle pt-12 pb-6 overflow-hidden relative">
           <BrandLogo
             className="w-[90vw] h-auto text-primary"
             animated={true}
@@ -143,7 +143,7 @@ export function Footer({ siteConfig, footerSections }: FooterProps) {
           />
         </div>
 
-        <div className="py-8 flex justify-center items-center text-[10px] uppercase tracking-widest text-secondary/50">
+        <div className="py-8 flex justify-center items-center text-[10px] uppercase tracking-widest text-primary/50">
           <p>{siteConfig.copyright}</p>
         </div>
       </Container>

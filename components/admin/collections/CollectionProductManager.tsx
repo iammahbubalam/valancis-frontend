@@ -124,7 +124,7 @@ export function CollectionProductManager({
   if (isLoading) {
     return (
       <div className="flex justify-center py-8">
-        <Loader2 className="w-5 h-5 animate-spin text-gray-400" />
+        <Loader2 className="w-5 h-5 animate-spin text-primary/50" />
       </div>
     );
   }
@@ -136,7 +136,7 @@ export function CollectionProductManager({
         {collectionProducts.map((product) => (
           <div
             key={product.id}
-            className="relative group bg-gray-50 rounded-lg overflow-hidden"
+            className="relative group bg-canvas rounded-lg overflow-hidden"
           >
             <div className="aspect-square relative">
               {product.images?.[0] ? (
@@ -147,7 +147,7 @@ export function CollectionProductManager({
                   className="object-cover"
                 />
               ) : (
-                <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-400 text-xs">
+                <div className="w-full h-full bg-accent-subtle flex items-center justify-center text-primary/50 text-xs">
                   No Image
                 </div>
               )}
@@ -169,7 +169,7 @@ export function CollectionProductManager({
         {/* Add Button */}
         <button
           onClick={handleOpenPicker}
-          className="aspect-square border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center gap-2 text-gray-400 hover:border-primary hover:text-primary transition-colors"
+          className="aspect-square border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center gap-2 text-primary/50 hover:border-primary hover:text-primary transition-colors"
         >
           <Plus className="w-6 h-6" />
           <span className="text-xs font-medium">Add</span>
@@ -177,7 +177,7 @@ export function CollectionProductManager({
       </div>
 
       {collectionProducts.length === 0 && (
-        <p className="text-center text-gray-400 text-sm py-4">
+        <p className="text-center text-primary/50 text-sm py-4">
           No products in this collection yet
         </p>
       )}
@@ -190,7 +190,7 @@ export function CollectionProductManager({
               <h3 className="font-bold text-lg">Add Products</h3>
               <button
                 onClick={() => setShowPicker(false)}
-                className="p-1 hover:bg-gray-100 rounded"
+                className="p-1 hover:bg-canvas rounded"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -198,7 +198,7 @@ export function CollectionProductManager({
 
             <div className="px-6 py-3 border-b">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-primary/50" />
                 <input
                   type="text"
                   placeholder="Search products..."
@@ -211,7 +211,7 @@ export function CollectionProductManager({
 
             <div className="flex-1 overflow-y-auto px-6 py-4">
               {availableProducts.length === 0 ? (
-                <p className="text-center text-gray-400 py-8">
+                <p className="text-center text-primary/50 py-8">
                   No products available to add
                 </p>
               ) : (
@@ -219,9 +219,9 @@ export function CollectionProductManager({
                   {availableProducts.map((product) => (
                     <div
                       key={product.id}
-                      className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg"
+                      className="flex items-center gap-3 p-2 hover:bg-canvas rounded-lg"
                     >
-                      <div className="w-12 h-12 bg-gray-100 rounded overflow-hidden relative flex-shrink-0">
+                      <div className="w-12 h-12 bg-canvas rounded overflow-hidden relative flex-shrink-0">
                         {product.images?.[0] ? (
                           <Image
                             src={product.images[0]}
@@ -230,7 +230,7 @@ export function CollectionProductManager({
                             className="object-cover"
                           />
                         ) : (
-                          <div className="w-full h-full flex items-center justify-center text-[10px] text-gray-400">
+                          <div className="w-full h-full flex items-center justify-center text-[10px] text-primary/50">
                             N/A
                           </div>
                         )}
@@ -239,7 +239,7 @@ export function CollectionProductManager({
                         <p className="text-sm font-medium text-gray-900 truncate">
                           {product.name}
                         </p>
-                        <p className="text-xs text-gray-500">{product.sku}</p>
+                        <p className="text-xs text-primary/60">{product.sku}</p>
                       </div>
                       <button
                         onClick={() => handleAddProduct(product.id)}

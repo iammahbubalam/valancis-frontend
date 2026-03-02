@@ -148,7 +148,7 @@ export default function InventoryClient({
               type="submit"
               variant="ghost"
               size="sm"
-              className="absolute left-1 top-1/2 -translate-y-1/2 text-gray-400 p-1 hover:bg-transparent"
+              className="absolute left-1 top-1/2 -translate-y-1/2 text-primary/50 p-1 hover:bg-transparent"
             >
               <Search className="w-4 h-4" />
             </Button>
@@ -166,7 +166,7 @@ export default function InventoryClient({
       <div className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden flex flex-col min-h-[600px]">
         <div className="flex-1 overflow-x-auto">
           <table className="w-full text-sm text-left">
-            <thead className="bg-gray-50 border-b border-gray-100 text-xs uppercase text-gray-500 font-bold sticky top-0">
+            <thead className="bg-canvas border-b border-gray-100 text-xs uppercase text-primary/60 font-bold sticky top-0">
               <tr>
                 <th className="px-6 py-4 w-12 text-center"></th>
                 <th className="px-6 py-4">Product / Variant</th>
@@ -178,7 +178,7 @@ export default function InventoryClient({
             <tbody className="divide-y divide-gray-100">
               {productGroups.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="p-16 text-center text-gray-400">
+                  <td colSpan={5} className="p-16 text-center text-primary/50">
                     <div className="flex flex-col items-center gap-2">
                       <Package className="w-8 h-8 opacity-20" />
                       <p>No inventory items found matching your filters.</p>
@@ -200,17 +200,17 @@ export default function InventoryClient({
                   return (
                     <Fragment key={group.productId}>
                       <tr
-                        className="bg-gray-50/50 hover:bg-gray-100/50 transition-colors cursor-pointer border-b border-gray-100"
+                        className="bg-canvas/50 hover:bg-canvas/50 transition-colors cursor-pointer border-b border-gray-100"
                         onClick={() => toggleProduct(group.productId)}
                       ><td className="px-6 py-4 text-center">
                           {isExpanded ? (
-                            <ChevronDown className="w-4 h-4 text-gray-400 mx-auto" />
+                            <ChevronDown className="w-4 h-4 text-primary/50 mx-auto" />
                           ) : (
-                            <ChevronRight className="w-4 h-4 text-gray-400 mx-auto" />
+                            <ChevronRight className="w-4 h-4 text-primary/50 mx-auto" />
                           )}
                         </td><td className="px-6 py-4 font-bold text-gray-900">
                           {group.productName}
-                          <span className="ml-2 text-[10px] uppercase bg-gray-200 text-gray-600 px-1.5 py-0.5 rounded">
+                          <span className="ml-2 text-[10px] uppercase bg-accent-subtle text-gray-600 px-1.5 py-0.5 rounded">
                             {group.variants.length} Variants
                           </span>
                         </td><td className="px-6 py-4 text-center font-bold text-gray-700">
@@ -221,15 +221,15 @@ export default function InventoryClient({
                         group.variants.map((row) => (
                           <tr
                             key={row.id}
-                            className="hover:bg-gray-50 transition-colors bg-white animate-in slide-in-from-top-1 duration-200"
-                          ><td className="px-6 py-4"></td><td className="px-6 py-4 pl-10 border-l-2 border-primary/10">
+                            className="hover:bg-canvas transition-colors bg-white animate-in slide-in-from-top-1 duration-200"
+                          ><td className="px-6 py-4"></td><td className="px-6 py-4 pl-10 border-l-2 border-accent-subtle">
                               <div className="flex flex-col">
                                 <span className="font-medium text-gray-700">
                                   {row.name === "Default"
                                     ? "Standard Variant"
                                     : row.name}
                                 </span>
-                                <span className="text-[10px] text-gray-400 font-mono">
+                                <span className="text-[10px] text-primary/50 font-mono">
                                   SKU: {row.sku || "-"}
                                 </span>
                               </div>
@@ -239,7 +239,7 @@ export default function InventoryClient({
                               >
                                 {row.stock}
                               </span>
-                              <div className="text-[10px] text-gray-400">
+                              <div className="text-[10px] text-primary/50">
                                 Min: {row.lowStockThreshold}
                               </div>
                             </td><td className="px-6 py-4 text-center">
@@ -266,7 +266,7 @@ export default function InventoryClient({
                                 }}
                                 title="View Logs"
                               >
-                                <History className="w-4 h-4 text-gray-500" />
+                                <History className="w-4 h-4 text-primary/60" />
                               </Button>
                               <Button
                                 size="sm"
@@ -277,7 +277,7 @@ export default function InventoryClient({
                                 }}
                                 title="Set Low Stock Alert"
                               >
-                                <Settings className="w-4 h-4 text-gray-500" />
+                                <Settings className="w-4 h-4 text-primary/60" />
                               </Button>
                               <Button
                                 size="sm"
@@ -301,8 +301,8 @@ export default function InventoryClient({
 
         {/* Pagination Controls */}
         {pagination.totalPages > 1 && (
-          <div className="border-t border-gray-100 px-6 py-4 flex items-center justify-between bg-gray-50/50">
-            <div className="text-sm text-gray-500">
+          <div className="border-t border-gray-100 px-6 py-4 flex items-center justify-between bg-canvas/50">
+            <div className="text-sm text-primary/60">
               Showing{" "}
               <span className="font-medium">
                 {(pagination.page - 1) * pagination.limit + 1}

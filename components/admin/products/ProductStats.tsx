@@ -23,7 +23,7 @@ export function ProductStats({ stats, isLoading }: ProductStatsProps) {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className="h-24 bg-gray-100 animate-pulse rounded-xl border border-gray-200"
+            className="h-24 bg-canvas animate-pulse rounded-xl border border-gray-200"
           />
         ))}
       </div>
@@ -52,7 +52,7 @@ export function ProductStats({ stats, isLoading }: ProductStatsProps) {
       value: stats.inactiveProducts,
       icon: Archive,
       color: "text-gray-600",
-      bg: "bg-gray-50",
+      bg: "bg-canvas",
     },
     {
       label: "Out of Stock",
@@ -90,7 +90,7 @@ export function ProductStats({ stats, isLoading }: ProductStatsProps) {
             </div>
           </div>
           <div>
-            <p className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <p className="text-xs font-medium text-primary/60 uppercase tracking-wider">
               {card.label}
             </p>
             <h3 className="text-xl font-bold text-gray-900 mt-1">

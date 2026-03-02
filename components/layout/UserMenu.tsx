@@ -16,7 +16,7 @@ export function UserMenu() {
     return (
       <Link
         href="/login"
-        className="flex items-center justify-center text-primary hover:text-accent-gold transition-colors"
+        className="flex items-center justify-center text-primary hover:text-primary transition-colors"
       >
         <User className="w-5 h-5" />
       </Link>
@@ -30,7 +30,7 @@ export function UserMenu() {
         className="flex items-center gap-2 focus:outline-none"
       >
         {user.avatar ? (
-          <div className="relative w-7 h-7 rounded-full overflow-hidden border border-primary/20">
+          <div className="relative w-7 h-7 rounded-full overflow-hidden border border-accent-subtle">
             <Image
               src={user.avatar}
               alt={user.firstName || "User"}
@@ -56,11 +56,11 @@ export function UserMenu() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="absolute right-0 mt-2 w-48 bg-white shadow-lg border border-primary/10 py-2 z-50 flex flex-col"
+              className="absolute right-0 mt-2 w-48 bg-white shadow-lg border border-accent-subtle py-2 z-50 flex flex-col"
             >
-              <div className="px-4 py-3 border-b border-primary/5 mb-1">
+              <div className="px-4 py-3 border-b border-accent-subtle mb-1">
                 <p className="text-sm font-bold truncate">{user.firstName} {user.lastName}</p>
-                <p className="text-xs text-secondary truncate">{user.email}</p>
+                <p className="text-xs text-primary/70 truncate">{user.email}</p>
               </div>
 
               <Link

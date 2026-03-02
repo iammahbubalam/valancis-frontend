@@ -123,7 +123,7 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-gray-50/50 w-full max-w-7xl h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-md"
+        className="bg-canvas/50 w-full max-w-7xl h-[90vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col backdrop-blur-md"
       >
         {/* Header */}
         <div className="h-16 border-b border-gray-100 flex items-center justify-between px-6 bg-white shrink-0">
@@ -147,10 +147,10 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
         </div>
 
         {/* Content Area - Horizontal Scroll for Grid */}
-        <div className="flex-1 overflow-x-auto overflow-y-hidden p-8 bg-gray-50/50">
+        <div className="flex-1 overflow-x-auto overflow-y-hidden p-8 bg-canvas/50">
           {isLoading ? (
             <div className="h-full flex items-center justify-center">
-              <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
+              <Loader2 className="w-8 h-8 animate-spin text-primary/50" />
             </div>
           ) : (
             <div className="flex gap-6 h-full items-start">
@@ -163,9 +163,9 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
                   className="w-80 bg-white rounded-xl shadow-sm border border-gray-200 flex flex-col shrink-0 max-h-full"
                 >
                   {/* Column Header */}
-                  <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50 rounded-t-xl group">
+                  <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-canvas/50 rounded-t-xl group">
                     <div className="flex items-center gap-2 flex-1">
-                      <Grid className="w-4 h-4 text-gray-400" />
+                      <Grid className="w-4 h-4 text-primary/50" />
                       <input
                         className="bg-transparent font-bold text-gray-900 text-sm focus:outline-none focus:ring-1 focus:ring-primary/20 rounded px-1 w-full"
                         value={section.title}
@@ -176,7 +176,7 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
                     </div>
                     <button
                       onClick={() => handleRemoveSection(sIdx)}
-                      className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-md transition-colors opacity-0 group-hover:opacity-100"
+                      className="p-1.5 text-primary/50 hover:text-red-500 hover:bg-red-50 rounded-md transition-colors opacity-0 group-hover:opacity-100"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
                     </button>
@@ -192,11 +192,11 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            className="group p-2 rounded-lg border border-transparent hover:border-gray-100 hover:bg-gray-50 transition-all"
+                            className="group p-2 rounded-lg border border-transparent hover:border-gray-100 hover:bg-canvas transition-all"
                           >
                             <div className="flex flex-col gap-2">
                               <div className="flex items-center gap-2">
-                                <Type className="w-3 h-3 text-gray-400 shrink-0" />
+                                <Type className="w-3 h-3 text-primary/50 shrink-0" />
                                 <input
                                   className="flex-1 bg-transparent text-sm font-medium text-gray-900 focus:outline-none placeholder:text-gray-300"
                                   value={link.label}
@@ -220,7 +220,7 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
                               <div className="flex items-center gap-2 pl-5">
                                 <LinkIcon className="w-3 h-3 text-gray-300 shrink-0" />
                                 <input
-                                  className="flex-1 bg-transparent text-xs text-gray-500 font-mono focus:outline-none placeholder:text-gray-300"
+                                  className="flex-1 bg-transparent text-xs text-primary/60 font-mono focus:outline-none placeholder:text-gray-300"
                                   value={link.href}
                                   onChange={(e) =>
                                     handleLinkChange(
@@ -240,7 +240,7 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
                     </div>
                     <button
                       onClick={() => handleAddLink(sIdx)}
-                      className="w-full mt-2 py-2 flex items-center justify-center gap-1.5 text-xs font-semibold text-primary/70 hover:text-primary hover:bg-primary/5 rounded-lg border border-dashed border-primary/20 hover:border-primary/40 transition-all"
+                      className="w-full mt-2 py-2 flex items-center justify-center gap-1.5 text-xs font-semibold text-primary/70 hover:text-primary hover:bg-primary/5 rounded-lg border border-dashed border-accent-subtle hover:border-primary/40 transition-all"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       Add Link
@@ -252,9 +252,9 @@ export function FooterEditor({ onClose }: FooterEditorProps) {
               {/* Add Column Button */}
               <button
                 onClick={handleAddSection}
-                className="w-80 h-[200px] shrink-0 rounded-xl border-2 border-dashed border-gray-300 hover:border-primary/50 hover:bg-primary/5 flex flex-col items-center justify-center gap-2 text-gray-400 hover:text-primary transition-all group"
+                className="w-80 h-[200px] shrink-0 rounded-xl border-2 border-dashed border-gray-300 hover:border-accent-subtle0 hover:bg-primary/5 flex flex-col items-center justify-center gap-2 text-primary/50 hover:text-primary transition-all group"
               >
-                <div className="w-10 h-10 rounded-full bg-gray-100 group-hover:bg-primary/10 flex items-center justify-center transition-colors">
+                <div className="w-10 h-10 rounded-full bg-canvas group-hover:bg-primary/10 flex items-center justify-center transition-colors">
                   <Plus className="w-5 h-5" />
                 </div>
                 <span className="font-medium text-sm">Add New Column</span>

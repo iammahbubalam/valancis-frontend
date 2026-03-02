@@ -16,7 +16,7 @@ export function OrderTimeline({ history, isLoading }: TimelineProps) {
         return (
             <div className="p-6 bg-white rounded-xl shadow-sm border border-gray-200">
                 <h3 className="font-serif font-medium mb-4">Order History</h3>
-                <p className="text-sm text-secondary">No history recorded yet.</p>
+                <p className="text-sm text-primary/70">No history recorded yet.</p>
             </div>
         );
     }
@@ -40,25 +40,25 @@ export function OrderTimeline({ history, isLoading }: TimelineProps) {
                                 <p className="font-medium text-sm capitalize text-primary">
                                     {item.newStatus.replace("_", " ")}
                                 </p>
-                                <span className="text-xs text-secondary whitespace-nowrap ml-2">
+                                <span className="text-xs text-primary/70 whitespace-nowrap ml-2">
                                     {format(new Date(item.createdAt), "MMM d, h:mm a")}
                                 </span>
                             </div>
 
                             {item.previousStatus && item.previousStatus !== item.newStatus && (
-                                <p className="text-xs text-secondary">
+                                <p className="text-xs text-primary/70">
                                     Changed from <span className="capitalize font-medium">{item.previousStatus}</span>
                                 </p>
                             )}
 
                             {item.reason && (
-                                <div className="mt-1 text-xs bg-gray-50 p-2 rounded text-gray-600 italic border border-gray-100">
+                                <div className="mt-1 text-xs bg-canvas p-2 rounded text-gray-600 italic border border-gray-100">
                                     {item.reason}
                                 </div>
                             )}
 
                             {item.createdName && (
-                                <p className="text-xs text-secondary mt-0.5">
+                                <p className="text-xs text-primary/70 mt-0.5">
                                     by {item.createdName}
                                 </p>
                             )}

@@ -16,12 +16,12 @@ function AccordionItem({ title, children, isOpen: defaultOpen = false }: Accordi
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-b border-primary/10">
+    <div className="border-b border-accent-subtle">
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex items-center justify-between text-left group"
       >
-        <span className="font-serif text-lg text-primary group-hover:text-accent-gold transition-colors">{title}</span>
+        <span className="font-serif text-lg text-primary group-hover:text-primary transition-colors">{title}</span>
         <ChevronDown className={clsx("w-4 h-4 text-primary transition-transform duration-300", isOpen && "rotate-180")} />
       </button>
       <AnimatePresence>
@@ -32,7 +32,7 @@ function AccordionItem({ title, children, isOpen: defaultOpen = false }: Accordi
             exit={{ height: 0, opacity: 0 }}
             className="overflow-hidden"
           >
-            <div className="pb-8 text-secondary leading-relaxed font-light">
+            <div className="pb-8 text-primary/70 leading-relaxed font-light">
                {children}
             </div>
           </motion.div>
@@ -44,7 +44,7 @@ function AccordionItem({ title, children, isOpen: defaultOpen = false }: Accordi
 
 export function ProductDetailsAccordion({ product }: { product: Product }) {
   return (
-    <div className="border-t border-primary/10 mt-8">
+    <div className="border-t border-accent-subtle mt-8">
       {/* Sections removed as fields are not in Product interface currently */}
 
       <AccordionItem title="Shipping & Returns">

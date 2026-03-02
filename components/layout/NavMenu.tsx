@@ -59,7 +59,7 @@ export function NavMenu({
             className={clsx(
               "text-[11px] uppercase tracking-[0.25em] py-2 inline-block font-bold transition-all duration-300",
               (activeId === category.id || isCategorySelected(category))
-                ? "text-accent-gold"
+                ? "text-primary"
                 : "text-primary/70 hover:text-primary"
             )}
             onMouseEnter={() => setActiveId(category.id)}
@@ -67,7 +67,7 @@ export function NavMenu({
             {category.name}
             {/* Subtle Animated Underline */}
             <motion.div
-              className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-gold origin-left"
+              className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-primary origin-left"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: (activeId === category.id || isCategorySelected(category)) ? 1 : 0 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
@@ -91,7 +91,7 @@ export function NavMenu({
                       {child.image && (
                         <Link
                           href={child.path || `/category/${child.slug}`}
-                          className="relative w-full aspect-[4/5] mb-5 overflow-hidden bg-gray-50 border border-black/[0.03]"
+                          className="relative w-full aspect-[4/5] mb-5 overflow-hidden bg-canvas border border-black/[0.03]"
                         >
                           <Image
                             src={child.image}
@@ -105,7 +105,7 @@ export function NavMenu({
 
                       <Link
                         href={child.path || `/category/${child.slug}`}
-                        className="font-serif text-xl text-primary hover:text-accent-gold transition-colors duration-300 inline-flex items-center gap-2 mb-3"
+                        className="font-serif text-xl text-primary hover:text-primary transition-colors duration-300 inline-flex items-center gap-2 mb-3"
                       >
                         {child.name}
                       </Link>
@@ -117,7 +117,7 @@ export function NavMenu({
                             <Link
                               key={sub.id}
                               href={sub.path || `/category/${sub.slug}`}
-                              className="text-[10px] text-primary/50 hover:text-accent-gold transition-colors uppercase tracking-[0.15em] font-medium"
+                              className="text-[10px] text-primary/50 hover:text-primary transition-colors uppercase tracking-[0.15em] font-medium"
                             >
                               {sub.name}
                             </Link>
@@ -139,14 +139,14 @@ export function NavMenu({
           className={clsx(
             "text-[11px] uppercase tracking-[0.25em] py-2 inline-block font-bold transition-all duration-300",
             (activeId === "collections" || isCollectionsSelected)
-              ? "text-accent-gold"
+              ? "text-primary"
               : "text-primary/70 hover:text-primary"
           )}
           onMouseEnter={() => setActiveId("collections")}
         >
           Collections
           <motion.div
-            className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-accent-gold origin-left"
+            className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-primary origin-left"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: (activeId === "collections" || isCollectionsSelected) ? 1 : 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
@@ -168,7 +168,7 @@ export function NavMenu({
                   href={`/collection/${collection.slug}`}
                   className="group/coll flex flex-col gap-4"
                 >
-                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-50 border border-black/[0.03]">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-canvas border border-black/[0.03]">
                     {collection.image ? (
                       <Image
                         src={collection.image}
@@ -177,14 +177,14 @@ export function NavMenu({
                         className="object-cover group-hover/coll:scale-105 transition-transform duration-1000 ease-out"
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-[10px] uppercase tracking-widest text-primary/20 bg-gray-50">
+                      <div className="w-full h-full flex items-center justify-center text-[10px] uppercase tracking-widest text-primary/20 bg-canvas">
                         No Image
                       </div>
                     )}
                     <div className="absolute inset-0 bg-black/0 group-hover/coll:bg-black/10 transition-colors duration-500" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-xl text-primary group-hover:text-accent-gold transition-colors duration-300 mb-1">
+                    <h4 className="font-serif text-xl text-primary group-hover:text-primary transition-colors duration-300 mb-1">
                       {collection.title}
                     </h4>
                     <p className="text-[11px] text-primary/40 leading-relaxed line-clamp-2 uppercase tracking-wider font-medium">

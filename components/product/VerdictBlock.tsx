@@ -145,7 +145,7 @@ export function VerdictBlock({
         </div>
 
         <div className="mt-4 pt-4 border-t border-blue-200 dark:border-blue-800">
-          <p className="text-xs text-gray-500 dark:text-gray-400 italic">
+          <p className="text-xs text-primary/60 dark:text-primary/50 italic">
             {" "}
             By Valancis Editorial Team
           </p>

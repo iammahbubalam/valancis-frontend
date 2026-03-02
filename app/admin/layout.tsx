@@ -75,7 +75,7 @@ export default function AdminLayout({
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-canvas flex">
       {/* Sidebar (Desktop) */}
       <aside className="hidden lg:flex w-64 bg-white border-r border-gray-200 flex-col fixed top-[57px] bottom-0 left-0 text-primary z-40">
         <div className="p-6 border-b border-gray-100">
@@ -84,7 +84,7 @@ export default function AdminLayout({
             className="font-serif text-2xl font-bold tracking-tight"
           >
             VALANCIS
-            <span className="text-xs block font-sans font-normal text-secondary tracking-widest mt-1">
+            <span className="text-xs block font-sans font-normal text-primary/70 tracking-widest mt-1">
               ADMIN PORTAL
             </span>
           </Link>
@@ -102,7 +102,7 @@ export default function AdminLayout({
                   "flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-colors",
                   isActive
                     ? "bg-primary text-white"
-                    : "text-secondary hover:bg-gray-50 hover:text-primary",
+                    : "text-primary/70 hover:bg-canvas hover:text-primary",
                 )}
               >
                 <Icon className="w-5 h-5" />
@@ -117,7 +117,7 @@ export default function AdminLayout({
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-primary hover:bg-gray-50 rounded-md w-full transition-colors"
+            className="flex items-center gap-3 px-4 py-3 text-sm font-medium text-primary hover:bg-canvas rounded-md w-full transition-colors"
           >
             <ExternalLink className="w-5 h-5" />
             Live Store
@@ -155,7 +155,7 @@ export default function AdminLayout({
                     "flex items-center gap-3 px-4 py-4 text-base font-medium rounded-md border border-transparent",
                     pathname === item.href
                       ? "bg-primary text-white"
-                      : "hover:bg-gray-50",
+                      : "hover:bg-canvas",
                   )}
                 >
                   <item.icon className="w-5 h-5" />
@@ -165,7 +165,7 @@ export default function AdminLayout({
               <a
                 href="/"
                 target="_blank"
-                className="flex items-center gap-3 px-4 py-4 text-base font-medium rounded-md border border-transparent text-primary hover:bg-gray-50"
+                className="flex items-center gap-3 px-4 py-4 text-base font-medium rounded-md border border-transparent text-primary hover:bg-canvas"
                 onClick={() => setIsMobileOpen(false)}
               >
                 <ExternalLink className="w-5 h-5" />

@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 export default function CheckoutPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen animate-pulse bg-main-secondary" />}>
+    <Suspense fallback={<div className="min-h-screen animate-pulse bg-accent-subtle" />}>
       <CheckoutClient />
     </Suspense>
   );

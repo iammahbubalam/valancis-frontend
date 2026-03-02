@@ -59,7 +59,7 @@ export function InventoryCustomerTablesInner({
                 </div>
                 <div className="p-4 max-h-80 overflow-y-auto">
                     {lowStock.length === 0 ? (
-                        <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+                        <p className="text-center text-primary/60 dark:text-primary/50 py-8">
                             All products well-stocked!
                         </p>
                     ) : (
@@ -68,7 +68,7 @@ export function InventoryCustomerTablesInner({
                                 {lowStock.slice(0, 10).map((product) => (
                                     <tr
                                         key={product.id}
-                                        className="hover:bg-gray-50 dark:hover:bg-gray-900"
+                                        className="hover:bg-canvas dark:hover:bg-gray-900"
                                     >
                                         <td className="py-3 pr-2">
                                             <Link
@@ -77,7 +77,7 @@ export function InventoryCustomerTablesInner({
                                             >
                                                 {product.name}
                                             </Link>
-                                            <p className="text-xs text-gray-500 dark:text-gray-400">
+                                            <p className="text-xs text-primary/60 dark:text-primary/50">
                                                 {product.sku}
                                             </p>
                                         </td>
@@ -106,7 +106,7 @@ export function InventoryCustomerTablesInner({
                 </div>
                 <div className="p-4 max-h-80 overflow-y-auto">
                     {topProducts.length === 0 ? (
-                        <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+                        <p className="text-center text-primary/60 dark:text-primary/50 py-8">
                             No sales data available
                         </p>
                     ) : (
@@ -115,11 +115,11 @@ export function InventoryCustomerTablesInner({
                                 {topProducts.slice(0, 10).map((product, index) => (
                                     <tr
                                         key={product.id}
-                                        className="hover:bg-gray-50 dark:hover:bg-gray-900"
+                                        className="hover:bg-canvas dark:hover:bg-gray-900"
                                     >
                                         <td className="py-3 pr-2">
                                             <div className="flex items-center gap-2">
-                                                <span className="text-sm font-bold text-gray-400 dark:text-gray-600">
+                                                <span className="text-sm font-bold text-primary/50 dark:text-gray-600">
                                                     #{index + 1}
                                                 </span>
                                                 <div>
@@ -129,7 +129,7 @@ export function InventoryCustomerTablesInner({
                                                     >
                                                         {product.name}
                                                     </Link>
-                                                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                    <p className="text-xs text-primary/60 dark:text-primary/50">
                                                         {Number(product.total_sold)} sold
                                                     </p>
                                                 </div>
@@ -158,7 +158,7 @@ export function InventoryCustomerTablesInner({
                 </div>
                 <div className="p-4 max-h-80 overflow-y-auto">
                     {topCustomers.length === 0 ? (
-                        <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+                        <p className="text-center text-primary/60 dark:text-primary/50 py-8">
                             No customer data available
                         </p>
                     ) : (
@@ -167,18 +167,18 @@ export function InventoryCustomerTablesInner({
                                 {topCustomers.slice(0, 10).map((customer, index) => (
                                     <tr
                                         key={customer.id}
-                                        className="hover:bg-gray-50 dark:hover:bg-gray-900"
+                                        className="hover:bg-canvas dark:hover:bg-gray-900"
                                     >
                                         <td className="py-3 pr-2">
                                             <div className="flex items-center gap-2">
-                                                <span className="text-sm font-bold text-gray-400 dark:text-gray-600">
+                                                <span className="text-sm font-bold text-primary/50 dark:text-gray-600">
                                                     #{index + 1}
                                                 </span>
                                                 <div>
                                                     <p className="text-sm font-medium text-gray-900 dark:text-white">
                                                         {customer.first_name} {customer.last_name}
                                                     </p>
-                                                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                                                    <p className="text-xs text-primary/60 dark:text-primary/50">
                                                         {Number(customer.total_orders)} orders
                                                     </p>
                                                 </div>
@@ -209,7 +209,7 @@ export function InventoryCustomerTablesInner({
                     {!retention ||
                         (retention.new_customers === 0 &&
                             retention.returning_customers === 0) ? (
-                        <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+                        <p className="text-center text-primary/60 dark:text-primary/50 py-8">
                             No retention data available
                         </p>
                     ) : (
@@ -248,7 +248,7 @@ export function InventoryCustomerTablesInner({
                                     <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                                         {Number(retention.new_customers)}
                                     </p>
-                                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                                    <p className="text-xs text-gray-600 dark:text-primary/50">
                                         New
                                     </p>
                                 </div>
@@ -256,7 +256,7 @@ export function InventoryCustomerTablesInner({
                                     <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                                         {Number(retention.returning_customers)}
                                     </p>
-                                    <p className="text-xs text-gray-600 dark:text-gray-400">
+                                    <p className="text-xs text-gray-600 dark:text-primary/50">
                                         Returning
                                     </p>
                                 </div>

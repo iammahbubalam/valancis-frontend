@@ -14,7 +14,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
   if (!products || products.length === 0) return null;
 
   return (
-    <section className="py-32 bg-white border-t border-primary/5">
+    <section className="py-32 bg-white border-t border-accent-subtle">
       <div className="max-w-[1600px] mx-auto px-6">
         {/* Minimal Header */}
         <motion.div
@@ -24,7 +24,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
           transition={{ duration: 1 }}
           className="text-center mb-20"
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-accent-gold mb-4 block">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-primary mb-4 block">
             New Season
           </span>
           <h2 className="font-serif text-5xl md:text-6xl text-primary leading-none">
@@ -48,7 +48,7 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
         <div className="text-center mt-20">
           <Link
             href="/shop"
-            className="inline-block border-b border-primary pb-1 text-xs uppercase tracking-[0.2em] hover:text-accent-gold hover:border-accent-gold transition-colors"
+            className="inline-block border-b border-primary pb-1 text-xs uppercase tracking-[0.2em] hover:text-primary hover:border-primary transition-colors"
           >
             View All Products
           </Link>

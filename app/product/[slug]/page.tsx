@@ -115,7 +115,7 @@ export default async function ProductPage({
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-              <h3 className="text-secondary uppercase text-xs tracking-widest mb-6 border-b border-gray-100 pb-2">
+              <h3 className="text-primary/70 uppercase text-xs tracking-widest mb-6 border-b border-gray-100 pb-2">
                 Recent Feedback
               </h3>
               <ReviewList reviews={reviews} />

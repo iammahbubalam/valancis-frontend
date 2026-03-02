@@ -48,14 +48,14 @@ export function CategoryHeader({ category, breadcrumbs, productCount }: Category
               </p>
             )}
 
-            <div className="flex items-center gap-6 mt-6 text-sm text-gray-500">
+            <div className="flex items-center gap-6 mt-6 text-sm text-primary/60">
               <div className="flex items-center gap-2">
                 <PackageSearch className="w-4 h-4" />
                 <span>{productCount} {productCount === 1 ? 'Product' : 'Products'}</span>
               </div>
               
               {!category.isActive && (
-                <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">
+                <span className="px-2 py-1 bg-canvas text-gray-600 rounded-full text-xs font-medium">
                   Inactive
                 </span>
               )}

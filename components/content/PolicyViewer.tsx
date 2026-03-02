@@ -14,8 +14,8 @@ export function PolicyViewer({ title, data }: PolicyViewerProps) {
       <div className="max-w-3xl mx-auto py-20 text-center">
         <h1 className="text-3xl font-serif mb-4">{title}</h1>
         <div className="animate-pulse space-y-4">
-          <div className="h-4 bg-gray-100 rounded w-3/4 mx-auto"></div>
-          <div className="h-4 bg-gray-100 rounded w-1/2 mx-auto"></div>
+          <div className="h-4 bg-canvas rounded w-3/4 mx-auto"></div>
+          <div className="h-4 bg-canvas rounded w-1/2 mx-auto"></div>
         </div>
       </div>
     );
@@ -27,7 +27,7 @@ export function PolicyViewer({ title, data }: PolicyViewerProps) {
         <h1 className="text-4xl md:text-5xl font-serif text-gray-900 mb-4">
           {title}
         </h1>
-        <p className="text-sm text-gray-500 uppercase tracking-widest font-medium">
+        <p className="text-sm text-primary/60 uppercase tracking-widest font-medium">
           Last Updated:{" "}
           {data.lastUpdated
             ? format(new Date(data.lastUpdated), "MMMM d, yyyy")

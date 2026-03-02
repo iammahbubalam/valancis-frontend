@@ -171,12 +171,12 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
         <div className="flex-1 flex overflow-hidden">
           {isLoading ? (
             <div className="flex-1 flex items-center justify-center">
-              <Loader2 className="w-8 h-8 animate-spin text-gray-400" />
+              <Loader2 className="w-8 h-8 animate-spin text-primary/50" />
             </div>
           ) : (
             <>
               {/* Sidebar: Slide List */}
-              <div className="w-80 border-r border-gray-100 bg-gray-50/50 flex flex-col shrink-0">
+              <div className="w-80 border-r border-gray-100 bg-canvas/50 flex flex-col shrink-0">
                 <div className="p-4 space-y-3 overflow-y-auto flex-1">
                   {slides.map((slide, index) => (
                     <div
@@ -185,11 +185,11 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                       className={`p-3 rounded-xl border cursor-pointer transition-all flex items-center gap-3 group ${
                         selectedSlideId === slide.id
                           ? "bg-white border-primary shadow-sm ring-1 ring-primary/20"
-                          : "bg-white border-gray-200 hover:border-primary/50"
+                          : "bg-white border-gray-200 hover:border-accent-subtle0"
                       }`}
                     >
                       {/* Thumbnail */}
-                      <div className="w-12 h-12 rounded-lg bg-gray-100 relative overflow-hidden shrink-0 border border-gray-100">
+                      <div className="w-12 h-12 rounded-lg bg-canvas relative overflow-hidden shrink-0 border border-gray-100">
                         {slide.image ? (
                           <Image
                             src={slide.image}
@@ -209,7 +209,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                         <p className="text-sm font-medium text-gray-900 truncate">
                           {slide.title || "Untitled"}
                         </p>
-                        <p className="text-xs text-gray-500 truncate">
+                        <p className="text-xs text-primary/60 truncate">
                           {slide.subtitle || "No subtitle"}
                         </p>
                       </div>
@@ -222,7 +222,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                             moveSlide(index, "up");
                           }}
                           disabled={index === 0}
-                          className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-gray-900 disabled:opacity-30"
+                          className="p-1 hover:bg-canvas rounded text-primary/50 hover:text-gray-900 disabled:opacity-30"
                         >
                           <ChevronUp className="w-3 h-3" />
                         </button>
@@ -232,7 +232,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                             moveSlide(index, "down");
                           }}
                           disabled={index === slides.length - 1}
-                          className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-gray-900 disabled:opacity-30"
+                          className="p-1 hover:bg-canvas rounded text-primary/50 hover:text-gray-900 disabled:opacity-30"
                         >
                           <ChevronDown className="w-3 h-3" />
                         </button>
@@ -253,7 +253,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
               </div>
 
               {/* Main Area: Form + Preview */}
-              <div className="flex-1 flex flex-col h-full bg-gray-50/30">
+              <div className="flex-1 flex flex-col h-full bg-canvas/30">
                 {selectedSlide ? (
                   <div className="flex h-full">
                     {/* Left: Form */}
@@ -266,7 +266,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                         </div>
                         <div className="space-y-3">
                           <div>
-                            <label className="text-xs font-semibold text-gray-500 uppercase">
+                            <label className="text-xs font-semibold text-primary/60 uppercase">
                               Title
                             </label>
                             <input
@@ -278,11 +278,11 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                   e.target.value,
                                 )
                               }
-                              className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm font-medium"
+                              className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm font-medium"
                             />
                           </div>
                           <div>
-                            <label className="text-xs font-semibold text-gray-500 uppercase">
+                            <label className="text-xs font-semibold text-primary/60 uppercase">
                               Subtitle
                             </label>
                             <input
@@ -294,11 +294,11 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                   e.target.value,
                                 )
                               }
-                              className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm"
+                              className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm"
                             />
                           </div>
                           <div>
-                            <label className="text-xs font-semibold text-gray-500 uppercase">
+                            <label className="text-xs font-semibold text-primary/60 uppercase">
                               Description
                             </label>
                             <textarea
@@ -311,7 +311,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                 )
                               }
                               rows={3}
-                              className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm resize-none"
+                              className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm resize-none"
                             />
                           </div>
                         </div>
@@ -341,7 +341,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                         <div className="grid grid-cols-2 gap-4">
                           {/* Text Color */}
                           <div>
-                            <label className="text-xs font-semibold text-gray-500 uppercase">
+                            <label className="text-xs font-semibold text-primary/60 uppercase">
                               Text Color
                             </label>
                             <select
@@ -353,7 +353,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                   e.target.value,
                                 )
                               }
-                              className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"
+                              className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg text-sm"
                             >
                               <option value="white">White</option>
                               <option value="black">Black</option>
@@ -362,7 +362,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
 
                           {/* Alignment */}
                           <div>
-                            <label className="text-xs font-semibold text-gray-500 uppercase">
+                            <label className="text-xs font-semibold text-primary/60 uppercase">
                               Alignment
                             </label>
                             <select
@@ -374,7 +374,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                   e.target.value,
                                 )
                               }
-                              className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"
+                              className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg text-sm"
                             >
                               <option value="left">Left</option>
                               <option value="center">Center</option>
@@ -385,7 +385,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
 
                         {/* Opacity */}
                         <div>
-                          <label className="text-xs font-semibold text-gray-500 uppercase flex justify-between">
+                          <label className="text-xs font-semibold text-primary/60 uppercase flex justify-between">
                             Overlay Opacity
                             <span>{selectedSlide.overlayOpacity ?? 40}%</span>
                           </label>
@@ -417,7 +417,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                         <div className="space-y-3">
                           <div className="grid grid-cols-2 gap-3">
                             <div>
-                              <label className="text-xs font-semibold text-gray-500 uppercase">
+                              <label className="text-xs font-semibold text-primary/60 uppercase">
                                 Label
                               </label>
                               <input
@@ -429,11 +429,11 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                     e.target.value,
                                   )
                                 }
-                                className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm"
+                                className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm"
                               />
                             </div>
                             <div>
-                              <label className="text-xs font-semibold text-gray-500 uppercase">
+                              <label className="text-xs font-semibold text-primary/60 uppercase">
                                 Style
                               </label>
                               <select
@@ -445,7 +445,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                     e.target.value,
                                   )
                                 }
-                                className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-sm"
+                                className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg text-sm"
                               >
                                 <option value="primary">Primary</option>
                                 <option value="outline">Outline</option>
@@ -454,7 +454,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                             </div>
                           </div>
                           <div>
-                            <label className="text-xs font-semibold text-gray-500 uppercase">
+                            <label className="text-xs font-semibold text-primary/60 uppercase">
                               Link URL
                             </label>
                             <input
@@ -467,7 +467,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                 )
                               }
                               placeholder="/category/..."
-                              className="w-full mt-1 px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm font-mono text-xs"
+                              className="w-full mt-1 px-3 py-2 bg-canvas border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary/20 outline-none text-sm font-mono text-xs"
                             />
                           </div>
                         </div>
@@ -486,7 +486,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                     </div>
 
                     {/* Right: Live Preview */}
-                    <div className="flex-1 p-8 overflow-y-auto flex items-center justify-center bg-gray-100/50">
+                    <div className="flex-1 p-8 overflow-y-auto flex items-center justify-center bg-canvas/50">
                       <div className="w-full max-w-[1000px] aspect-[16/9] bg-white rounded-xl shadow-2xl relative overflow-hidden group select-none ring-1 ring-gray-900/5 transition-all">
                         {/* Background */}
                         {selectedSlide.image ? (
@@ -497,8 +497,8 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                             className="object-cover"
                           />
                         ) : (
-                          <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                            <span className="text-gray-400 font-medium">
+                          <div className="absolute inset-0 bg-accent-subtle flex items-center justify-center">
+                            <span className="text-primary/50 font-medium">
                               No Image
                             </span>
                           </div>
@@ -570,7 +570,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                                             : selectedSlide.buttonStyle ===
                                                 "white"
                                               ? "bg-white text-gray-900 border-2 border-white"
-                                              : "bg-primary text-secondary border-2 border-primary"
+                                              : "bg-primary text-primary/70 border-2 border-primary"
                                         }
                                     `}
                               >
@@ -588,7 +588,7 @@ export function HeroEditor({ onClose }: HeroEditorProps) {
                     </div>
                   </div>
                 ) : (
-                  <div className="flex-1 flex flex-col items-center justify-center text-gray-400">
+                  <div className="flex-1 flex flex-col items-center justify-center text-primary/50">
                     <Layout className="w-12 h-12 mb-4 opacity-20" />
                     <p>Select a slide to edit</p>
                   </div>

@@ -56,12 +56,12 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
       <header
         className={clsx(
           isAdmin
-            ? "fixed top-0 left-0 right-0 z-50 bg-white py-2 border-b border-primary/10"
+            ? "fixed top-0 left-0 right-0 z-50 bg-canvas py-2 border-b border-accent-subtle"
             : clsx(
               "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out border-b",
               isScrolled
-                ? "bg-white/95 backdrop-blur-md py-1 shadow-sm border-primary/5"
-                : "bg-white/70 backdrop-blur-sm py-2 border-transparent",
+                ? "bg-canvas/95 backdrop-blur-md py-1 shadow-sm border-accent-subtle"
+                : "bg-canvas/70 backdrop-blur-sm py-2 border-transparent",
             ),
         )}
       >
@@ -69,7 +69,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
           {/* 1. Mobile Left Area / Desktop Menu (Hidden on Desktop) */}
           <div className="flex-1 flex items-center lg:hidden">
             <button
-              className="text-primary hover:text-accent-gold transition-colors cursor-pointer p-1"
+              className="text-primary hover:text-primary transition-colors cursor-pointer p-1"
               onClick={() => setIsMobileOpen(true)}
               aria-label="Open Menu"
             >
@@ -107,18 +107,18 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
               {/* Shop CTA */}
               <Link
                 href="/shop"
-                className="px-5 py-1.5 border border-primary/20 rounded-full text-[10px] uppercase tracking-[0.15em] font-bold text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer"
+                className="px-5 py-1.5 border border-accent-subtle rounded-full text-[10px] uppercase tracking-[0.15em] font-bold text-primary hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 cursor-pointer"
               >
                 Shop
               </Link>
 
               {/* Vertical Divider */}
-              <div className="h-5 w-px bg-primary/15" />
+              <div className="h-5 w-px bg-accent-subtle" />
 
               {/* Icon Group */}
               <div className="flex items-center gap-5">
                 <button
-                  className="text-primary/80 hover:text-accent-gold transition-all duration-200 hover:scale-110 cursor-pointer"
+                  className="text-primary/80 hover:text-primary transition-all duration-200 hover:scale-110 cursor-pointer"
                   onClick={() => setIsSearchOpen(true)}
                   title="Search"
                 >
@@ -128,7 +128,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
                 {user?.isAdmin && (
                   <Link
                     href="/admin"
-                    className="text-primary/80 hover:text-accent-gold transition-all duration-200 hover:scale-110 cursor-pointer"
+                    className="text-primary/80 hover:text-primary transition-all duration-200 hover:scale-110 cursor-pointer"
                     title="Admin Panel"
                   >
                     <Shield className="w-[18px] h-[18px]" strokeWidth={2} />
@@ -137,7 +137,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
 
                 <Link
                   href="/wishlist"
-                  className="text-primary/80 hover:text-accent-gold transition-all duration-200 hover:scale-110 cursor-pointer flex items-center relative"
+                  className="text-primary/80 hover:text-primary transition-all duration-200 hover:scale-110 cursor-pointer flex items-center relative"
                   title="Wishlist"
                 >
                   <Heart className="w-[18px] h-[18px]" strokeWidth={2} />
@@ -150,12 +150,12 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
 
                 <button
                   onClick={toggleCart}
-                  className="text-primary/80 hover:text-accent-gold transition-all duration-200 relative hover:scale-110 cursor-pointer"
+                  className="text-primary/80 hover:text-primary transition-all duration-200 relative hover:scale-110 cursor-pointer"
                   title="Cart"
                 >
                   <ShoppingBag className="w-[18px] h-[18px]" strokeWidth={2} />
                   {items.length > 0 && (
-                    <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-accent-gold text-white text-[9px] flex items-center justify-center rounded-full font-bold">
+                    <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-white text-[9px] flex items-center justify-center rounded-full font-bold">
                       {items.length}
                     </span>
                   )}
@@ -182,7 +182,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
 
               <Link
                 href="/shop"
-                className="px-4 py-1.5 border border-primary/20 rounded-full text-[10px] uppercase tracking-widest font-bold text-primary active:bg-primary active:text-white transition-all duration-300"
+                className="px-4 py-1.5 border border-accent-subtle rounded-full text-[10px] uppercase tracking-widest font-bold text-primary active:bg-primary active:text-white transition-all duration-300"
               >
                 Shop
               </Link>
@@ -210,15 +210,15 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
               animate={{ x: 0 }}
               exit={{ x: "-100%" }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-y-0 left-0 w-[85vw] max-w-sm bg-white z-[70] flex flex-col p-8 lg:hidden shadow-2xl"
+              className="fixed inset-y-0 left-0 w-[85vw] max-w-sm bg-canvas z-[70] flex flex-col p-8 lg:hidden shadow-2xl"
             >
-              <div className="flex justify-between items-center mb-12 border-b border-primary/10 pb-6">
+              <div className="flex justify-between items-center mb-12 border-b border-accent-subtle pb-6">
                 <span className="text-xl font-serif uppercase tracking-widest text-primary">
                   Menu
                 </span>
                 <button
                   onClick={() => setIsMobileOpen(false)}
-                  className="cursor-pointer p-2 hover:bg-gray-50 rounded-full transition-colors"
+                  className="cursor-pointer p-2 hover:bg-canvas rounded-full transition-colors"
                 >
                   <X className="w-6 h-6 text-primary" />
                 </button>
@@ -233,7 +233,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
                     <div key={cat.id} className="flex flex-col gap-5">
                       <Link
                         href={`/category/${cat.slug}`}
-                        className="text-2xl font-serif text-primary cursor-pointer hover:text-accent-gold transition-all duration-300"
+                        className="text-2xl font-serif text-primary cursor-pointer hover:text-primary transition-all duration-300"
                         onClick={() => setIsMobileOpen(false)}
                       >
                         {cat.name}
@@ -241,20 +241,20 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
 
                       {/* Nested Children (Sub-categories) */}
                       {cat.children && cat.children.length > 0 && (
-                        <div className="pl-5 flex flex-col gap-5 border-l border-primary/5">
+                        <div className="pl-5 flex flex-col gap-5 border-l border-accent-subtle">
                           {cat.children.map((child) => (
                             <div key={child.id} className="flex flex-col gap-3">
                               <Link
                                 href={`/category/${child.slug}`}
                                 onClick={() => setIsMobileOpen(false)}
-                                className="text-sm font-medium uppercase tracking-[0.1em] text-secondary hover:text-primary transition-colors"
+                                className="text-sm font-medium uppercase tracking-[0.1em] text-primary/70 hover:text-primary transition-colors"
                               >
                                 {child.name}
                               </Link>
 
                               {/* L3 Children if any (Small uppercase style like desktop) */}
                               {child.children && child.children.length > 0 && (
-                                <div className="pl-4 flex flex-col gap-2.5 mt-1 border-l border-primary/5">
+                                <div className="pl-4 flex flex-col gap-2.5 mt-1 border-l border-accent-subtle">
                                   {child.children.map((sub) => (
                                     <Link
                                       key={sub.id}
@@ -278,17 +278,17 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
                 <div className="flex flex-col gap-5 pt-2">
                   <Link
                     href="/collections"
-                    className="text-2xl font-serif text-primary cursor-pointer hover:text-accent-gold transition-all duration-300"
+                    className="text-2xl font-serif text-primary cursor-pointer hover:text-primary transition-all duration-300"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     Collections
                   </Link>
-                  <div className="pl-5 flex flex-col gap-5 border-l border-primary/5">
+                  <div className="pl-5 flex flex-col gap-5 border-l border-accent-subtle">
                     {collections.map((col) => (
                       <Link
                         key={col.id}
                         href={`/collection/${col.slug}`}
-                        className="text-sm font-medium uppercase tracking-[0.1em] text-secondary hover:text-primary transition-colors"
+                        className="text-sm font-medium uppercase tracking-[0.1em] text-primary/70 hover:text-primary transition-colors"
                         onClick={() => setIsMobileOpen(false)}
                       >
                         {col.title}
@@ -299,13 +299,13 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
 
                 <Link
                   href="/shop"
-                  className="text-2xl font-serif text-primary mt-4 cursor-pointer hover:text-accent-gold transition-all duration-300"
+                  className="text-2xl font-serif text-primary mt-4 cursor-pointer hover:text-primary transition-all duration-300"
                   onClick={() => setIsMobileOpen(false)}
                 >
                   Shop All
                 </Link>
 
-                <div className="pt-8 border-t border-primary/10 mt-4 space-y-6">
+                <div className="pt-8 border-t border-accent-subtle mt-4 space-y-6">
                   {user ? (
                     <>
                       <Link
@@ -320,7 +320,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
                   ) : (
                     <Link
                       href="/login"
-                      className="flex items-center gap-3 text-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors cursor-pointer"
+                      className="flex items-center gap-3 text-sm uppercase tracking-widest text-primary/70 hover:text-primary transition-colors cursor-pointer"
                       onClick={() => setIsMobileOpen(false)}
                     >
                       <User className="w-4 h-4" />
@@ -330,7 +330,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
 
                   <Link
                     href="/wishlist"
-                    className="flex items-center gap-3 text-sm uppercase tracking-widest text-secondary hover:text-primary transition-colors cursor-pointer"
+                    className="flex items-center gap-3 text-sm uppercase tracking-widest text-primary/70 hover:text-primary transition-colors cursor-pointer"
                     onClick={() => setIsMobileOpen(false)}
                   >
                     <Heart className="w-4 h-4" />

@@ -113,13 +113,13 @@ export default function OrderDetail({ id }: OrderDetailProps) {
             {/* Header & Actions */}
             <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                 <div className="flex items-start gap-4">
-                    <Link href="/admin/orders" className="p-2 -ml-2 hover:bg-gray-100 rounded-full transition-colors">
-                        <ArrowLeft className="w-5 h-5 text-secondary" />
+                    <Link href="/admin/orders" className="p-2 -ml-2 hover:bg-canvas rounded-full transition-colors">
+                        <ArrowLeft className="w-5 h-5 text-primary/70" />
                     </Link>
                     <div>
                         <h1 className="text-2xl font-serif text-primary flex items-center gap-3">
                             Order #{order.id.slice(0, 8)}
-                            <button onClick={() => copyToClipboard(order.id, "Order ID")} className="text-gray-400 hover:text-primary transition-colors">
+                            <button onClick={() => copyToClipboard(order.id, "Order ID")} className="text-primary/50 hover:text-primary transition-colors">
                                 <Copy className="w-4 h-4" />
                             </button>
                         </h1>
@@ -132,7 +132,7 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                                                 'bg-blue-50 text-blue-700 border-blue-200'}`}>
                                 {order.status.replace("_", " ")}
                             </div>
-                            <span className="text-sm text-secondary flex items-center gap-1">
+                            <span className="text-sm text-primary/70 flex items-center gap-1">
                                 <Clock className="w-3 h-3" />
                                 {format(new Date(order.createdAt), "PPP p")}
                             </span>
@@ -180,7 +180,7 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                             ))}
                         </select>
                         <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                            <Info className="w-3 h-3 text-gray-400" />
+                            <Info className="w-3 h-3 text-primary/50" />
                         </div>
                     </div>
 
@@ -200,14 +200,14 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                 <div className="lg:col-span-2 space-y-8">
                     {/* Order Items */}
                     <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-                        <div className="px-6 py-4 border-b border-gray-100 bg-gray-50/30 flex justify-between items-center">
+                        <div className="px-6 py-4 border-b border-gray-100 bg-canvas/30 flex justify-between items-center">
                             <h3 className="font-serif font-medium text-primary">Items ({order.items.length})</h3>
-                            <span className="text-secondary text-sm">Total Weight: N/A</span>
+                            <span className="text-primary/70 text-sm">Total Weight: N/A</span>
                         </div>
                         <div className="divide-y divide-gray-100">
                             {order.items.map((item: any) => (
-                                <div key={item.id} className="p-4 flex items-center gap-4 hover:bg-gray-50/50 transition-colors">
-                                    <div className="w-16 h-16 bg-gray-100 rounded-lg relative overflow-hidden flex-shrink-0 border border-gray-200">
+                                <div key={item.id} className="p-4 flex items-center gap-4 hover:bg-canvas/50 transition-colors">
+                                    <div className="w-16 h-16 bg-canvas rounded-lg relative overflow-hidden flex-shrink-0 border border-gray-200">
                                         {item.product?.media?.[0] && (
                                             <Image
                                                 src={item.product.media[0]}
@@ -220,23 +220,23 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                                     <div className="flex-1 min-w-0">
                                         <h4 className="font-medium text-primary truncate">{item.product?.name}</h4>
                                         <div className="flex flex-wrap gap-2 mt-1">
-                                            {item.variantId && <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800">Var: {item.variantId}</span>}
-                                            <span className="text-xs text-secondary">Qty: {item.quantity}</span>
+                                            {item.variantId && <span className="inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium bg-canvas text-gray-800">Var: {item.variantId}</span>}
+                                            <span className="text-xs text-primary/70">Qty: {item.quantity}</span>
                                         </div>
                                     </div>
                                     <div className="text-right">
                                         <div className="font-medium text-primary">৳{(item.price * item.quantity).toLocaleString()}</div>
-                                        <div className="text-xs text-secondary">৳{item.price.toLocaleString()} ea</div>
+                                        <div className="text-xs text-primary/70">৳{item.price.toLocaleString()} ea</div>
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        <div className="p-6 bg-gray-50/50 space-y-3">
-                            <div className="flex justify-between text-sm text-secondary">
+                        <div className="p-6 bg-canvas/50 space-y-3">
+                            <div className="flex justify-between text-sm text-primary/70">
                                 <span>Subtotal</span>
                                 <span>৳{(order.totalAmount - (order.shippingFee || 0)).toLocaleString()}</span>
                             </div>
-                            <div className="flex justify-between text-sm text-secondary">
+                            <div className="flex justify-between text-sm text-primary/70">
                                 <span>Shipping</span>
                                 <span>৳{(order.shippingFee || 0).toLocaleString()}</span>
                             </div>
@@ -277,7 +277,7 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                             <div className="space-y-2 pt-4 border-t border-gray-100">
                                 {Object.entries(order.paymentDetails).map(([key, value]) => (
                                     <div key={key} className="flex justify-between items-center text-xs">
-                                        <span className="text-secondary capitalize">{key.replace("_", " ")}:</span>
+                                        <span className="text-primary/70 capitalize">{key.replace("_", " ")}:</span>
                                         <span className="font-mono text-gray-700 truncate max-w-[150px]" title={String(value)}>{String(value)}</span>
                                     </div>
                                 ))}
@@ -319,12 +319,12 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                                     {order.user?.firstName || order.shippingAddress?.firstName || 'Guest'} {order.user?.lastName || order.shippingAddress?.lastName || ''}
                                 </p>
                                 {(order.user?.email || order.shippingAddress?.email) && (
-                                    <p className="text-sm text-secondary mt-0.5">
+                                    <p className="text-sm text-primary/70 mt-0.5">
                                         {order.user?.email || order.shippingAddress?.email}
                                     </p>
                                 )}
                                 {order.shippingAddress?.phone && (
-                                    <p className="text-sm text-secondary mt-0.5 font-mono">
+                                    <p className="text-sm text-primary/70 mt-0.5 font-mono">
                                         {order.shippingAddress.phone}
                                     </p>
                                 )}
@@ -334,7 +334,7 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                         {/* Shipping Address */}
                         <div className="space-y-3">
                             <div className="flex gap-3 items-start">
-                                <MapPin className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
+                                <MapPin className="w-4 h-4 text-primary/70 mt-1 flex-shrink-0" />
                                 <div className="text-sm text-gray-600 flex-1">
                                     <p className="font-medium text-primary mb-2">Delivery Address</p>
 
@@ -356,12 +356,12 @@ export default function OrderDetail({ id }: OrderDetailProps) {
 
                                     {/* Division */}
                                     {order.shippingAddress?.division && (
-                                        <p className="text-secondary text-xs">{order.shippingAddress.division}</p>
+                                        <p className="text-primary/70 text-xs">{order.shippingAddress.division}</p>
                                     )}
 
                                     {/* Delivery Location Badge */}
                                     {order.shippingAddress?.deliveryLocation && (
-                                        <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 bg-primary/5 border border-primary/10 rounded text-xs text-primary font-medium">
+                                        <div className="mt-2 inline-flex items-center gap-1.5 px-2 py-1 bg-primary/5 border border-accent-subtle rounded text-xs text-primary font-medium">
                                             <div className="w-2 h-2 rounded-full bg-primary/40 mr-1.5"></div>
                                             {order.shippingAddress.deliveryLocation.replace(/_/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}
                                         </div>

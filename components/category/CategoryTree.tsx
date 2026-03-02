@@ -29,7 +29,7 @@ function TreeNode({ category, isActive, level }: TreeNodeProps) {
           flex items-center gap-2 py-2 px-3 rounded-lg transition-all cursor-pointer group
           ${isActive 
             ? 'bg-primary/10 text-primary font-semibold border-l-4 border-primary pl-2' 
-            : 'hover:bg-gray-50 text-gray-700 hover:text-primary'
+            : 'hover:bg-canvas text-gray-700 hover:text-primary'
           }
         `}
         style={{ paddingLeft: `${level * 12 + 12}px` }}
@@ -37,7 +37,7 @@ function TreeNode({ category, isActive, level }: TreeNodeProps) {
         {hasChildren && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="p-0.5 hover:bg-gray-200 rounded transition-colors"
+            className="p-0.5 hover:bg-accent-subtle rounded transition-colors"
           >
             {isExpanded ? (
               <ChevronDown className="w-3.5 h-3.5" />
@@ -57,12 +57,12 @@ function TreeNode({ category, isActive, level }: TreeNodeProps) {
           
           <div className="flex items-center gap-1">
             {!category.showInNav && (
-              <span className="text-[9px] px-1.5 py-0.5 bg-gray-200 text-gray-500 rounded-full font-medium" title="Hidden from navigation">
+              <span className="text-[9px] px-1.5 py-0.5 bg-accent-subtle text-primary/60 rounded-full font-medium" title="Hidden from navigation">
                 <EyeOff className="w-2.5 h-2.5" />
               </span>
             )}
             {!category.isActive && (
-              <span className="text-[9px] px-1.5 py-0.5 bg-gray-200 text-gray-500 rounded-full font-medium">
+              <span className="text-[9px] px-1.5 py-0.5 bg-accent-subtle text-primary/60 rounded-full font-medium">
                 Inactive
               </span>
             )}

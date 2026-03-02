@@ -52,7 +52,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         --- MOBILE VIEW (< lg) --- 
         Full-width Swipeable Carousel.
       */}
-      <div className="lg:hidden relative w-full bg-gray-50 mb-6 overflow-hidden">
+      <div className="lg:hidden relative w-full bg-canvas mb-6 overflow-hidden">
         <div
           ref={scrollRef}
           onScroll={handleScroll}
@@ -100,7 +100,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
               key={idx}
               onClick={() => scrollToImage(idx)}
               className={clsx(
-                "relative w-full aspect-square bg-gray-50 transition-all duration-200 overflow-hidden",
+                "relative w-full aspect-square bg-canvas transition-all duration-200 overflow-hidden",
                 activeIndex === idx
                   ? "ring-1 ring-black ring-offset-1 opacity-100 border border-black"
                   : "opacity-60 hover:opacity-100 border border-transparent"
@@ -117,7 +117,7 @@ export function ProductGallery({ images }: ProductGalleryProps) {
         </div>
 
         {/* Main Stage (Right) */}
-        <div className="flex-1 relative aspect-[3/4] bg-main group overflow-hidden border border-primary/5">
+        <div className="flex-1 relative aspect-[3/4] bg-canvas group overflow-hidden border border-accent-subtle">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}

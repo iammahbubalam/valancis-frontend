@@ -8,7 +8,7 @@ interface ReviewListProps {
 
 export default function ReviewList({ reviews }: ReviewListProps) {
     if (reviews.length === 0) {
-        return <div className="text-secondary py-8 italic">No reviews yet. Be the first to review!</div>;
+        return <div className="text-primary/70 py-8 italic">No reviews yet. Be the first to review!</div>;
     }
 
     return (
@@ -16,7 +16,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
             {reviews.map((review) => (
                 <div key={review.id} className="border-b border-gray-100 pb-6 last:border-0">
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-10 h-10 relative bg-gray-100 rounded-full overflow-hidden flex items-center justify-center text-secondary">
+                        <div className="w-10 h-10 relative bg-canvas rounded-full overflow-hidden flex items-center justify-center text-primary/70">
                              {review.user?.avatar ? (
                                 <Image src={review.user.avatar} alt="User" fill className="object-cover"/>
                              ) : (
@@ -25,7 +25,7 @@ export default function ReviewList({ reviews }: ReviewListProps) {
                         </div>
                         <div>
                             <p className="font-bold text-sm">{review.user?.firstName || 'Anonymous'} {review.user?.lastName}</p>
-                            <span className="text-xs text-secondary">{new Date(review.createdAt).toLocaleDateString()}</span>
+                            <span className="text-xs text-primary/70">{new Date(review.createdAt).toLocaleDateString()}</span>
                         </div>
                     </div>
                     

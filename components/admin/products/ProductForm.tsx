@@ -334,7 +334,7 @@ export function ProductForm({
         <div className="flex items-center gap-4">
           <Link
             href="/admin/products"
-            className="text-gray-500 hover:text-gray-900 transition-colors"
+            className="text-primary/60 hover:text-gray-900 transition-colors"
           >
             <ChevronLeft className="w-6 h-6" />
           </Link>
@@ -342,7 +342,7 @@ export function ProductForm({
             <h1 className="text-xl font-serif font-bold text-gray-900">
               {isEditing ? "Edit Product" : "New Product"}
             </h1>
-            <p className="text-xs text-gray-500 uppercase tracking-wider">
+            <p className="text-xs text-primary/60 uppercase tracking-wider">
               {isEditing ? initialData?.name : "Create a new item"}
             </p>
           </div>
@@ -377,7 +377,7 @@ export function ProductForm({
               onClick={() => setActiveTab(tab.id)}
               className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-md transition-all ${activeTab === tab.id
                 ? "bg-primary text-white shadow-md shadow-primary/20"
-                : "text-gray-600 hover:bg-gray-50"
+                : "text-gray-600 hover:bg-canvas"
                 }`}
             >
               <tab.icon className="w-4 h-4" />
@@ -395,7 +395,7 @@ export function ProductForm({
               {/* Basic Info Card */}
               <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm space-y-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                  <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                     Product Name
                   </label>
                   <input
@@ -411,7 +411,7 @@ export function ProductForm({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                  <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                     Slugs (URL Friendly Name)
                   </label>
                   <div className="flex gap-2">
@@ -444,7 +444,7 @@ export function ProductForm({
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                    <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                       Brand (Optional)
                     </label>
                     <input
@@ -458,7 +458,7 @@ export function ProductForm({
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                    <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                       Tags (Comma separated)
                     </label>
                     <input
@@ -477,7 +477,7 @@ export function ProductForm({
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                  <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                     Description
                   </label>
                   <RichTextEditor
@@ -508,7 +508,7 @@ export function ProductForm({
                       }
                       placeholder="Select categories..."
                     />
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-primary/60 mt-1">
                       Hierarchical selection supported.
                     </p>
                   </div>
@@ -529,7 +529,7 @@ export function ProductForm({
                       }
                       placeholder="Select collections..."
                     />
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-primary/60 mt-1">
                       Add to marketing collections.
                     </p>
                   </div>
@@ -542,7 +542,7 @@ export function ProductForm({
                   <span className="font-semibold text-gray-900">
                     Visibility Status
                   </span>
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-primary/60">
                     Control product availability
                   </span>
                 </div>
@@ -604,7 +604,7 @@ export function ProductForm({
                 {formData.images.map((url, idx) => (
                   <div
                     key={idx}
-                    className="group relative aspect-square bg-gray-50 rounded-lg overflow-hidden border border-gray-200"
+                    className="group relative aspect-square bg-canvas rounded-lg overflow-hidden border border-gray-200"
                   >
                     <Image
                       src={url}
@@ -629,7 +629,7 @@ export function ProductForm({
                   </div>
                 ))}
                 {formData.images.length === 0 && (
-                  <div className="col-span-full h-32 flex flex-col items-center justify-center border-2 border-dashed border-gray-200 rounded-lg text-gray-400">
+                  <div className="col-span-full h-32 flex flex-col items-center justify-center border-2 border-dashed border-gray-200 rounded-lg text-primary/50">
                     <ImageIcon className="w-8 h-8 mb-2 opacity-50" />
                     <span className="text-xs">No images uploaded</span>
                   </div>
@@ -643,11 +643,11 @@ export function ProductForm({
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm space-y-6 animate-in fade-in slide-in-from-bottom-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                  <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                     Base Price (BDT)
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-serif">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/50 font-serif">
                       ৳
                     </span>
                     <input
@@ -665,11 +665,11 @@ export function ProductForm({
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                  <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                     Sale Price (Optional)
                   </label>
                   <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-serif">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-primary/50 font-serif">
                       ৳
                     </span>
                     <input
@@ -694,7 +694,7 @@ export function ProductForm({
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm space-y-6 animate-in fade-in slide-in-from-bottom-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-xs font-bold uppercase text-gray-500 mb-1">
+                  <label className="block text-xs font-bold uppercase text-primary/60 mb-1">
                     Stock Status
                   </label>
                   <select
@@ -741,7 +741,7 @@ export function ProductForm({
                   <h3 className="font-bold text-gray-900">
                     Variant Command Center
                   </h3>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-primary/60">
                     Manage complex options (Size, Color) and specific inventory.
                   </p>
                 </div>
@@ -763,8 +763,8 @@ export function ProductForm({
               </div>
 
               {/* L9: Smart Generator Input (Concept) */}
-              <div className="bg-gray-50 p-4 rounded-md border border-gray-200">
-                <h4 className="text-xs font-bold uppercase text-gray-500 mb-2">
+              <div className="bg-canvas p-4 rounded-md border border-gray-200">
+                <h4 className="text-xs font-bold uppercase text-primary/60 mb-2">
                   Smart Generator
                 </h4>
                 <p className="text-xs text-gray-600 mb-3">
@@ -791,7 +791,7 @@ export function ProductForm({
 
               <div className="space-y-4">
                 {formData.variants.length === 0 && (
-                  <div className="p-12 text-center border-2 border-dashed border-gray-200 rounded-lg text-gray-400 text-sm">
+                  <div className="p-12 text-center border-2 border-dashed border-gray-200 rounded-lg text-primary/50 text-sm">
                     No variants added. Product uses base price & stock.
                   </div>
                 )}
@@ -802,7 +802,7 @@ export function ProductForm({
                     className="group border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                   >
                     {/* Header Row */}
-                    <div className="flex items-center gap-4 p-4 bg-gray-50/50 border-b border-gray-100">
+                    <div className="flex items-center gap-4 p-4 bg-canvas/50 border-b border-gray-100">
                       <div className="flex-1">
                         <input
                           type="text"
@@ -817,7 +817,7 @@ export function ProductForm({
                       <button
                         type="button"
                         onClick={() => removeVariant(idx)}
-                        className="text-gray-400 hover:text-red-600 p-1"
+                        className="text-primary/50 hover:text-red-600 p-1"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -827,7 +827,7 @@ export function ProductForm({
                     <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-6">
                       {/* Column 1: Core Info */}
                       <div className="space-y-3">
-                        <label className="text-[10px] uppercase font-bold text-gray-400">
+                        <label className="text-[10px] uppercase font-bold text-primary/50">
                           SKU & Stock
                         </label>
                         <div className="flex gap-2 mb-2">
@@ -844,7 +844,7 @@ export function ProductForm({
                             type="button"
                             size="sm"
                             variant="secondary"
-                            className="bg-gray-100 hover:bg-gray-200 text-gray-600 px-3"
+                            className="bg-canvas hover:bg-accent-subtle text-gray-600 px-3"
                             title="Auto-Generate SKU"
                             onClick={() => {
                               if (
@@ -879,7 +879,7 @@ export function ProductForm({
                           </Button>
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-500">Stock:</span>
+                          <span className="text-xs text-primary/60">Stock:</span>
                           <input
                             type="number"
                             value={variant.stock}
@@ -894,7 +894,7 @@ export function ProductForm({
                           />
                         </div>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-primary/60">
                             Threshold:
                           </span>
                           <input
@@ -914,13 +914,13 @@ export function ProductForm({
 
                       {/* Column 2: Pricing Logic */}
                       <div className="space-y-3 border-l border-gray-100 pl-4">
-                        <label className="text-[10px] uppercase font-bold text-gray-400 flex items-center gap-2">
+                        <label className="text-[10px] uppercase font-bold text-primary/50 flex items-center gap-2">
                           <DollarSign className="w-3 h-3" /> Pricing Override
                         </label>
 
                         <div className="grid grid-cols-2 gap-2">
                           <div>
-                            <span className="text-[10px] text-gray-400">
+                            <span className="text-[10px] text-primary/50">
                               Price
                             </span>
                             <input
@@ -938,7 +938,7 @@ export function ProductForm({
                             />
                           </div>
                           <div>
-                            <span className="text-[10px] text-gray-400">
+                            <span className="text-[10px] text-primary/50">
                               Sale
                             </span>
                             <input
@@ -956,14 +956,14 @@ export function ProductForm({
                             />
                           </div>
                         </div>
-                        <p className="text-[10px] text-gray-400">
+                        <p className="text-[10px] text-primary/50">
                           Leave empty to use base product price.
                         </p>
                       </div>
 
                       {/* Column 3: Rich Media (JSONB) */}
                       <div className="space-y-3 border-l border-gray-100 pl-4">
-                        <label className="text-[10px] uppercase font-bold text-gray-400 flex items-center gap-2">
+                        <label className="text-[10px] uppercase font-bold text-primary/50 flex items-center gap-2">
                           <ImageIcon className="w-3 h-3" /> Variant Image
                         </label>
                         <div className="flex flex-wrap gap-2">
@@ -1000,7 +1000,7 @@ export function ProductForm({
                               setActiveVariantIdx(idx);
                               setImagePickerOpen(true);
                             }}
-                            className="h-16 w-16 bg-gray-50 rounded flex flex-col items-center justify-center text-[10px] text-gray-500 cursor-pointer hover:bg-gray-100 border border-dashed border-gray-300 transition-colors"
+                            className="h-16 w-16 bg-canvas rounded flex flex-col items-center justify-center text-[10px] text-primary/60 cursor-pointer hover:bg-canvas border border-dashed border-gray-300 transition-colors"
                           >
                             <Plus className="w-4 h-4 mb-1" />
                             Select
@@ -1010,9 +1010,9 @@ export function ProductForm({
                     </div>
 
                     {/* Attributes Editor Section */}
-                    <div className="bg-gray-50 p-4 border-t border-gray-100 space-y-3">
+                    <div className="bg-canvas p-4 border-t border-gray-100 space-y-3">
                       <div className="flex items-center justify-between">
-                        <label className="text-[10px] uppercase font-bold text-gray-500">
+                        <label className="text-[10px] uppercase font-bold text-primary/60">
                           Attributes (Dynamic Specs)
                         </label>
                         <button
@@ -1024,7 +1024,7 @@ export function ProductForm({
                             };
                             updateVariant(idx, "attributes", newAttrs);
                           }}
-                          className="text-[10px] bg-white border border-gray-200 px-2 py-1 rounded hover:bg-gray-50 text-primary font-bold"
+                          className="text-[10px] bg-white border border-gray-200 px-2 py-1 rounded hover:bg-canvas text-primary font-bold"
                         >
                           + Add Attribute
                         </button>
@@ -1058,7 +1058,7 @@ export function ProductForm({
                                 }}
                                 className="w-1/3 px-2 py-1 text-xs border border-gray-200 rounded"
                               />
-                              <span className="text-gray-400">:</span>
+                              <span className="text-primary/50">:</span>
                               <input
                                 type="text"
                                 placeholder="Value (e.g. Red)"
@@ -1082,7 +1082,7 @@ export function ProductForm({
                                   delete newAttrs[key];
                                   updateVariant(idx, "attributes", newAttrs);
                                 }}
-                                className="text-gray-400 hover:text-red-500"
+                                className="text-primary/50 hover:text-red-500"
                               >
                                 <X className="w-3 h-3" />
                               </button>
@@ -1090,7 +1090,7 @@ export function ProductForm({
                           ),
                         )}
                         {Object.keys(variant.attributes || {}).length === 0 && (
-                          <div className="text-xs text-gray-400 italic">
+                          <div className="text-xs text-primary/50 italic">
                             No attributes defined. Use "Generate" or add manually.
                           </div>
                         )}
@@ -1121,7 +1121,7 @@ export function ProductForm({
                     }
                     placeholder="e.g. Luxurious Silk Saree | Valancis"
                   />
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-xs text-primary/60">
                     <span>Title tag shown in Google search results.</span>
                     <span
                       className={
@@ -1148,7 +1148,7 @@ export function ProductForm({
                     }
                     placeholder="A brief summary of the page content..."
                   />
-                  <div className="flex justify-between text-xs text-gray-500">
+                  <div className="flex justify-between text-xs text-primary/60">
                     <span>
                       Meta description shown in Google search results.
                     </span>
@@ -1191,7 +1191,7 @@ export function ProductForm({
               <h3 className="font-bold text-lg">Select Variant Images</h3>
               <button
                 onClick={() => setImagePickerOpen(false)}
-                className="text-gray-500 hover:text-gray-900"
+                className="text-primary/60 hover:text-gray-900"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1199,7 +1199,7 @@ export function ProductForm({
 
             <div className="p-4 overflow-y-auto flex-1">
               {formData.images.length === 0 ? (
-                <div className="text-center py-12 text-gray-400">
+                <div className="text-center py-12 text-primary/50">
                   <ImageIcon className="w-12 h-12 mx-auto mb-2 opacity-20" />
                   <p>No product images uploaded yet.</p>
                   <p className="text-xs">
@@ -1243,7 +1243,7 @@ export function ProductForm({
               )}
             </div>
 
-            <div className="p-4 border-t bg-gray-50 rounded-b-lg flex justify-end">
+            <div className="p-4 border-t bg-canvas rounded-b-lg flex justify-end">
               <Button onClick={() => setImagePickerOpen(false)}>Done</Button>
             </div>
           </div>

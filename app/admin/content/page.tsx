@@ -182,7 +182,7 @@ export default function ContentPage() {
         <h1 className="text-3xl font-serif font-bold text-gray-900">
           Content Management
         </h1>
-        <p className="text-gray-500 max-w-2xl text-sm leading-relaxed">
+        <p className="text-primary/60 max-w-2xl text-sm leading-relaxed">
           Control the dynamic aspects of your storefront. Updates made here are
           reflected immediately on the live site.
         </p>
@@ -211,20 +211,20 @@ export default function ContentPage() {
                       {section.title}
                     </h3>
                     {loading ? (
-                      <div className="h-5 w-20 bg-gray-100 animate-pulse rounded-full" />
+                      <div className="h-5 w-20 bg-canvas animate-pulse rounded-full" />
                     ) : sectionMeta ? (
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-green-50 text-green-700 border border-green-100">
                         <CheckCircle className="w-3 h-3" />
                         Active
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-500 border border-gray-200">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-canvas text-primary/60 border border-gray-200">
                         Inactive
                       </span>
                     )}
                   </div>
 
-                  <p className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                  <p className="text-sm font-medium text-primary/60 uppercase tracking-wide">
                     {section.subtitle}
                   </p>
 
@@ -232,9 +232,9 @@ export default function ContentPage() {
                     {section.description}
                   </p>
 
-                  <div className="flex items-center gap-6 pt-2 text-xs text-gray-400 font-medium">
+                  <div className="flex items-center gap-6 pt-2 text-xs text-primary/50 font-medium">
                     {loading ? (
-                      <div className="h-4 w-32 bg-gray-100 animate-pulse rounded" />
+                      <div className="h-4 w-32 bg-canvas animate-pulse rounded" />
                     ) : sectionMeta ? (
                       <>
                         <div className="flex items-center gap-2">

@@ -115,7 +115,7 @@ export default function AltTextManagerPage() {
   if (loading) {
     return (
       <div className="p-8 text-center">
-        <div className="animate-pulse text-gray-500 dark:text-gray-400">
+        <div className="animate-pulse text-primary/60 dark:text-primary/50">
           Loading images...
         </div>
       </div>
@@ -128,7 +128,7 @@ export default function AltTextManagerPage() {
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           Alt Text Manager
         </h1>
-        <p className="text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600 dark:text-primary/50">
           Review and add alt text to product images for better SEO and
           accessibility
         </p>
@@ -137,7 +137,7 @@ export default function AltTextManagerPage() {
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
         <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-          <div className="text-sm text-gray-600 dark:text-gray-400">
+          <div className="text-sm text-gray-600 dark:text-primary/50">
             Total Images
           </div>
           <div className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -174,18 +174,18 @@ export default function AltTextManagerPage() {
 
           <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-900">
+              <thead className="bg-canvas dark:bg-gray-900">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Image
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Product
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Alt Text
                   </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-right text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Actions
                   </th>
                 </tr>
@@ -194,7 +194,7 @@ export default function AltTextManagerPage() {
                 {imagesWithoutAlt.map((img) => (
                   <tr
                     key={img.id}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-900"
+                    className="hover:bg-canvas dark:hover:bg-gray-900"
                   >
                     <td className="px-6 py-4">
                       <div className="relative w-20 h-20">
@@ -248,18 +248,18 @@ export default function AltTextManagerPage() {
 
           <div className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
             <table className="w-full">
-              <thead className="bg-gray-50 dark:bg-gray-900">
+              <thead className="bg-canvas dark:bg-gray-900">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Image
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Product
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Alt Text
                   </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">
+                  <th className="px-6 py-3 text-right text-xs font-medium text-primary/60 dark:text-primary/50 uppercase">
                     Actions
                   </th>
                 </tr>
@@ -268,7 +268,7 @@ export default function AltTextManagerPage() {
                 {imagesWithAlt.map((img) => (
                   <tr
                     key={img.id}
-                    className="hover:bg-gray-50 dark:hover:bg-gray-900"
+                    className="hover:bg-canvas dark:hover:bg-gray-900"
                   >
                     <td className="px-6 py-4">
                       <div className="relative w-20 h-20">
@@ -317,7 +317,7 @@ export default function AltTextManagerPage() {
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
             All Images Have Alt Text!
           </h3>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-primary/50">
             Great job! All product images have proper alt attributes for SEO and
             accessibility.
           </p>

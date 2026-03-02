@@ -18,11 +18,11 @@ export function MasonryCategories({ categories }: MasonryCategoriesProps) {
   const displayDocs = categories;
 
   return (
-    <section className="py-24 bg-main border-b border-primary/5">
+    <section className="py-24 bg-canvas border-b border-accent-subtle">
       <div className="max-w-[1800px] mx-auto px-4">
         {/* Header - More Editorial */}
         <div className="text-center mb-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.4em] text-accent-gold mb-4 block">
+          <span className="text-xs font-semibold uppercase tracking-[0.4em] text-primary mb-4 block">
             Browse
           </span>
           <h2 className="font-serif text-5xl md:text-7xl text-primary leading-none">
@@ -56,7 +56,7 @@ export function MasonryCategories({ categories }: MasonryCategoriesProps) {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1.2, delay: idx * 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className={clsx(
-                  "relative group overflow-hidden cursor-pointer bg-gray-200 flex-shrink-0 snap-start",
+                  "relative group overflow-hidden cursor-pointer bg-accent-subtle flex-shrink-0 snap-start",
                   "w-[80vw] md:w-auto", // Side-peek on mobile
                   colSpan,
                   "h-[500px] md:h-[600px]", // Refined height for portrait look on mobile
@@ -105,7 +105,7 @@ export function MasonryCategories({ categories }: MasonryCategoriesProps) {
         <div className="mt-16 flex justify-center">
           <Link
             href="/category"
-            className="group flex items-center gap-3 text-sm uppercase tracking-[0.3em] font-medium text-primary hover:text-accent-gold transition-colors duration-300"
+            className="group flex items-center gap-3 text-sm uppercase tracking-[0.3em] font-medium text-primary hover:text-primary transition-colors duration-300"
           >
             <span>View All Categories</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-2" />

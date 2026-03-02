@@ -138,7 +138,7 @@ export function AddressManager({
             className={`flex-1 py-3 px-4 rounded-lg border text-sm font-medium transition-all ${
               mode === "saved"
                 ? "border-primary bg-primary text-white"
-                : "border-primary/20 hover:border-primary/50 text-secondary"
+                : "border-accent-subtle hover:border-accent-subtle0 text-primary/70"
             }`}
           >
             Saved Address
@@ -149,7 +149,7 @@ export function AddressManager({
             className={`flex-1 py-3 px-4 rounded-lg border text-sm font-medium transition-all ${
               mode === "new"
                 ? "border-primary bg-primary text-white"
-                : "border-primary/20 hover:border-primary/50 text-secondary"
+                : "border-accent-subtle hover:border-accent-subtle0 text-primary/70"
             }`}
           >
             + Add New
@@ -167,7 +167,7 @@ export function AddressManager({
               className={`cursor-pointer p-4 rounded-lg border relative transition-all group ${
                 selectedSavedId === addr.id
                   ? "border-primary bg-primary/5 ring-1 ring-primary"
-                  : "border-primary/10 hover:border-primary/30"
+                  : "border-accent-subtle hover:border-primary/30"
               }`}
             >
               <div className="flex justify-between items-start">
@@ -186,17 +186,17 @@ export function AddressManager({
                     <p className="text-sm font-medium text-primary">
                       {addr.address || addr.addressLine}
                     </p>
-                    <p className="text-xs text-secondary mt-1">
+                    <p className="text-xs text-primary/70 mt-1">
                       {addr.district}, {addr.division}
                       {addr.zip && ` - ${addr.zip}`}
                     </p>
-                    <p className="text-xs text-secondary mt-1">{addr.phone}</p>
+                    <p className="text-xs text-primary/70 mt-1">{addr.phone}</p>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={(e) => handleEdit(addr, e)}
-                  className="p-2 text-secondary hover:text-primary hover:bg-primary/10 rounded-full transition-colors opacity-0 group-hover:opacity-100"
+                  className="p-2 text-primary/70 hover:text-primary hover:bg-primary/10 rounded-full transition-colors opacity-0 group-hover:opacity-100"
                   title="Edit Address"
                 >
                   {/* Reuse MapPin as Edit icon for now or import Edit2 if available */}
@@ -248,9 +248,9 @@ export function AddressManager({
                 placeholder=" "
                 value={addressForm.firstName}
                 onChange={handleFormChange}
-                className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
               />
-              <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-accent-gold peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-accent-gold cursor-text">
+              <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-primary cursor-text">
                 First Name <span className="text-red-400">*</span>
               </label>
             </div>
@@ -262,9 +262,9 @@ export function AddressManager({
                 placeholder=" "
                 value={addressForm.phone}
                 onChange={handleFormChange}
-                className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
               />
-              <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-accent-gold peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-accent-gold cursor-text">
+              <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-primary cursor-text">
                 Phone Number <span className="text-red-400">*</span>
               </label>
             </div>
@@ -278,7 +278,7 @@ export function AddressManager({
                 name="division"
                 value={addressForm.division}
                 onChange={handleFormChange}
-                className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none"
+                className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none"
               >
                 <option value="">Select Division</option>
                 {divisions.map((div) => (
@@ -287,7 +287,7 @@ export function AddressManager({
                   </option>
                 ))}
               </select>
-              <label className="absolute left-0 -top-2 text-[10px] text-accent-gold">
+              <label className="absolute left-0 -top-2 text-[10px] text-primary">
                 Division *
               </label>
             </div>
@@ -299,7 +299,7 @@ export function AddressManager({
                 value={addressForm.district}
                 onChange={handleFormChange}
                 disabled={!addressForm.division}
-                className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none disabled:opacity-50"
+                className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none disabled:opacity-50"
               >
                 <option value="">Select District</option>
                 {districts.map((dis) => (
@@ -308,7 +308,7 @@ export function AddressManager({
                   </option>
                 ))}
               </select>
-              <label className="absolute left-0 -top-2 text-[10px] text-accent-gold">
+              <label className="absolute left-0 -top-2 text-[10px] text-primary">
                 District *
               </label>
             </div>
@@ -320,7 +320,7 @@ export function AddressManager({
                 value={addressForm.thana}
                 onChange={handleFormChange}
                 disabled={!addressForm.district}
-                className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none disabled:opacity-50"
+                className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors cursor-pointer appearance-none disabled:opacity-50"
               >
                 <option value="">Select Thana</option>
                 {thanas.map((th) => (
@@ -329,7 +329,7 @@ export function AddressManager({
                   </option>
                 ))}
               </select>
-              <label className="absolute left-0 -top-2 text-[10px] text-accent-gold">
+              <label className="absolute left-0 -top-2 text-[10px] text-primary">
                 Thana *
               </label>
             </div>
@@ -344,9 +344,9 @@ export function AddressManager({
               placeholder=" "
               value={addressForm.address}
               onChange={handleFormChange}
-              className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+              className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
             />
-            <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-accent-gold peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-accent-gold cursor-text">
+            <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-primary cursor-text">
               House / Road / Block / Flat{" "}
               <span className="text-red-400">*</span>
             </label>
@@ -361,9 +361,9 @@ export function AddressManager({
                 placeholder=" "
                 value={addressForm.zip}
                 onChange={handleFormChange}
-                className="peer w-full bg-transparent border-b border-primary/20 py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                className="peer w-full bg-transparent border-b border-accent-subtle py-3 text-sm focus:outline-none focus:border-primary transition-colors placeholder-transparent"
               />
-              <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-accent-gold peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-accent-gold cursor-text">
+              <label className="absolute left-0 top-3 text-secondary/60 text-xs transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:top-3 peer-focus:-top-2 peer-focus:text-[10px] peer-focus:text-primary peer-[:not(:placeholder-shown)]:-top-2 peer-[:not(:placeholder-shown)]:text-[10px] peer-[:not(:placeholder-shown)]:text-primary cursor-text">
                 Postal Code
               </label>
             </div>
@@ -383,7 +383,7 @@ export function AddressManager({
                 />
                 <label
                   htmlFor="saveAddress"
-                  className="text-sm text-secondary cursor-pointer select-none"
+                  className="text-sm text-primary/70 cursor-pointer select-none"
                 >
                   Save this address for future
                 </label>

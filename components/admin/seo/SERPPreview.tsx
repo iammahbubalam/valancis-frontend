@@ -74,7 +74,7 @@ export function SERPPreview({
       <div className="bg-white dark:bg-gray-900 p-4 rounded border border-gray-200 dark:border-gray-700">
         {/* URL Breadcrumb */}
         <div className="flex items-center gap-2 mb-1">
-          <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex items-center gap-1 text-sm text-gray-600 dark:text-primary/50">
             <ExternalLink className="w-3 h-3" />
             <span className="font-medium">{domain}</span>
             {breadcrumb && (
@@ -92,7 +92,7 @@ export function SERPPreview({
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+        <p className="text-sm text-gray-600 dark:text-primary/50 leading-relaxed">
           {truncateDescription(metaDescription) ||
             "No meta description provided"}
         </p>
@@ -113,7 +113,7 @@ export function SERPPreview({
         )}
       </div>
 
-      <div className="mt-4 text-xs text-gray-500 dark:text-gray-400">
+      <div className="mt-4 text-xs text-primary/60 dark:text-primary/50">
         <p>
           <strong>Note:</strong> Actual Google results may vary based on device,
           intent, and other factors. This is an approximate preview.

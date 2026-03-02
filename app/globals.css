@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-display: var(--font-cormorant), serif;
+  --font-body: var(--font-manrope), sans-serif;
+  --font-script: var(--font-pinyon), cursive;
+
+  /* Colors - Heritage Modern Palette */
+  --color-main: #f9f8f6; /* Alabaster Paper */
+  --color-main-secondary: #f0eee9; /* Softer greige */
+  --color-card: #ffffff;
+
+  --color-primary: #121212; /* Richer Black */
+  --color-secondary: #525252;
+
+  --color-accent-gold: #b8914b; /* Deeper metallic gold */
+  --color-accent-light: #f4e8d1;
+
+  --color-cultural: #7c2d12; /* Richer Terracotta */
+}
+
+/* Global Reset & Base Styles */
+body {
+  background-color: var(--color-main);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+
+  /* Global Texture Overlay - Very Subtle Mineral Grain */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+/* Clickable Elements - Always show pointer cursor */
+button,
+a,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+select,
+label[for],
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+/* Custom Scrollbar for desktop (Premium feel) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-main-secondary);
+    border-radius: 0px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-gold);
+  }
+}

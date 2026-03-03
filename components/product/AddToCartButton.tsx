@@ -92,7 +92,7 @@ export function AddToCartButton({ product, disabled, selectedVariantId, onSucces
         ) : (
           <span className="flex items-center gap-4">
             <ShoppingBag className="w-4 h-4" strokeWidth={1} />
-            {disabled ? "Sold Out" : showError ? "Select one variant" : "Add to Bag"}
+            {disabled ? "Sold Out" : showError ? "Select one variant" : product.isPreorder ? "Pre-order Now" : "Add to Bag"}
           </span>
         )}
       </Button>

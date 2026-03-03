@@ -223,14 +223,14 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
     return (
         <div className="max-w-[1536px] mx-auto px-0 md:px-12 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-16">
-            <div className="col-span-1 lg:col-span-7">
+            <div className="col-span-1 lg:col-span-6">
                 <ProductGallery
                     images={mergedImages}
                     activeIndex={activeImageIndex}
                     onImageSelect={handleImageSelect}
                 />
             </div>
-            <div className="col-span-1 lg:col-span-5 px-6 md:px-0 pb-4 lg:pb-0">
+            <div className="col-span-1 lg:col-span-6 px-6 md:px-0 pb-4 lg:pb-0">
                 <ProductInfo
                     product={product}
                     selectedVariant={selectedVariant}

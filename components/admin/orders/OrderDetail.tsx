@@ -119,6 +119,11 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                     <div>
                         <h1 className="text-2xl font-serif text-primary flex items-center gap-3">
                             Order #{order.id.slice(0, 8)}
+                            {order.isPreorder && (
+                                <span className="px-2 py-0.5 text-[10px] uppercase bg-orange-100 text-orange-700 rounded tracking-widest font-bold">
+                                    Pre-Order
+                                </span>
+                            )}
                             <button onClick={() => copyToClipboard(order.id, "Order ID")} className="text-primary/50 hover:text-primary transition-colors">
                                 <Copy className="w-4 h-4" />
                             </button>

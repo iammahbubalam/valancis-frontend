@@ -82,27 +82,21 @@ export function CheckoutClient() {
     }
   };
 
-  // Pre-Order Calculation
+  // Preorder detection
+  const hasPreorder = items.some(item => item.isPreorder);
   const depositRequired = items.reduce((sum, item) => {
-    // Check if item product is pre_order.
-    // Note: ensure your Cart/Checkout hook provides 'stockStatus' on items or items.product
-    // Assuming item structure has product details or we need to access them.
-    // Based on OrderSummary usage, items might be simple. Let's check item structure later if needed.
-    // For now assuming item.product.stockStatus or item.stockStatus exists.
-    // Checking types.ts would be safer but let's assume item.product based on typical patterns.
-    // If items are flattened, we might need adjustments.
-    const isPreOrder = item.stockStatus === 'pre_order';
-    if (isPreOrder) {
-      const price = item.salePrice || item.basePrice || 0;
-      return sum + (price * item.quantity * 0.50); // 50% Deposit
+    let deposit = 0;
+    if (item.isPreorder) {
+      deposit = (item.preorderDepositAmount || 0) * item.quantity;
     }
-    return sum;
+    return sum + deposit;
   }, 0);
 
   // Partial Payment State
   const [paymentProvider, setPaymentProvider] = useState("bkash");
   const [paymentTrxID, setPaymentTrxID] = useState("");
   const [paymentPhone, setPaymentPhone] = useState("");
+  const [normalPaymentMethod, setNormalPaymentMethod] = useState<"cod" | "sslcommerz">("cod");
 
   const handleCheckout = async () => {
     if (!selectedAddress) return;
@@ -202,7 +196,7 @@ export function CheckoutClient() {
       }
 
       const payload: any = {
-        paymentMethod: "cod",
+        paymentMethod: depositRequired > 0 ? "advance" : normalPaymentMethod,
         address: {
           firstName: selectedAddress.firstName,
           lastName: selectedAddress.lastName,
@@ -218,6 +212,8 @@ export function CheckoutClient() {
         items: items.map((item) => ({
           productId: item.id,
           quantity: item.quantity,
+          isPreorder: item.isPreorder,
+          preorderDepositAmount: item.preorderDepositAmount,
         })),
       };
 
@@ -241,11 +237,17 @@ export function CheckoutClient() {
         throw new Error(errData.message || "Checkout failed");
       }
 
+      const orderData = await res.json();
+
+      if (orderData.gatewayUrl) {
+        window.location.href = orderData.gatewayUrl;
+        return;
+      }
+
       // Success! Clear cart on frontend
       clearCart(); // Clear state and localStorage
 
       // Analytics: Purchase
-      const orderData = await res.json();
       analytics.purchase({
         transaction_id: orderData.id || orderData.orderId,
         value: subtotal + shippingCost,
@@ -284,7 +286,10 @@ export function CheckoutClient() {
     selectedAddress.address?.trim() !== "" &&
     selectedAddress.division?.trim() !== "" &&
     selectedAddress.district?.trim() !== "" &&
-    selectedAddress.thana?.trim() !== "";
+    selectedAddress.thana?.trim() !== "" &&
+    (hasPreorder
+      ? (paymentTrxID.trim() !== "" && paymentPhone.trim() !== "")
+      : normalPaymentMethod === 'cod');
 
   // --- RENDER LOGIC (FAIL FAST) ---
 
@@ -453,18 +458,18 @@ export function CheckoutClient() {
               </div>
             </section>
 
-            {/* Pre-Order Payment Section */}
-            {depositRequired > 0 && (
+            {/* Payment Selection */}
+            {hasPreorder ? (
               <section className="bg-orange-50/50 border border-orange-100 p-8 rounded-lg mt-8">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="p-3 bg-white rounded-full shadow-sm text-orange-500">
                     <ArrowRight className="w-6 h-6" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-serif text-primary mb-2">Pre-Order Deposit Required</h2>
+                    <h2 className="text-lg font-serif text-primary mb-2">Deposit Required</h2>
                     <p className="text-sm text-primary/70 leading-relaxed">
-                      One or more items in your cart are <strong>Pre-order</strong>.
-                      You must pay a partial deposit of <span className="font-bold text-primary">৳{depositRequired.toLocaleString()}</span> to confirm this order.
+                      Based on the items in your cart, a partial deposit of <span className="font-bold text-primary">৳{depositRequired.toLocaleString()}</span> is required to confirm this order.
+                      <strong> This order includes pre-order items which take 13 to 17 days to reach.</strong>
                       The rest will be Cash on Delivery.
                     </p>
                   </div>
@@ -527,6 +532,40 @@ export function CheckoutClient() {
                     </div>
                   </div>
                 </div>
+              </section>
+            ) : (
+              <section className="mt-8">
+                <h2 className="text-xs uppercase tracking-[0.2em] font-bold border-b border-accent-subtle pb-4 mb-6 text-primary/70">
+                  Payment Method
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <label className={`cursor-pointer border p-4 rounded-lg flex items-center gap-4 transition-all ${normalPaymentMethod === 'cod' ? 'border-primary bg-primary/5' : 'border-accent-subtle bg-white'}`}>
+                    <input type="radio" name="normalPaymentMethod" value="cod" checked={normalPaymentMethod === 'cod'} onChange={(e) => setNormalPaymentMethod(e.target.value as "cod" | "sslcommerz")} className="w-4 h-4 accent-primary" />
+                    <div>
+                      <h3 className="font-bold text-primary text-sm">Cash on Delivery</h3>
+                      <p className="text-xs text-primary/70">Pay when you receive the order</p>
+                    </div>
+                  </label>
+                  <label className={`cursor-pointer border p-4 rounded-lg flex items-center gap-4 transition-all ${normalPaymentMethod === 'sslcommerz' ? 'border-primary bg-primary/5' : 'border-accent-subtle bg-white'}`}>
+                    <input type="radio" name="normalPaymentMethod" value="sslcommerz" checked={normalPaymentMethod === 'sslcommerz'} onChange={(e) => setNormalPaymentMethod(e.target.value as "cod" | "sslcommerz")} className="w-4 h-4 accent-primary" />
+                    <div>
+                      <h3 className="font-bold text-primary text-sm">Digital Payment</h3>
+                      <p className="text-xs text-primary/70">Cards, Mobile Banking, Net Banking</p>
+                    </div>
+                  </label>
+                </div>
+
+                {normalPaymentMethod === 'sslcommerz' && (
+                  <div className="mt-4 p-4 bg-blue-50 border border-blue-100 rounded-lg text-blue-900 text-xs leading-relaxed animate-in fade-in slide-in-from-top-2">
+                    <div className="flex gap-3">
+                      <span className="text-base">💳</span>
+                      <div>
+                        <h4 className="font-bold mb-1 uppercase tracking-wider">System Notice</h4>
+                        <p className="opacity-80">Our digital payment gateway is currently undergoing a scheduled upgrade to enhance security. Please select <strong>Cash on Delivery</strong> to complete your order. We appreciate your patience.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </section>
             )}
           </div>

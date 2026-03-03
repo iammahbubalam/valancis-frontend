@@ -10,6 +10,7 @@ import {
 } from "react";
 import { Product } from "@/types";
 import { getApiUrl } from "@/lib/utils";
+import { mapBackendProductToFrontend } from "@/lib/data";
 import { useAuth } from "./AuthContext";
 import { useDialog } from "./DialogContext";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -87,7 +88,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       const data = await res.json();
       if (data.items) {
         return data.items.map((i: any) => ({
-          ...i.product,
+          ...mapBackendProductToFrontend(i.product),
           quantity: i.quantity,
           cartItemId: i.id,
           variantId: i.variantId || i.variant_id || undefined,
@@ -123,13 +124,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
       // L9: Stock Constraint (Double Check)
       // Only Pre-Order or In-Stock allowed
-      const isPreOrder = product.stockStatus === "pre_order";
+      const isPreOrder = product.isPreorder;
       // Find variant stock if applicable
       const variantStock = hasVariants && variantId
         ? product.variants?.find(v => v.id === variantId)?.stock || 0
         : product.stock || 0;
 
-      if (!isPreOrder && variantStock <= 0 && product.stockStatus !== "pre_order") {
+      if (!isPreOrder && variantStock <= 0) {
         throw new Error("OUT_OF_STOCK");
       }
 
@@ -351,7 +352,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
     // Validation: Check Stock
     const targetItem = current.find((i) => i.id === productId && i.variantId === variantId);
-    if (targetItem && targetItem.stockStatus !== "pre_order") {
+    if (targetItem && !targetItem.isPreorder) {
       // Assuming item.stock is available (from updated backend)
       // If stock is missing, fallback to safe high number or 0? 
       // Backend guarantees stock int now.

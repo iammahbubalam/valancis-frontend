@@ -23,7 +23,7 @@ export interface Order {
     shippingFee?: number;
     discount?: number;
     paymentDetails: any;
-    isPreOrder: boolean;
+    isPreorder: boolean;
     items: any[];
     createdAt: string;
     updatedAt: string;

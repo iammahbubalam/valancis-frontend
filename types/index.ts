@@ -140,6 +140,8 @@ export interface Variant {
   lowStockThreshold: number;
 }
 
+
+
 export interface Product {
   id: string;
   name: string;
@@ -149,8 +151,10 @@ export interface Product {
   basePrice: number;
   salePrice?: number;
   stock: number; // Added for checkout validation
+  isPreorder?: boolean;
+  preorderDepositAmount?: number;
   lowStockThreshold?: number;
-  stockStatus: "in_stock" | "out_of_stock" | "pre_order";
+  stockStatus: "in_stock" | "out_of_stock";
   images: string[];
   categories: Category[];
   collections?: Collection[];

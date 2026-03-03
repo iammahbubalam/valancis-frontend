@@ -119,11 +119,12 @@ async function SafeAdminProductsPage({ searchParams }: { searchParams: any }) {
     ]);
 
     if (!productsRes.ok) {
-      // If 401, we might need to redirect to login or handle gracefully
       if (productsRes.status === 401) {
         redirect("/login");
       }
-      throw new Error("Failed to fetch products");
+      const errText = await productsRes.text();
+      console.error(`Failed to fetch products. Status: ${productsRes.status}, Body: ${errText}`);
+      throw new Error(`Failed to fetch products: ${productsRes.status} ${errText}`);
     }
 
     const productsData = await productsRes.json();
@@ -145,7 +146,8 @@ async function SafeAdminProductsPage({ searchParams }: { searchParams: any }) {
         categories={categoriesData || []}
       />
     );
-  } catch (error) {
+  } catch (error: any) {
+    if (error?.message === "NEXT_REDIRECT") throw error;
     console.error("Server Load Error", error);
     return (
       <div className="p-8 text-center text-red-500">

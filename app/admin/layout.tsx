@@ -71,6 +71,7 @@ export default function AdminLayout({
     { label: "Customers", icon: Users, href: "/admin/customers" },
     { label: "Content", icon: FileText, href: "/admin/content" },
     { label: "Shipping", icon: Truck, href: "/admin/settings/shipping" },
+    { label: "Payment Policies", icon: Settings, href: "/admin/settings/payment-policies" },
     { label: "Settings", icon: Settings, href: "/admin/settings" },
   ];
 

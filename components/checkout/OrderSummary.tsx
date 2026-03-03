@@ -30,6 +30,15 @@ export function OrderSummary({
   // L9: Final total includes shipping
   const finalTotal = subtotal + shippingCost;
 
+  const depositRequired = items.reduce((sum, item) => {
+    if (item.isPreorder) {
+      return sum + ((item.preorderDepositAmount || 0) * item.quantity);
+    }
+    return sum;
+  }, 0);
+
+  const balanceDueOnDelivery = finalTotal - depositRequired;
+
   return (
     <div className="bg-white p-8 lg:p-10 shadow-xl border border-accent-subtle transition-all hover:shadow-2xl">
       <h2 className="font-serif text-2xl mb-8 border-b border-accent-subtle pb-4">
@@ -59,6 +68,11 @@ export function OrderSummary({
                   <p className="text-xs text-primary/70 mt-1">
                     {item.variantName}
                   </p>
+                )}
+                {item.isPreorder && (
+                  <span className="inline-block mt-1 text-[8px] bg-amber-100 text-amber-700 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">
+                    Pre-order
+                  </span>
                 )}
               </div>
 
@@ -111,10 +125,22 @@ export function OrderSummary({
           </span>
           <span>৳{shippingCost.toLocaleString()}</span>
         </div>
+
+        {depositRequired > 0 && (
+          <>
+            <div className="flex justify-between text-orange-600 font-bold pt-2">
+              <span>Required Deposit</span>
+              <span>৳{depositRequired.toLocaleString()}</span>
+            </div>
+            <div className="flex justify-between text-primary/50 text-xs italic">
+              <span>(Payable now)</span>
+            </div>
+          </>
+        )}
       </div>
 
       {/* TOTAL */}
-      <div className="flex justify-between text-xl font-serif py-6 border-t border-accent-subtle mb-8 items-center bg-primary/5 -mx-8 px-8 border-b">
+      <div className="flex justify-between text-xl font-serif py-6 border-t border-accent-subtle mb-4 items-center bg-primary/5 -mx-8 px-8 border-b">
         <span className="font-bold text-primary">Total</span>
         <div className="text-right">
           <span className="block font-bold text-lg md:text-xl">
@@ -125,6 +151,13 @@ export function OrderSummary({
           </span>
         </div>
       </div>
+
+      {depositRequired > 0 && (
+        <div className="flex justify-between items-center py-4 bg-green-50/50 -mx-8 px-8 border-b border-green-100 mb-8">
+          <span className="text-sm font-bold text-green-800">Due on Delivery</span>
+          <span className="text-lg font-bold text-green-800">৳{balanceDueOnDelivery.toLocaleString()}</span>
+        </div>
+      )}
 
       {
         onCheckout && (

@@ -116,7 +116,7 @@ export default function OrderDataTable() {
                                     <tr key={order.id} className="hover:bg-canvas/50 transition-colors">
                                         <td className="px-6 py-4 font-medium text-primary">
                                             #{order.id.slice(0, 8)}
-                                            {order.isPreOrder && (
+                                            {order.isPreorder && (
                                                 <span className="ml-2 px-1.5 py-0.5 text-[10px] uppercase bg-orange-100 text-orange-700 rounded tracking-wide">
                                                     Pre-Order
                                                 </span>
@@ -143,13 +143,13 @@ export default function OrderDataTable() {
                                             <PaymentStatusBadge
                                                 status={order.paymentStatus}
                                                 method={order.paymentMethod}
-                                                isPreOrder={order.isPreOrder}
+                                                isPreorder={order.isPreorder}
                                             />
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex justify-end items-center gap-2">
                                                 {/* Quick Action: Verify Payment */}
-                                                {order.isPreOrder && order.status === 'pending_verification' && (
+                                                {order.isPreorder && order.status === 'pending_verification' && (
                                                     <button
                                                         onClick={() => handleVerify(order.id)}
                                                         title="Verify Deposit"
@@ -231,7 +231,7 @@ function StatusBadge({ status }: { status: string }) {
     );
 }
 
-function PaymentStatusBadge({ status, method, isPreOrder }: { status: string, method: string, isPreOrder: boolean }) {
+function PaymentStatusBadge({ status, method, isPreorder }: { status: string, method: string, isPreorder: boolean }) {
     if (status === 'partial_paid') {
         return (
             <div className="flex flex-col items-start gap-0.5">

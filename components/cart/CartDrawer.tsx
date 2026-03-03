@@ -134,11 +134,16 @@ export function CartDrawer() {
                           fill
                           className="object-cover"
                         />
-                        {isOutOfStock && (
+                        {isOutOfStock && !item.isPreorder && (
                           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                             <span className="text-white text-[10px] font-bold uppercase tracking-widest border border-white px-2 py-1">
                               Sold Out
                             </span>
+                          </div>
+                        )}
+                        {item.isPreorder && (
+                          <div className="absolute top-0 left-0 bg-amber-500 text-white text-[8px] font-bold uppercase px-2 py-1 rounded-br-sm">
+                            Pre-order
                           </div>
                         )}
                       </div>
@@ -160,6 +165,11 @@ export function CartDrawer() {
                                 </p>
                               )}
                             </Link>
+                            {item.isPreorder && (
+                              <p className="text-[9px] text-amber-600 font-bold uppercase tracking-tighter mt-1">
+                                13-17 Days Delivery
+                              </p>
+                            )}
                             <span className="text-sm font-medium text-primary whitespace-nowrap">
                               ৳
                               {(

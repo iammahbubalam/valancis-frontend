@@ -39,7 +39,7 @@ export interface ProductInventory {
   stockLevel: number;
   lowStockThreshold: number;
   trackQuantity: boolean;
-  status: "in_stock" | "out_of_stock" | "pre_order";
+  status: "in_stock" | "out_of_stock";
 }
 
 export interface ProductDimensions {
@@ -315,6 +315,8 @@ export interface BackendProduct {
   stock: number;
   stockStatus: string;
   isFeatured: boolean;
+  isPreorder?: boolean;
+  preorderDepositAmount?: number;
   categories?: { id: string; name: string; slug: string }[];
   media: string[] | { images?: string[] }; // Backend can return either format
   variants?: any[]; // Allow any for now to avoid circular ref or complex mapping if strict
@@ -347,7 +349,8 @@ export function mapBackendProductToFrontend(bp: BackendProduct): Product {
     stock: bp.stock,
     stockStatus: bp.stockStatus as any,
     images: images,
-    isFeatured: bp.isFeatured,
+    isPreorder: bp.isPreorder,
+    preorderDepositAmount: bp.preorderDepositAmount,
     lowStockThreshold: 5,
     variants: bp.variants || [], // Pass variants through
   };
@@ -567,7 +570,7 @@ export async function getFooterSections(): Promise<FooterSection[]> {
     });
     if (res.ok) {
       const data = await res.json();
-      if (data.content && data.content.sections) {
+      if (data && data.content && Array.isArray(data.content.sections)) {
         return data.content.sections;
       }
     }

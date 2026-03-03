@@ -140,15 +140,14 @@ export function VariantSelector({
       onAttributeChange?.(next);
 
       // Notify parent of full match result
-      const allSelected = attributeKeys.every((k) => next[k]);
-      if (allSelected) {
-        const match = variants.find((v) =>
-          attributeKeys.every((k) => v.attributes?.[k] === next[k])
-        );
-        onSelect(match);
-      } else {
-        onSelect(undefined);
-      }
+      const match = variants.find((v) => {
+        const vAttrs = v.attributes || {};
+        const vKeys = Object.keys(vAttrs);
+        const nextKeys = Object.keys(next);
+        if (vKeys.length !== nextKeys.length) return false;
+        return vKeys.every((k) => vAttrs[k] === next[k]);
+      });
+      onSelect(match);
     },
     [selections, attributeKeys, variants, onSelect, onAttributeChange]
   );
@@ -188,7 +187,7 @@ export function VariantSelector({
         return (
           <div key={key} className="space-y-4">
             {/* Contextual Label */}
-            <div className="flex justify-between items-baseline text-[10px] uppercase tracking-[0.2em] font-bold text-secondary/40">
+            <div className="flex justify-between items-baseline text-xs uppercase tracking-[0.2em] font-bold text-secondary/40">
               <span>{key}</span>
               <span className="text-secondary italic">
                 {selections[key] || "Not Selected"}
@@ -255,7 +254,7 @@ export function VariantSelector({
                     key={value}
                     onClick={() => handleSelect(key, value)}
                     className={clsx(
-                      "min-w-[64px] h-10 px-5 text-[10px] font-bold tracking-widest uppercase transition-all duration-300 border flex items-center justify-center",
+                      "min-w-[64px] h-10 px-5 text-xs font-bold tracking-widest uppercase transition-all duration-300 border flex items-center justify-center",
                       isSelected
                         ? "bg-primary text-white border-primary shadow-lg shadow-primary/10"
                         : "bg-transparent text-primary border-primary/10 hover:border-primary/40",

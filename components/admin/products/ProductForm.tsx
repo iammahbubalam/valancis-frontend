@@ -69,6 +69,8 @@ export function ProductForm({
     basePrice: initialData?.basePrice || 0,
     salePrice: initialData?.salePrice || 0,
     stockStatus: initialData?.stockStatus || "in_stock",
+    isPreorder: initialData?.isPreorder || false,
+    preorderDepositAmount: initialData?.preorderDepositAmount || 0,
     isActive: initialData?.isActive ?? true, // Default true for new
     isFeatured: initialData?.isFeatured || false,
     categoryIds: initialData?.categories?.map((c) => c.id) || ([] as string[]),
@@ -533,6 +535,45 @@ export function ProductForm({
                       Add to marketing collections.
                     </p>
                   </div>
+
+                  {/* Preorder Settings */}
+                  <div className="md:col-span-2 p-4 bg-gray-50 rounded-md border border-gray-200">
+                    <label className="flex items-center gap-2 cursor-pointer mb-4">
+                      <input
+                        type="checkbox"
+                        checked={formData.isPreorder}
+                        onChange={(e) =>
+                          setFormData({ ...formData, isPreorder: e.target.checked })
+                        }
+                        className="rounded border-gray-300 text-primary focus:ring-primary w-5 h-5"
+                      />
+                      <span className="text-sm font-medium text-gray-900">Is Pre-order Product?</span>
+                    </label>
+
+                    {formData.isPreorder && (
+                      <div className="mt-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Pre-order Deposit Amount (BDT)
+                        </label>
+                        <input
+                          type="number"
+                          value={formData.preorderDepositAmount}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              preorderDepositAmount: parseFloat(e.target.value) || 0,
+                            })
+                          }
+                          min="0"
+                          step="0.01"
+                          className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-primary"
+                        />
+                        <p className="text-xs text-primary/60 mt-1">
+                          Specify the fixed deposit amount required during checkout.
+                        </p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -704,15 +745,13 @@ export function ProductForm({
                         ...formData,
                         stockStatus: e.target.value as
                           | "in_stock"
-                          | "out_of_stock"
-                          | "pre_order",
+                          | "out_of_stock",
                       })
                     }
                     className="w-full px-4 py-2 border border-gray-200 rounded-md focus:ring-1 focus:ring-primary bg-white"
                   >
                     <option value="in_stock">In Stock</option>
                     <option value="out_of_stock">Out of Stock</option>
-                    <option value="pre_order">Pre Order</option>
                   </select>
                 </div>
               </div>

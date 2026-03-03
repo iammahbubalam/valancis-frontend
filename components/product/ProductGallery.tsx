@@ -72,7 +72,7 @@ export function ProductGallery({
           {displayImages.map((url, idx) => (
             <div
               key={idx}
-              className="w-screen aspect-[3/4] flex-shrink-0 snap-center relative"
+              className="w-screen aspect-[4/5] flex-shrink-0 snap-center relative"
             >
               <Image
                 src={url}
@@ -128,7 +128,7 @@ export function ProductGallery({
         </div>
 
         {/* Main Stage */}
-        <div className="flex-1 relative aspect-[3/4] bg-canvas group overflow-hidden border border-accent-subtle">
+        <div className="flex-1 relative aspect-[4/5] bg-canvas group overflow-hidden border border-accent-subtle">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}

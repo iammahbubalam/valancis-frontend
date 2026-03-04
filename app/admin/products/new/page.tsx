@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { useEffect, useState } from "react";
 import { Category, Collection } from "@/types";
 import { getApiUrl } from "@/lib/utils";

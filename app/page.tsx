@@ -1,4 +1,7 @@
 import { HeroCinematic } from "@/components/home/HeroCinematic";
+
+export const revalidate = 3600; // 1 hour
+
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { MasonryCategories } from "@/components/home/MasonryCategories";
 import { FeaturedCollections } from "@/components/home/FeaturedCollections";

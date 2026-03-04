@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { useState, useEffect } from "react";
 import { useAdminCategories } from "@/hooks/admin/useAdminCategories";
 import { CategoryList } from "@/components/admin/categories/CategoryList";
@@ -223,11 +225,10 @@ export default function AdminCategoriesPage() {
               <button
                 key={tab.id}
                 onClick={() => setActiveView(tab.id)}
-                className={`bg-gradient-to-br ${tab.color} rounded-xl p-5 text-white shadow-lg transition-all duration-200 text-left ${
-                  isActive
+                className={`bg-gradient-to-br ${tab.color} rounded-xl p-5 text-white shadow-lg transition-all duration-200 text-left ${isActive
                     ? "ring-4 ring-offset-2 ring-gray-400 scale-[1.02]"
                     : "opacity-80 hover:opacity-100 hover:scale-[1.01]"
-                }`}
+                  }`}
               >
                 <div className="flex items-center justify-between">
                   <div>

@@ -366,9 +366,34 @@ export async function delay(ms: number = 200) {
 
 // ... REAL API FUNCTIONS ...
 
+/**
+ * Enhanced fetch that includes a 5-second timeout.
+ * This prevents the build process from hanging for 60 seconds (522 error) 
+ * if the backend is sleeping or unreachable.
+ */
+async function safeFetch(url: string, options: RequestInit = {}): Promise<Response> {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), 10000); // 10 second timeout for safety
+
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+    clearTimeout(id);
+    return response;
+  } catch (error: any) {
+    clearTimeout(id);
+    if (error.name === "AbortError") {
+      console.warn(`[DATA] Fetch timed out for: ${url}`);
+    }
+    throw error;
+  }
+}
+
 export async function getAllProducts(): Promise<Product[]> {
   try {
-    const res = await fetch(getApiUrl("/products?limit=100"), {
+    const res = await safeFetch(getApiUrl("/products?limit=100"), {
       next: { revalidate: 60 * 60 }, // 1 hour for large dumps
     });
     if (!res.ok) throw new Error("Failed to fetch products");
@@ -388,7 +413,7 @@ export async function getProductBySlug(
   slug: string,
 ): Promise<Product | undefined> {
   try {
-    const res = await fetch(getApiUrl(`/products/${slug}`), {
+    const res = await safeFetch(getApiUrl(`/products/${slug}`), {
       next: { revalidate: 60 },
     });
     if (!res.ok) return undefined;
@@ -414,7 +439,7 @@ export async function searchProducts(query: string): Promise<Product[]> {
 
 export async function getProductReviews(productId: string): Promise<Review[]> {
   try {
-    const res = await fetch(getApiUrl(`/products/${productId}/reviews`), {
+    const res = await safeFetch(getApiUrl(`/products/${productId}/reviews`), {
       next: { revalidate: 60 * 5 },
     });
     if (!res.ok) return [];
@@ -433,7 +458,7 @@ export async function getProductReviews(productId: string): Promise<Review[]> {
 export async function getHeroSlides(): Promise<HeroSlide[]> {
   const url = getApiUrl("/content/home_hero");
   try {
-    const res = await fetch(url, {
+    const res = await safeFetch(url, {
       next: { revalidate: 300 }, // 5 mins
     });
     if (res.ok) {
@@ -454,7 +479,7 @@ export async function getHeroSlides(): Promise<HeroSlide[]> {
 
 export async function getCategoryTree(): Promise<CategoryNode[]> {
   try {
-    const res = await fetch(getApiUrl("/categories/tree"), {
+    const res = await safeFetch(getApiUrl("/categories/tree"), {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -483,7 +508,7 @@ export async function getCategoryTree(): Promise<CategoryNode[]> {
 // Get ALL active categories (not just showInNav) - for category listing pages
 export async function getAllActiveCategories(): Promise<CategoryNode[]> {
   try {
-    const res = await fetch(getApiUrl("/categories/tree"), {
+    const res = await safeFetch(getApiUrl("/categories/tree"), {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -510,7 +535,7 @@ export async function getAllActiveCategories(): Promise<CategoryNode[]> {
 export async function getFeaturedProducts(): Promise<Product[]> {
   const url = getApiUrl("/products?is_featured=true&limit=50");
   try {
-    const res = await fetch(url, {
+    const res = await safeFetch(url, {
       next: { revalidate: 300 },
     });
     if (!res.ok) throw new Error(`Status ${res.status}`);
@@ -565,7 +590,7 @@ export async function getSiteConfig(): Promise<SiteConfig> {
 
 export async function getFooterSections(): Promise<FooterSection[]> {
   try {
-    const res = await fetch(getApiUrl("/content/home_footer"), {
+    const res = await safeFetch(getApiUrl("/content/home_footer"), {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -587,7 +612,7 @@ export async function getCollectionInfo(
   slug: string,
 ): Promise<Collection | undefined> {
   try {
-    const res = await fetch(getApiUrl(`/collections/${slug}`), {
+    const res = await safeFetch(getApiUrl(`/collections/${slug}`), {
       next: { revalidate: 300 },
     });
     if (!res.ok) return undefined;
@@ -602,7 +627,7 @@ export async function getCollectionInfo(
 export async function getCollections(): Promise<Collection[]> {
   const url = getApiUrl("/collections");
   try {
-    const res = await fetch(url, {
+    const res = await safeFetch(url, {
       next: { revalidate: 300 },
     });
     if (!res.ok) {
@@ -648,7 +673,7 @@ function flattenCategories(nodes: any[]): any[] {
 export async function getFeaturedCategories(): Promise<FeaturedCategory[]> {
   const url = getApiUrl("/categories");
   try {
-    const res = await fetch(url, {
+    const res = await safeFetch(url, {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -800,7 +825,7 @@ export async function submitContactForm(
 
 export async function getGlobalSettings(): Promise<GlobalSettings | null> {
   try {
-    const res = await fetch(getApiUrl("/content/settings_global"), {
+    const res = await safeFetch(getApiUrl("/content/settings_global"), {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -815,7 +840,7 @@ export async function getGlobalSettings(): Promise<GlobalSettings | null> {
 
 export async function getAboutPage(): Promise<AboutPage | null> {
   try {
-    const res = await fetch(getApiUrl("/content/content_about"), {
+    const res = await safeFetch(getApiUrl("/content/content_about"), {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -832,7 +857,7 @@ export async function getPolicyPage(
   key: "policy_shipping" | "policy_return",
 ): Promise<PolicyPage | null> {
   try {
-    const res = await fetch(getApiUrl(`/content/${key}`), {
+    const res = await safeFetch(getApiUrl(`/content/${key}`), {
       next: { revalidate: 300 },
     });
     if (res.ok) {
@@ -847,7 +872,7 @@ export async function getPolicyPage(
 
 export async function getFAQ(): Promise<FAQPage | null> {
   try {
-    const res = await fetch(getApiUrl("/content/content_faq"), {
+    const res = await safeFetch(getApiUrl("/content/content_faq"), {
       next: { revalidate: 300 },
     });
     if (res.ok) {

@@ -175,7 +175,7 @@ export function HeroCinematic({ slides }: HeroCinematicProps) {
       </div>
 
       {/* Footer Navigation */}
-      <div className="absolute bottom-20 md:bottom-10 left-0 right-0 z-20 px-6 md:px-10 flex justify-between items-end pointer-events-none">
+      <div className="absolute bottom-6 md:bottom-10 left-0 right-0 z-20 px-6 md:px-10 flex justify-between items-end pointer-events-none">
         {/* Progress Bar Indicators */}
         <div className="flex gap-4 pointer-events-auto">
           {slides.map((_, idx) => (

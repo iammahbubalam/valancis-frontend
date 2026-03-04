@@ -76,7 +76,7 @@ export function FullPageMenu({
                     {/* Big Close Button (Top Right) */}
                     <button
                         onClick={onClose}
-                        className="absolute top-8 right-8 md:top-20 md:right-20 p-2 text-primary/40 hover:text-primary transition-all duration-300 hover:scale-110 z-[50]"
+                        className="absolute top-18 right-8 md:top-20 md:right-20 p-2 text-primary/40 hover:text-primary transition-all duration-300 hover:scale-110 z-[50]"
                         aria-label="Close menu"
                     >
                         <X size={40} strokeWidth={1.5} />

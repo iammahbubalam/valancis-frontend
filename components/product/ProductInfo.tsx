@@ -56,14 +56,14 @@ export function ProductInfo({ product, selectedVariant, activeVariant, onVariant
 
    return (
       <div className="relative h-full flex flex-col">
-         <div className="lg:sticky lg:top-24 space-y-8">
+         <div className="lg:sticky lg:top-24 space-y-5 lg:space-y-8">
 
             {/* 1. Header & SKU */}
-            <div className="space-y-3 px-6 lg:px-0">
+            <div className="space-y-2 px-6 lg:px-0">
                <h1 className="font-serif text-3xl lg:text-5xl font-medium text-gray-900 leading-[1.2] tracking-tight italic">
                   {product.name}
                </h1>
-               <div className="flex items-center gap-4 text-xs text-secondary/40 uppercase tracking-[0.25em] font-bold">
+               <div className="flex items-center gap-4 text-xs text-secondary/40 uppercase tracking-[0.15em] font-bold">
                   <span className="flex items-center gap-1.5 focus-within:text-primary transition-colors">
                      <span>SKU</span>
                      <span className="text-primary font-bold">{activeSku}</span>
@@ -90,7 +90,7 @@ export function ProductInfo({ product, selectedVariant, activeVariant, onVariant
             </div>
 
             {/* 2. Price */}
-            <div className="flex items-baseline gap-4 border-b border-gray-100 pb-8 px-6 lg:px-0">
+            <div className="flex items-baseline gap-4 border-b border-gray-100 pb-5 px-6 lg:px-0">
                <span className="text-2xl font-bold text-primary">
                   Tk {currentPrice.toLocaleString()}
                </span>
@@ -172,7 +172,7 @@ export function ProductInfo({ product, selectedVariant, activeVariant, onVariant
 
 
             {/* 5. Benefits / Meta */}
-            <div className="flex flex-col gap-3 pt-4 pb-0 text-sm text-gray-600 px-6 lg:px-0">
+            <div className="flex flex-col gap-3 pt-5 pb-0 mt-2 border-t border-gray-100 text-sm text-gray-600 px-6 lg:px-0">
 
                <div className="flex items-center gap-3">
                   <ShieldCheck className="w-4 h-4 text-primary/50" strokeWidth={1.5} />

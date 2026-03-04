@@ -173,7 +173,7 @@ export function VariantSelector({
   if (attributeKeys.length === 0) return null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       {attributeKeys.map((key) => {
         const values = Array.from(
           new Set(
@@ -185,9 +185,9 @@ export function VariantSelector({
         const isColor = /colou?r/i.test(key);
 
         return (
-          <div key={key} className="space-y-4">
+          <div key={key} className="space-y-3">
             {/* Contextual Label */}
-            <div className="flex justify-between items-baseline text-xs uppercase tracking-[0.2em] font-bold text-secondary/40">
+            <div className="flex justify-between items-baseline text-xs uppercase tracking-[0.15em] font-bold text-secondary/40">
               <span>{key}</span>
               <span className="text-secondary italic">
                 {selections[key] || "Not Selected"}

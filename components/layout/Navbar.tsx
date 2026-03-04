@@ -55,14 +55,19 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
     <>
       <header
         className={clsx(
-          "print:hidden",
+          "print:hidden transition-all duration-300 ease-out",
           isAdmin
             ? "fixed top-0 left-0 right-0 z-50 bg-canvas py-2 border-b border-accent-subtle"
             : clsx(
-              "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out border-b",
-              isScrolled
-                ? "bg-canvas/95 backdrop-blur-md py-1 shadow-sm border-accent-subtle"
-                : "bg-canvas/70 backdrop-blur-sm py-2 border-transparent",
+              "fixed top-0 left-0 right-0 z-50",
+              isMenuOpen
+                ? "bg-transparent border-transparent py-6 md:py-2"
+                : clsx(
+                  "border-b",
+                  isScrolled
+                    ? "bg-canvas/95 backdrop-blur-md py-1 shadow-sm border-accent-subtle"
+                    : "bg-canvas/70 backdrop-blur-sm py-2 border-transparent"
+                )
             ),
         )}
       >

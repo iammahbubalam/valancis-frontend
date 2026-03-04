@@ -445,24 +445,37 @@ export function CheckoutClient() {
                 defaultPhone={user?.phone || ""}
               />
 
-              <div className="group relative mt-8">
-                <select
-                  name="deliveryLocation"
-                  value={deliveryLocation}
-                  onChange={(e) => setDeliveryLocation(e.target.value)}
-                  className="peer w-full bg-transparent border-b border-accent-subtle py-4 text-base focus:outline-none focus:border-primary transition-colors text-primary appearance-none cursor-pointer"
-                >
-                  {shippingZones.map(zone => (
-                    <option key={zone.id} value={zone.key}>
-                      {zone.label} ({zone.cost} BDT)
-                    </option>
-                  ))}
-                </select>
-                <label className="absolute left-0 -top-2 text-xs text-primary">
+              <div className="mt-8 space-y-4">
+                <label className="text-xs text-primary uppercase tracking-[0.15em] font-bold">
                   Delivery Zone <span className="text-red-400">*</span>
                 </label>
-                <div className="absolute right-0 top-4 pointer-events-none">
-                  <ArrowRight className="w-4 h-4 text-secondary/50 rotate-90" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {shippingZones.map(zone => (
+                    <button
+                      key={zone.id}
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent form submission
+                        setDeliveryLocation(zone.key);
+                      }}
+                      className={`relative flex flex-col p-5 border text-left transition-all duration-300 ease-out overflow-hidden group ${deliveryLocation === zone.key
+                          ? 'border-primary bg-primary/5 shadow-sm ring-1 ring-primary/20'
+                          : 'border-accent-subtle bg-white hover:border-primary/30 hover:bg-gray-50 hover:-translate-y-0.5'
+                        }`}
+                    >
+                      {deliveryLocation === zone.key && (
+                        <div className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center bg-primary rounded-bl-lg shadow-sm">
+                          <CheckCircle2 className="w-4 h-4 text-white" />
+                        </div>
+                      )}
+                      <span className={`font-serif text-lg lg:text-xl mb-1.5 transition-colors ${deliveryLocation === zone.key ? 'text-primary font-medium' : 'text-primary/80'}`}>
+                        {zone.label}
+                      </span>
+                      <span className="text-xs font-bold text-secondary/60 tracking-widest uppercase flex items-center gap-1.5">
+                        <span className="w-1 h-1 rounded-full bg-secondary/40"></span>
+                        {zone.cost > 0 ? `${zone.cost} BDT` : 'Free Shipping'}
+                      </span>
+                    </button>
+                  ))}
                 </div>
               </div>
             </section>

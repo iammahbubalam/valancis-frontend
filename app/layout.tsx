@@ -59,6 +59,7 @@ import { FloatingCart } from "@/components/layout/FloatingCart";
 import { OrganizationSchema } from "@/components/seo/OrganizationSchema";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import MicrosoftClarity from "@/components/analytics/MicrosoftClarity";
+import FacebookPixel from "@/components/analytics/FacebookPixel";
 
 export default async function RootLayout({
   children,
@@ -82,6 +83,7 @@ export default async function RootLayout({
       >
         <Suspense fallback={null}>
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || ""} />
+          <FacebookPixel pixelId={process.env.NEXT_PUBLIC_FB_PIXEL_ID || ""} />
         </Suspense>
         <OrganizationSchema siteConfig={siteConfig} />
         <AllProviders>

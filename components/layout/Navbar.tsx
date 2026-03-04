@@ -55,6 +55,7 @@ export function Navbar({ categories, collections, siteConfig }: NavbarProps) {
     <>
       <header
         className={clsx(
+          "print:hidden",
           isAdmin
             ? "fixed top-0 left-0 right-0 z-50 bg-canvas py-2 border-b border-accent-subtle"
             : clsx(

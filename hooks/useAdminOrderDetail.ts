@@ -242,3 +242,45 @@ export function useOrderHistory(id: string) {
         enabled: !!id,
     });
 }
+
+export function useUpdateShippingZone() {
+    const queryClient = useQueryClient();
+    const { toast } = useDialog();
+
+    return useMutation({
+        mutationFn: async ({ id, zone }: { id: string; zone: string }) => {
+            const token = localStorage.getItem("token");
+            const res = await fetch(getApiUrl(`admin/orders/${id}/shipping-zone`), {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify({ zone }),
+            });
+            if (!res.ok) {
+                let errStr = "Failed to update shipping zone";
+                try {
+                    const text = await res.text();
+                    try {
+                        const json = JSON.parse(text);
+                        errStr = json.error || text;
+                    } catch {
+                        errStr = text || errStr;
+                    }
+                } catch { }
+                throw new Error(errStr);
+            }
+            return res.json();
+        },
+        onSuccess: (_, { id }) => {
+            queryClient.invalidateQueries({ queryKey: ["admin-order", id] });
+            queryClient.invalidateQueries({ queryKey: ["admin-orders"] });
+            queryClient.invalidateQueries({ queryKey: ["admin-order-history", id] });
+            toast({ message: "Shipping zone updated successfully", variant: "success" });
+        },
+        onError: (error: Error) => {
+            toast({ message: error.message, variant: "danger" });
+        }
+    });
+}

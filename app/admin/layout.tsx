@@ -78,7 +78,7 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-canvas flex">
       {/* Sidebar (Desktop) */}
-      <aside className="hidden lg:flex w-64 bg-white border-r border-gray-200 flex-col fixed top-[57px] bottom-0 left-0 text-primary z-40">
+      <aside className="print:hidden hidden lg:flex w-64 bg-white border-r border-gray-200 flex-col fixed top-[57px] bottom-0 left-0 text-primary z-40">
         <div className="p-6 border-b border-gray-100">
           <Link
             href="/"
@@ -134,9 +134,9 @@ export default function AdminLayout({
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 lg:ml-64 flex flex-col min-h-screen pt-[57px]">
+      <div className="flex-1 lg:ml-64 flex flex-col min-h-screen pt-[57px] print:pt-0 print:ml-0">
         {/* Mobile Header */}
-        <header className="lg:hidden bg-white border-b border-gray-200 p-4 flex items-center justify-between sticky top-0 z-40">
+        <header className="print:hidden lg:hidden bg-white border-b border-gray-200 p-4 flex items-center justify-between sticky top-0 z-40">
           <span className="font-serif text-lg font-bold">Admin</span>
           <button onClick={() => setIsMobileOpen(!isMobileOpen)}>
             {isMobileOpen ? <X /> : <Menu />}
@@ -176,7 +176,7 @@ export default function AdminLayout({
           </div>
         )}
 
-        <main className="flex-1 p-6 md:p-8 max-w-7xl mx-auto w-full">
+        <main className="flex-1 p-6 md:p-8 max-w-7xl mx-auto w-full print:p-0 print:max-w-none">
           {children}
         </main>
       </div>

@@ -870,6 +870,7 @@ export async function getPolicyPage(
   return null;
 }
 
+
 export async function getFAQ(): Promise<FAQPage | null> {
   try {
     const res = await safeFetch(getApiUrl("/content/content_faq"), {

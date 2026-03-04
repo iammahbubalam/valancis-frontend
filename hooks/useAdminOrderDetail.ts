@@ -121,7 +121,19 @@ export function useUpdatePaymentStatus() {
                 },
                 body: JSON.stringify({ status }),
             });
-            if (!res.ok) throw new Error("Failed to update payment status");
+            if (!res.ok) {
+                let errStr = "Failed to update payment status";
+                try {
+                    const text = await res.text();
+                    try {
+                        const json = JSON.parse(text);
+                        errStr = json.error || text;
+                    } catch {
+                        errStr = text || errStr;
+                    }
+                } catch { }
+                throw new Error(errStr);
+            }
             return res.json();
         },
         onSuccess: (_, { id }) => {
@@ -141,7 +153,19 @@ export function useVerifyPayment() {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` }
             });
-            if (!res.ok) throw new Error("Failed to verify payment");
+            if (!res.ok) {
+                let errStr = "Failed to verify payment";
+                try {
+                    const text = await res.text();
+                    try {
+                        const json = JSON.parse(text);
+                        errStr = json.error || text;
+                    } catch {
+                        errStr = text || errStr;
+                    }
+                } catch { }
+                throw new Error(errStr);
+            }
             return res.json();
         },
         onSuccess: (_, id) => {

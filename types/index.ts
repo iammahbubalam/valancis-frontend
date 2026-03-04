@@ -244,7 +244,9 @@ export interface Order {
     productName: string;
     quantity: number;
     price: number;
-    variant?: string;
+    variantId?: string;
+    variantName?: string;
+    variantSku?: string;
     product?: {
       name: string;
       images: string[];

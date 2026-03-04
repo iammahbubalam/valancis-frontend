@@ -72,7 +72,19 @@ async function updateStatus(data: { id: string; status: string }) {
         },
         body: JSON.stringify({ status: data.status }),
     });
-    if (!res.ok) throw new Error("Failed to update status");
+    if (!res.ok) {
+        let errStr = "Failed to update status";
+        try {
+            const text = await res.text();
+            try {
+                const json = JSON.parse(text);
+                errStr = json.error || text;
+            } catch {
+                errStr = text || errStr;
+            }
+        } catch { }
+        throw new Error(errStr);
+    }
     return res.json();
 }
 
@@ -83,8 +95,17 @@ async function verifyPayment(id: string) {
         headers: { Authorization: `Bearer ${token}` },
     });
     if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.message || "Failed to verify payment");
+        let errStr = "Failed to verify payment";
+        try {
+            const text = await res.text();
+            try {
+                const json = JSON.parse(text);
+                errStr = json.error || text;
+            } catch {
+                errStr = text || errStr;
+            }
+        } catch { }
+        throw new Error(errStr);
     }
     return res.json();
 }

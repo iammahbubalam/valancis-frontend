@@ -105,6 +105,7 @@ export default function OrderDataTable() {
                                     <th className="px-6 py-4 font-medium">Order ID</th>
                                     <th className="px-6 py-4 font-medium">Customer</th>
                                     <th className="px-6 py-4 font-medium">Date</th>
+                                    <th className="px-6 py-4 font-medium">Items</th>
                                     <th className="px-6 py-4 font-medium">Total</th>
                                     <th className="px-6 py-4 font-medium">Status</th>
                                     <th className="px-6 py-4 font-medium">Payment</th>
@@ -133,6 +134,17 @@ export default function OrderDataTable() {
                                         <td className="px-6 py-4 text-primary/70">
                                             {format(new Date(order.createdAt), "MMM d, yyyy")}
                                         </td>
+                                        <td className="px-6 py-4">
+                                            <div className="flex flex-col">
+                                                <span className="text-sm text-primary font-medium">{order.items?.length || 0} items</span>
+                                                {order.items && order.items.length > 0 && (
+                                                    <span className="text-xs text-primary/50 truncate max-w-[150px]">
+                                                        {order.items[0].product?.name || order.items[0].productName}
+                                                        {order.items.length > 1 ? ` +${order.items.length - 1} more` : ''}
+                                                    </span>
+                                                )}
+                                            </div>
+                                        </td>
                                         <td className="px-6 py-4 font-medium">
                                             ৳{order.totalAmount.toLocaleString()}
                                         </td>
@@ -144,15 +156,16 @@ export default function OrderDataTable() {
                                                 status={order.paymentStatus}
                                                 method={order.paymentMethod}
                                                 isPreorder={order.isPreorder}
+                                                details={order.paymentDetails}
                                             />
                                         </td>
                                         <td className="px-6 py-4 text-right">
                                             <div className="flex justify-end items-center gap-2">
                                                 {/* Quick Action: Verify Payment */}
-                                                {order.isPreorder && order.status === 'pending_verification' && (
+                                                {order.status === 'pending_verification' && (
                                                     <button
                                                         onClick={() => handleVerify(order.id)}
-                                                        title="Verify Deposit"
+                                                        title="Verify Payment"
                                                         className="p-1.5 text-green-600 hover:bg-green-50 rounded"
                                                     >
                                                         <CheckCircle2 className="w-4 h-4" />
@@ -231,21 +244,43 @@ function StatusBadge({ status }: { status: string }) {
     );
 }
 
-function PaymentStatusBadge({ status, method, isPreorder }: { status: string, method: string, isPreorder: boolean }) {
+function PaymentStatusBadge({ status, method, isPreorder, details }: { status: string, method: string, isPreorder: boolean, details?: any }) {
     if (status === 'partial_paid') {
         return (
-            <div className="flex flex-col items-start gap-0.5">
-                <span className="text-xs font-bold text-primary">Partial Paid</span>
-                <span className="text-[10px] text-primary/70 uppercase tracking-wider">{method}</span>
+            <div className="flex flex-col items-start gap-1">
+                <div className="flex flex-col items-start gap-0.5">
+                    <span className="text-xs font-bold text-primary">Partial Paid</span>
+                    <span className="text-[10px] text-primary/70 uppercase tracking-wider">{method}</span>
+                </div>
+                {details?.transaction_id && (
+                    <div className="text-[10px] items-center text-primary/60 border border-primary/10 rounded px-1.5 py-0.5 mt-0.5">
+                        <span className="font-semibold uppercase mr-1">{details.provider || 'TRX'}:</span>
+                        <span className="font-mono">{details.transaction_id}</span>
+                    </div>
+                )}
             </div>
         )
     }
     return (
-        <div className="flex flex-col items-start gap-0.5">
-            <span className={`text-xs font-medium capitalize ${status === 'paid' ? 'text-green-600' : 'text-orange-600'}`}>
-                {status.replace("_", " ")}
-            </span>
-            <span className="text-[10px] text-primary/70 uppercase tracking-wider">{method}</span>
+        <div className="flex flex-col items-start gap-1">
+            <div className="flex flex-col items-start gap-0.5">
+                <span className={`text-xs font-medium capitalize ${status === 'paid' ? 'text-green-600' : 'text-orange-600'}`}>
+                    {status.replace("_", " ")}
+                </span>
+                <span className="text-[10px] text-primary/70 uppercase tracking-wider">{method}</span>
+            </div>
+            {details?.transaction_id && status === 'pending_verification' && (
+                <div className="text-[10px] items-center text-orange-600/80 bg-orange-50 border border-orange-100 rounded px-1.5 py-0.5 mt-0.5 shadow-sm">
+                    <span className="font-semibold uppercase mr-1">{details.provider || 'TRX'}:</span>
+                    <span className="font-mono">{details.transaction_id}</span>
+                </div>
+            )}
+            {details?.transaction_id && status === 'paid' && (
+                <div className="text-[10px] items-center text-green-600/80 bg-green-50 border border-green-100 rounded px-1.5 py-0.5 mt-0.5 shadow-sm">
+                    <span className="font-semibold uppercase mr-1">{details.provider || 'TRX'}:</span>
+                    <span className="font-mono">{details.transaction_id}</span>
+                </div>
+            )}
         </div>
     )
 }

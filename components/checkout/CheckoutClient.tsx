@@ -132,8 +132,12 @@ export function CheckoutClient() {
     // Validate Pre-Order Payment
     if (depositRequired > 0) {
       if (!paymentTrxID.trim() || !paymentPhone.trim()) {
-        setSubmitError("Please provide transaction ID and phone number for the pre-order deposit.");
-        // Scroll to top or error
+        setSubmitError("Please provide transaction ID and sender number for the pre-order deposit.");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      if (!isValidBdPhone(paymentPhone)) {
+        setSubmitError("Please provide a valid Bangladeshi 11-digit mobile number starting with 01 (e.g., 017XXXXXXXX).");
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
@@ -196,7 +200,7 @@ export function CheckoutClient() {
       }
 
       const payload: any = {
-        paymentMethod: depositRequired > 0 ? "advance" : normalPaymentMethod,
+        paymentMethod: depositRequired > 0 ? "mobile_banking" : normalPaymentMethod,
         address: {
           firstName: selectedAddress.firstName,
           lastName: selectedAddress.lastName,
@@ -278,6 +282,11 @@ export function CheckoutClient() {
   const shippingCost = currentZone?.cost || 0;
   const deliveryLabel = currentZone?.label || "Shipping";
 
+  // Helper for BD Phone Validation
+  const isValidBdPhone = (phone: string) => {
+    return /^01[3-9]\d{8}$/.test(phone);
+  };
+
   // Validation
   const isFormValid =
     selectedAddress &&
@@ -288,7 +297,7 @@ export function CheckoutClient() {
     selectedAddress.district?.trim() !== "" &&
     selectedAddress.thana?.trim() !== "" &&
     (hasPreorder
-      ? (paymentTrxID.trim() !== "" && paymentPhone.trim() !== "")
+      ? (paymentTrxID.trim() !== "" && isValidBdPhone(paymentPhone))
       : normalPaymentMethod === 'cod');
 
   // --- RENDER LOGIC (FAIL FAST) ---
@@ -520,15 +529,24 @@ export function CheckoutClient() {
                     </div>
                     <div className="group relative">
                       <input
-                        type="text"
+                        type="tel"
                         value={paymentPhone}
-                        onChange={(e) => setPaymentPhone(e.target.value)}
-                        className="peer w-full bg-white border border-accent-subtle rounded p-3 text-base focus:outline-none focus:border-primary transition-colors placeholder-transparent"
+                        onChange={(e) => {
+                          const val = e.target.value.replace(/\D/g, '').slice(0, 11);
+                          setPaymentPhone(val);
+                        }}
+                        maxLength={11}
+                        className={`peer w-full bg-white border rounded p-3 text-base focus:outline-none transition-colors placeholder-transparent
+                          ${paymentPhone && !isValidBdPhone(paymentPhone) ? 'border-red-400 focus:border-red-500 bg-red-50/30' : 'border-accent-subtle focus:border-primary'}`}
                         placeholder="X"
                       />
-                      <label className="absolute left-3 -top-2.5 bg-white px-1 text-xs text-primary/70 transition-all">
+                      <label className={`absolute left-3 -top-2.5 bg-white px-1 text-xs transition-all
+                        ${paymentPhone && !isValidBdPhone(paymentPhone) ? 'text-red-500' : 'text-primary/70'}`}>
                         Sender Number <span className="text-red-400">*</span>
                       </label>
+                      {paymentPhone && !isValidBdPhone(paymentPhone) && (
+                        <p className="absolute -bottom-5 left-0 text-[10px] text-red-500">11 digits starting with 01</p>
+                      )}
                     </div>
                   </div>
                 </div>

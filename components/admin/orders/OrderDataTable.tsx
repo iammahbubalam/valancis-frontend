@@ -18,14 +18,15 @@ import Link from "next/link";
 
 const TABS = [
     { id: "all", label: "All Orders" },
-    { id: "pending", label: "Pending", filter: { status: "pending" } }, // Added Pending
-    { id: "pre_order_verification", label: "Verification Needed", filter: { is_preorder: true, payment_status: "pending_verification" } },
+    { id: "pending", label: "Pending", filter: { status: "pending" } },
+    { id: "verification", label: "Verification", filter: { status: "pending_verification" } },
     { id: "processing", label: "Processing", filter: { status: "processing" } },
     { id: "shipped", label: "Shipped", filter: { status: "shipped" } },
     { id: "delivered", label: "Delivered", filter: { status: "delivered" } },
-    { id: "paid", label: "Paid", filter: { status: "paid" } }, // Added Paid
-    { id: "returned", label: "Returned", filter: { status: "returned" } }, // Added Returned
-    { id: "fake", label: "Fake", filter: { status: "fake" } }, // Added Fake
+    { id: "paid", label: "Paid", filter: { status: "paid" } },
+    { id: "refunded", label: "Refunded", filter: { status: "refunded" } },
+    { id: "returned", label: "Returned", filter: { status: "returned" } },
+    { id: "fake", label: "Fake", filter: { status: "fake" } },
     { id: "cancelled", label: "Cancelled", filter: { status: "cancelled" } },
 ];
 
@@ -227,13 +228,13 @@ function StatusBadge({ status }: { status: string }) {
         pending: "bg-yellow-50 text-yellow-700 border-yellow-100",
         pending_verification: "bg-orange-50 text-orange-700 border-orange-100",
         processing: "bg-blue-50 text-blue-700 border-blue-100",
-        shipped: "bg-purple-50 text-purple-700 border-purple-100",
+        shipped: "bg-blue-50 text-blue-800 border-blue-200",
         delivered: "bg-green-50 text-green-700 border-green-100",
-        paid: "bg-emerald-50 text-emerald-700 border-emerald-100", // Added Paid
-        returned: "bg-indigo-50 text-indigo-700 border-indigo-100", // Added Returned
-        fake: "bg-canvas text-gray-700 border-gray-200", // Added Fake
+        paid: "bg-emerald-50 text-emerald-700 border-emerald-100",
+        returned: "bg-orange-50 text-orange-700 border-orange-200",
+        fake: "bg-gray-100 text-gray-700 border-gray-300",
         cancelled: "bg-red-50 text-red-700 border-red-100",
-        refunded: "bg-canvas text-gray-700 border-gray-200",
+        refunded: "bg-purple-50 text-purple-700 border-purple-100",
     };
 
     const label = status.replace("_", " ");

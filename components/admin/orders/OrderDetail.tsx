@@ -100,11 +100,11 @@ export default function OrderDetail({ id }: OrderDetailProps) {
         // L9: Strict Finite State Machine Replica (Matches backend constants.go)
         const validTransitions: Record<string, string[]> = {
             "pending": ["pending_verification", "processing", "cancelled", "fake"],
-            "pending_verification": ["processing", "cancelled", "fake"],
+            "pending_verification": ["processing", "shipped", "cancelled", "fake"],
             "processing": ["shipped", "cancelled", "fake"],
-            "shipped": ["delivered", "returned", "cancelled", "fake"], // Delivery failure / RTS
-            "delivered": ["paid", "returned", "fake"],
-            "paid": ["refunded", "returned", "fake"], // Paid orders can be returned/refunded
+            "shipped": ["delivered", "returned", "cancelled", "fake"],
+            "delivered": ["paid", "returned", "refunded", "fake"],
+            "paid": ["refunded", "returned", "fake"],
 
             // Recovery / Terminal States
             "cancelled": ["processing", "pending"], // Recovery block (Re-deducts stock on backend)
@@ -167,14 +167,20 @@ export default function OrderDetail({ id }: OrderDetailProps) {
                                     order.status === 'cancelled' ? 'bg-red-50 text-red-700 border-red-200' :
                                         order.status === 'returned' ? 'bg-orange-50 text-orange-700 border-orange-200' :
                                             order.status === 'pending' ? 'bg-yellow-50 text-yellow-700 border-yellow-200' :
-                                                'bg-blue-50 text-blue-700 border-blue-200'}`}>
+                                                order.status === 'pending_verification' ? 'bg-orange-50 text-orange-700 border-orange-200' :
+                                                    order.status === 'refunded' ? 'bg-purple-50 text-purple-700 border-purple-200' :
+                                                        order.status === 'fake' ? 'bg-gray-100 text-gray-700 border-gray-300' :
+                                                            'bg-blue-50 text-blue-700 border-blue-200'}`}>
                             {order.status.replace("_", " ")}
                         </div>
                         <div className={`px-3 py-1 text-sm font-medium rounded-md capitalize border
                         ${order.paymentStatus === 'paid' ? 'bg-green-50 text-green-700 border-green-200' :
                                 order.paymentStatus === 'pending_verification' ? 'bg-orange-50 text-orange-700 border-orange-200' :
                                     order.paymentStatus === 'partial_paid' ? 'bg-blue-50 text-blue-700 border-blue-200' :
-                                        'bg-gray-50 text-gray-700 border-gray-200'}`}>
+                                        order.paymentStatus === 'failed' ? 'bg-red-50 text-red-700 border-red-200' :
+                                            order.paymentStatus === 'refunded' ? 'bg-purple-50 text-purple-700 border-purple-200' :
+                                                order.paymentStatus === 'partial_refund' ? 'bg-orange-50 text-orange-700 border-orange-200' :
+                                                    'bg-gray-50 text-gray-700 border-gray-200'}`}>
                             Payment: {order.paymentStatus.replace("_", " ")}
                         </div>
                     </div>

@@ -72,11 +72,14 @@ export function OrderTimeline({ history, isLoading }: TimelineProps) {
 
 function getStatusColor(status: string): string {
     switch (status) {
+        case "pending_verification": return "bg-orange-500";
+        case "pending": return "bg-yellow-500";
+        case "paid": return "bg-emerald-500";
         case "delivered": return "bg-green-500";
         case "shipped": return "bg-blue-500";
         case "processing": return "bg-blue-400";
         case "cancelled": return "bg-red-500";
-        case "returned": return "bg-orange-500";
+        case "returned": return "bg-orange-600";
         case "fake": return "bg-gray-800";
         case "refunded": return "bg-purple-500";
         default: return "bg-gray-300";

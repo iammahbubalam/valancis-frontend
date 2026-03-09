@@ -38,7 +38,7 @@ export default function ContactPage() {
     {
       icon: <Mail className="w-5 h-5" />,
       label: "Email",
-      value: "support@valancis.com",
+      value: "valancis.store@gmail.com",
     },
   ];
 

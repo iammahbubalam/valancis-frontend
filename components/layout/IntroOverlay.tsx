@@ -3,22 +3,36 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useIntro } from "@/context/IntroContext";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function IntroOverlay() {
   const { isIntroComplete, completeIntro, isLoading } = useIntro();
+  const pathname = usePathname();
+
+  // Only show intro on the home page
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
-    if (!isIntroComplete && !isLoading) {
+    // If not on home page, skip intro immediately
+    if (!isHomePage && !isIntroComplete) {
+      completeIntro();
+      return;
+    }
+
+    if (!isIntroComplete && !isLoading && isHomePage) {
       const timer = setTimeout(() => {
         completeIntro();
       }, 4000);
       return () => clearTimeout(timer);
     }
-  }, [isIntroComplete, isLoading, completeIntro]);
+  }, [isIntroComplete, isLoading, completeIntro, isHomePage]);
 
-  if (isLoading) {
+  if (isLoading && isHomePage) {
     return <div className="fixed inset-0 z-[99999] bg-[#142934]" />;
   }
+
+  // Don't render anything on non-home pages
+  if (!isHomePage) return null;
 
   return (
     <AnimatePresence>

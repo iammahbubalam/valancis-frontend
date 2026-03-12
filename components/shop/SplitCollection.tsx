@@ -111,17 +111,7 @@ export function SplitCollection({
             </div>
           )}
 
-          <div className="pt-20 border-t border-accent-subtle flex justify-between items-end">
-            <div className="flex flex-col gap-2">
-              <span className="text-xs uppercase tracking-widest text-primary/70">
-                Next Collection
-              </span>
-              <span className="font-serif text-2xl">Heritage 2024</span>
-            </div>
-            <button className="text-xs uppercase tracking-widest text-primary border-b border-primary pb-1">
-              Discover
-            </button>
-          </div>
+
         </div>
       </div>
     </div>

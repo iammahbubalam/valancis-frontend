@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Clock, ArrowRight, MessageSquare } from "lucide-react";
 import { useState } from "react";
+import { fbEvents } from "@/lib/fb";
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
@@ -15,6 +16,9 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Analytics: Meta Contact
+    fbEvents.contact();
+    
     // Logic for form submission would go here
     alert("Thank you. Our concierge will reach out shortly.");
   };

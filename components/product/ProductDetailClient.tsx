@@ -4,6 +4,8 @@ import { useState, useCallback, useMemo } from "react";
 import { Product, Variant } from "@/types";
 import { ProductGallery } from "./ProductGallery";
 import { ProductInfo } from "./ProductInfo";
+import { useEffect } from "react";
+import { analytics } from "@/lib/gtm";
 
 /**
  * ProductDetailClient
@@ -109,8 +111,25 @@ export function ProductDetailClient({ product }: { product: Product }) {
                 return idx !== -1 ? idx : 0;
             }
         }
-        return 0;
+    return 0;
     });
+
+    // ──────────────────────────────────────────────
+    //  2.1 Analytics: ViewContent
+    // ──────────────────────────────────────────────
+    useEffect(() => {
+        if (!product) return;
+        
+        const price = activeVariant?.salePrice || activeVariant?.price || product.salePrice || product.basePrice;
+
+        analytics.viewItem({
+            item_id: product.id,
+            item_name: product.name,
+            price: price,
+            item_variant: activeVariant?.name,
+            item_category: product.categories?.[0]?.name,
+        });
+    }, [product.id, activeVariant?.id]); // Track on load and when variant changes
 
     // ──────────────────────────────────────────────
     //  3. Helpers

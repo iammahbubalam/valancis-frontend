@@ -6,6 +6,7 @@ import { X, Search, Loader2 } from "lucide-react";
 import { searchAPI, SearchProduct } from "@/lib/api/search";
 import Link from "next/link";
 import Image from "next/image";
+import { fbEvents } from "@/lib/fb";
 
 export function SearchOverlay({
   isOpen,
@@ -40,6 +41,11 @@ export function SearchOverlay({
         try {
           const response = await searchAPI.search(query);
           setResults(response.data);
+          
+          // Analytics: Meta Search
+          if (response.data.length > 0) {
+            fbEvents.search(query);
+          }
         } catch (error) {
           console.error("Search failed", error);
         } finally {

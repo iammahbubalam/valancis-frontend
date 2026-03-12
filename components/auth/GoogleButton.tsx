@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import { getApiUrl } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { fbEvents } from "@/lib/fb";
 
 
 
@@ -32,6 +33,9 @@ export function GoogleButton() {
                 // Set cookie for middleware (optional but good for SSR protection later)
                 document.cookie = `token=${data.accessToken}; path=/; max-age=86400; SameSite=Lax`;
                 
+                // Analytics: Meta CompleteRegistration
+                fbEvents.completeRegistration();
+
                 // 2. Redirect
                 console.log("Redirecting to:", redirectPath);
                 window.location.href = redirectPath; // Force reload to update Auth Context

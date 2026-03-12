@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { useCheckoutFlow } from "@/hooks/useCheckoutFlow";
 import { AddressManager, Address } from "@/components/checkout/AddressManager";
 import { analytics, GA4Item } from "@/lib/gtm";
+import { getFacebookCookies } from "@/lib/fb";
 import { OrderSummary } from "@/components/checkout/OrderSummary";
 import { useSystemConfig } from "@/hooks/useSystemConfig";
 import { Product } from "@/types";
@@ -66,6 +67,23 @@ export function CheckoutClient() {
       fetchSavedAddresses();
     }
   }, [user]);
+
+  // ──────────────────────────────────────────────
+  //  2. Analytics: InitiateCheckout
+  // ──────────────────────────────────────────────
+  useEffect(() => {
+    if (items.length > 0) {
+      analytics.beginCheckout(
+        items.map((i) => ({
+          item_id: i.id,
+          item_name: i.name,
+          price: i.salePrice || i.basePrice,
+          quantity: i.quantity,
+        })),
+        total
+      );
+    }
+  }, []); // Run once on mount
 
   const fetchSavedAddresses = async () => {
     try {
@@ -199,6 +217,8 @@ export function CheckoutClient() {
         }
       }
 
+      const { fbp, fbc } = getFacebookCookies();
+
       const payload: any = {
         paymentMethod: depositRequired > 0 ? "mobile_banking" : normalPaymentMethod,
         address: {
@@ -219,6 +239,8 @@ export function CheckoutClient() {
           isPreorder: item.isPreorder,
           preorderDepositAmount: item.preorderDepositAmount,
         })),
+        fbp,
+        fbc,
       };
 
       if (depositRequired > 0) {

@@ -5,6 +5,8 @@
  * Comprehensive tracking for E-commerce, Performance, and Errors.
  */
 
+import { fbEvents, fbTrack } from "./fb";
+
 export type GA4Item = {
     item_id: string;
     item_name: string;
@@ -101,6 +103,12 @@ export const analytics = {
                 items: [item],
             },
         });
+        // Mirror to Meta Pixel
+        fbEvents.viewContent({
+            id: item.item_id,
+            name: item.item_name,
+            basePrice: item.price,
+        });
     },
 
     // 2. Consideration
@@ -113,6 +121,13 @@ export const analytics = {
                 items: [item],
             },
         });
+        // Mirror to Meta Pixel
+        fbEvents.addToCart({
+            id: item.item_id,
+            name: item.item_name,
+            basePrice: item.price,
+            categories: [{ name: item.item_category }]
+        }, item.item_variant);
     },
 
     removeFromCart: (item: GA4Item) => {
@@ -147,6 +162,11 @@ export const analytics = {
                 items,
             },
         });
+        // Mirror to Meta Pixel
+        fbEvents.initiateCheckout(
+            items.map(i => ({ id: i.item_id, quantity: i.quantity })),
+            total
+        );
     },
 
     addShippingInfo: (items: GA4Item[], total: number, shippingTier: string) => {
@@ -193,6 +213,14 @@ export const analytics = {
                 items: params.items,
             },
         });
+        // Mirror to Meta Pixel with EventID for Deduplication
+        fbTrack("Purchase", {
+            content_ids: params.items.map(i => i.item_id),
+            content_type: "product",
+            value: params.value,
+            currency: "BDT",
+            num_items: params.items.length,
+        }, params.transaction_id);
     },
 
     // 4. Technical Observability

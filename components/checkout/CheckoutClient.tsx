@@ -540,11 +540,22 @@ export function CheckoutClient() {
                   <div className="text-xs text-secondary/80 bg-white p-4 rounded border border-accent-subtle">
                     <p className="mb-1 uppercase tracking-wider font-bold text-primary">How to Pay:</p>
                     <ol className="list-decimal list-inside space-y-1">
-                      <li>Go to your {paymentProvider} app.</li>
-                      <li>Use <strong>Send Money</strong> / <strong>Payment</strong> option.</li>
-                      <li>Send <strong>৳{depositRequired}</strong> to <strong>017XXXXXXXX</strong>.</li>
-                      <li>Enter your Order Reference if applicable.</li>
-                      <li>Copy the Transaction ID (TrxID) and paste below.</li>
+                      <li>Go to your <strong className="capitalize">{paymentProvider}</strong> app.</li>
+                      <li>Tap <strong>Send Money</strong> option.</li>
+                      <li>Send <strong>৳{depositRequired}</strong> to the number below:</li>
+                    </ol>
+                    <div className="mt-3 p-3 bg-canvas rounded border border-primary/20 text-center">
+                      <p className="text-[10px] uppercase tracking-wider text-secondary/60 mb-1 capitalize">{paymentProvider} Number</p>
+                      <p className="text-lg font-bold text-primary tracking-wide">
+                        {paymentProvider === 'rocket' ? '01609994407' : '01726131573'}
+                      </p>
+                      <p className="text-[10px] text-secondary/50 mt-1">
+                        {paymentProvider === 'rocket' ? '(Rocket Personal)' : paymentProvider === 'bkash' ? '(bKash Personal)' : '(Nagad Personal)'}
+                      </p>
+                    </div>
+                    <ol className="list-decimal list-inside space-y-1 mt-3" start={4}>
+                      <li>After sending, copy the <strong>Transaction ID (TrxID)</strong> and paste below.</li>
+                      <li>Enter the <strong>Sender Number</strong> you sent from.</li>
                     </ol>
                   </div>
 

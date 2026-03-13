@@ -59,11 +59,12 @@ declare global {
 export const sendGTMEvent = (data: GTMEvent) => {
     if (typeof window !== "undefined") {
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-            ...data,
-            // Clear ecommerce object before next push to avoid state leakage in GA4
-            // This is a GTM best practice for e-commerce
-        });
+        // Clear previous ecommerce object to prevent data leakage between events
+        // This is a GA4 best practice for e-commerce
+        if (data.ecommerce) {
+            window.dataLayer.push({ ecommerce: null } as any);
+        }
+        window.dataLayer.push(data);
     }
 };
 
